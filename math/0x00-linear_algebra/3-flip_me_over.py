@@ -4,7 +4,7 @@
 
 def matrix_transpose(matrix):
     '''transpose a Matrix '''
-    
+
     # rows
     m = len(matrix)
     # columns
@@ -13,8 +13,8 @@ def matrix_transpose(matrix):
     transpose = []
 
     for i in range(n):
-        l = [0] * m
-        transpose.append(l)
+        lis = [0] * m
+        transpose.append(lis)
 
     for i in range(m):
         for j in range(n):
