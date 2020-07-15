@@ -16,10 +16,10 @@ def cat_matrices2D(mat1, mat2, axis=0):
     # make a copy of data
     a = [row[:] for row in mat1]
     b = [row[:] for row in mat2]
-    if axis == 1 and m == r:
+    if (axis == 1) and (m == r):
         for i in range(m):
             matrix.append(a[i] + b[i])
-    elif axis == 0 and m == r:
+    elif (axis == 0) and (m == r):
         matrix = a + b
     else:
         return None
