@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-''' '''
+
 
 def cat_matrices2D(mat1, mat2, axis=0):
     ''' concatenate two matrices along specific axis '''
@@ -13,12 +13,14 @@ def cat_matrices2D(mat1, mat2, axis=0):
     c = len(mat2[0])
     # new matrix
     matrix = []
+    # make a copy of data
+    a = [row[:] for row in mat1]
+    b = [row[:] for row in mat2]
     if axis == 1 and m == r:
-        l = []
         for i in range(m):
-            matrix.append(mat1[i] + mat2[i])
-    elif axis == 0 and m ==r:
-        matrix = mat1 + mat2
+            matrix.append(a[i] + b[i])
+    elif axis == 0 and m == r:
+        matrix = a + b
     else:
         return None
     return matrix
