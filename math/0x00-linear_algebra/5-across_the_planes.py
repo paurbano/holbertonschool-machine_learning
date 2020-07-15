@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-''' '''
+
+
 def add_matrices2D(mat1, mat2):
     ''' sum two matrices '''
     # rows matrix 1
@@ -15,9 +16,9 @@ def add_matrices2D(mat1, mat2):
     if m1 == m2 and n1 == n2:
         # create new matrix with size m x n
         for i in range(m1):
-            l = [0] * n1
-            _sum.append(l)
-        
+            lis = [0] * n1
+            _sum.append(lis)
+
         for i in range(m1):
             for j in range(n1):
                 _sum[i][j] = mat1[i][j] + mat2[i][j]
