@@ -38,7 +38,7 @@ Complete the following source code (found below):
 * You are not allowed to use any loops or conditional statements
 * Your program should be exactly 8 lines
 
-File: [0-slice_me_up.py]
+File: [0-slice_me_up.py](https://github.com/paurbano/holbertonschool-machine_learning/blob/master/math/0x00-linear_algebra/0-slice_me_up.py)
 
 ## 1. Trim Me Down
 Complete the following source code (found below):
@@ -47,6 +47,8 @@ Complete the following source code (found below):
 * You are not allowed to use any conditional statements
 * You are only allowed to use one for loop
 * Your program should be exactly 6 lines
+
+example:
 
     alexa@ubuntu-xenial:0x00-linear_algebra$ cat 1-trim_me_down.py 
     #!/usr/bin/env python3
