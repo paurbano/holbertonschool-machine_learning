@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+''' sum two matrices '''
 
 
 def add_matrices2D(mat1, mat2):
