@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-''' '''
+''' sum two arrays '''
 
 
 def add_arrays(arr1, arr2):
-    '''sum two arrays '''
+    ''' sum two arrays '''
     array = []
     if len(arr1) != len(arr2):
         return None
