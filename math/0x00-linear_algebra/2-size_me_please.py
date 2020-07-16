@@ -7,7 +7,7 @@ def matrix_shape(matrix):
     shape = []
 
     if not isinstance(matrix, list):
-        return None
+        return shape
 
     if matrix is None or len(matrix) == 0:
         return shape
@@ -22,4 +22,4 @@ def matrix_shape(matrix):
         shape.append(len(matrix))
         return shape
     else:
-        return None
+        return shape
