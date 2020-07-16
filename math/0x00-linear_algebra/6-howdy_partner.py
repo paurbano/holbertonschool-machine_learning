@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+''' Concatenate 2 arrays '''
 
 
 def cat_arrays(arr1, arr2):
