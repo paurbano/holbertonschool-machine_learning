@@ -40,7 +40,7 @@ Complete the following source code to plot y as a line graph:
 
 * y should be plotted as a solid red line
 * The x-axis should range from 0 to 10
-
+```
     #!/usr/bin/env python3
     import numpy as np
     import matplotlib.pyplot as plt
@@ -48,8 +48,8 @@ Complete the following source code to plot y as a line graph:
     y = np.arange(0, 11) ** 3
 
     # your code here
-
-[](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/9/664b2543b48ef4918687.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200719T213618Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=06c27f290e0c1763ae31538e755c3f7decb2180b2e53fb5116a6c540194199ef)
+```
+![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/9/664b2543b48ef4918687.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200719T213618Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=06c27f290e0c1763ae31538e755c3f7decb2180b2e53fb5116a6c540194199ef)
 
 File: `0-line.py`
 
