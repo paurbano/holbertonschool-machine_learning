@@ -1,12 +1,12 @@
 #  Machine Learning
-(https://github.com/paurbano/holbertonschool-interview/images/machine-learning.jpg)
+![](https://github.com/paurbano/holbertonschool-interview/images/machine-learning.jpg)
  These is the training program on machine learning (ML) from holberton School, split it in three trimester. Start with some of maths and then go deep with differents techniques (Supervised, Unsupervised,Reinforcement) all across practical exercises.
 
 Some of topics of the curriculum:
 ## First Trimester
 * Mathematics:
     * Intro to Linear Algebra
-    *  Intro to Calculus
+    * Intro to Calculus
     * Intro to Plotting
     * Intro to Probability
 * Supervised Learning:
