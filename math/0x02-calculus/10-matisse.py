@@ -8,6 +8,11 @@ def poly_derivative(poly):
     if not isinstance(poly, list):
         return None
 
+    if all(isinstance(i, (int, float)) for i in poly):
+        True
+    else:
+        return None
+
     derivative = [poly[i] * i for i in range(len(poly))]
 
     if len(derivative) == 1:
