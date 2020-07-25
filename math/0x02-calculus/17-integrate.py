@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 '''integrate '''
-import math
 
 
 def poly_integral(poly, C=0):
@@ -16,7 +15,7 @@ def poly_integral(poly, C=0):
     integral = [poly[i] / i for i in range(len(poly)) if i > 0]
     del poly[0]
     for coeff in range(len(integral)):
-        fraction, whole = math.modf(integral[coeff])
+        fraction = integral[coeff] % 1
         if fraction == 0:
             integral[coeff] = round(integral[coeff])
     integral.insert(0, 0)
