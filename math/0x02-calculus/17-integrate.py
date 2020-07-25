@@ -11,6 +11,14 @@ def poly_integral(poly, C=0):
         True
     else:
         return None
+
+    if not isinstance(C, (int, float)) or C is None:
+        return None
+
+    if all(isinstance(i, (int, float)) for i in poly):
+        True
+    else:
+        return None
     poly.insert(0, 0)
     integral = [poly[i] / i for i in range(len(poly)) if i > 0]
     del poly[0]
@@ -18,5 +26,5 @@ def poly_integral(poly, C=0):
         fraction = integral[coeff] % 1
         if fraction == 0:
             integral[coeff] = round(integral[coeff])
-    integral.insert(0, 0)
+    integral.insert(0, C)
     return integral
