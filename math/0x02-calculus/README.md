@@ -47,11 +47,132 @@ $$\sum_{i=2}^{5}i$$
 
 ## 1. The Greeks pronounce it sEEgma
 
-$$ \sum_{k=1}^{4}(9i-2k) $$
+$$\sum_{k=1}^{4}(9i-2k)$$
 
 1. 90 - 20
 2. 36i - 20
 3. 90 - 8k
 4. 36i - 8k
 
+## 2. Pi is for Product 
+\prod_{i = 1}^{m} i
 
+1. (m - 1)!
+2. 0
+3. (m + 1)!
+4. m!
+
+## 3. The Greeks pronounce it pEE
+\prod_{i = 1}^{10} i
+
+1. 10!
+2. 9!
+3. 100
+4. 0
+
+## 4. Hello, derivatives!
+\frac{dx}{dy} where y= x^4 + 3x^3 - 5x + 1
+ 
+ 1. 3x^3 + 6x^2 - 4
+ 2. 4x^3 + 6x^2 - 5
+ 3. 4x^3 + 9x^2 - 5
+ 4. 4x^3 - 6x^2 - 4
+
+## 5. A log on the fire
+\frac{d (xln(x))}{dx}
+
+1. ln(x)
+2. \frac{1}{x} + 1"
+3. ln(x) + 1
+4. \frac{1}{x}
+
+## 6. It is difficult to free fools from the chains they revere 
+
+## 7. Partial truths are often more insidious than total falsehoods
+
+## 8. Put it all together and what do you get?
+<img src="https://latex.codecogs.com/gif.latex?\frac{\partial^2}{\partial&amp;space;y\partial&amp;space;x}(e^{x^2y})">where <img src="https://latex.codecogs.com/gif.latex?\frac{\partial&amp;space;x}{\partial&amp;space;y}=\frac{\partial&amp;space;y}{\partial&amp;space;x}=0">
+
+## 9. Our life is the sum total of all the decisions we make every day, and those decisions are determined by our priorities
+Write a function def summation_i_squared(n): that calculates \sum_{i=1}^{n} i^2:
+
+* `n` is the stopping condition
+* Return the integer value of the sum
+* If `n` is not a valid number, return `None`
+* You are not allowed to use any loops
+
+```
+alexa@ubuntu:0x02-calculus$ cat 9-main.py 
+#!/usr/bin/env python3
+
+summation_i_squared = __import__('9-sum_total').summation_i_squared
+
+n = 5
+print(summation_i_squared(n))
+alexa@ubuntu:0x02-calculus$ ./9-main.py 
+55
+alexa@ubuntu:0x02-calculus$
+```
+
+## 10. Derive happiness in oneself from a good day's work 
+Write a function def poly_derivative(poly): that calculates the derivative of a polynomial:
+
+* `poly` is a list of coefficients representing a polynomial
+    * the index of the list represents the power of `x` that the coefficient belongs to
+    * Example: if f(x) = x^3 + 3x +5, `poly` is equal to `[5, 3, 0, 1]`
+* If `poly` is not valid, return `None`
+* If the derivative is `0`, return `[0]`
+* Return a new list of coefficients representing the derivative of the polynomial
+
+```
+alexa@ubuntu:0x02-calculus$ cat 10-main.py 
+#!/usr/bin/env python3
+
+poly_derivative = __import__('10-matisse').poly_derivative
+
+poly = [5, 3, 0, 1]
+print(poly_derivative(poly))
+alexa@ubuntu:0x02-calculus$ ./10-main.py 
+[3, 0, 3]
+alexa@ubuntu:0x02-calculus$
+```
+
+## 11. Good grooming is integral and impeccable style is a must
+<img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2019/6/ada047ad4cbee23dfed8.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200726%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20200726T040210Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=f912a8096803080a3643fd19ce17d095b1e9dee610c98035f883ce2e2a1d6761" alt="" style="">
+
+## 12. We are all an integral part of the web of life
+<img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2019/6/9ed107b0dcdde8dd49ac.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200726%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20200726T040210Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=72bd243ee601167d9b3f44552297febcadf0aadb99ee88c451dbbd040104373b" alt="" style="">
+
+## 13. Create a definite plan for carrying out your desire and begin at once
+<img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2019/6/b94ec3cf3ae61acd0275.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200726%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20200726T040210Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=fd13e5adb912ebc6314f0c14198b416768b1094600585dd2df18fa57326dc44d" alt="" style="">
+
+## 14. My talents fall within definite limitations
+
+## 15. Winners are people with definite purpose in life
+
+## 16. Double whammy
+
+## 17. Integrate 
+Write a function `def poly_integral(poly, C=0):` that calculates the integral of a polynomial:
+
+* `poly` is a list of coefficients representing a polynomial
+    * the index of the list represents the power of `x` that the coefficient belongs to
+    * Example: if f(x) = x^3 + 3x +5, `poly` is equal to `[5, 3, 0, 1]`
+* `C` is an integer representing the integration constant
+* If a coefficient is a whole number, it should be represented as an integer
+* If `poly` or `C` are not valid, return `None`
+* Return a new list of coefficients representing the integral of the polynomial
+* The returned list should be as small as possible
+
+```
+alexa@ubuntu:0x02-calculus$ cat 17-main.py 
+#!/usr/bin/env python3
+
+poly_integral = __import__('17-integrate').poly_integral
+
+poly = [5, 3, 0, 1]
+print(poly_integral(poly))
+alexa@ubuntu:0x02-calculus$ ./17-main.py 
+[0, 5, 1.5, 0, 0.25]
+alexa@ubuntu:0x02-calculus$
+```
