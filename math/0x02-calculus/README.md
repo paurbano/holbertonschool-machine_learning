@@ -1,37 +1,41 @@
 # 0x02. Calculus
-
-![](https://github.com/paurbano/holbertonschool-machine_learning/tree/master/images/calculus.jpg)
+![](https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/calculus.jpg)
 
 ## General
 * **Summation and Product notation**
-Summation = \sum
-Product = 
+
+  Summation = \sum
+  Product = 
 
 * **What is a series?**
-A series is the sum of all terms in a sequence e.i : 5+10+15+20
+  A series is the sum of all terms in a sequence e.i : 5+10+15+20
 
 * **Common series**
-Finite & Infinite
+
+  Finite & Infinite
 
 * **What is a derivative?**
-the derivative is a way to show rate of change: that is, the amount by which a function is changing at one given point. it is the slope of the tangent line at a point on a graph. Is the "moment-by-moment" behavior of the function
+
+  the derivative is a way to show rate of change: that is, the amount by which a function is changing at one given point. it is the slope of the tangent line at a point on a graph. Is the "moment-by-moment" behavior of the function
 
 * **What is the product rule?**
-the product rule is a formula used to find the derivatives of products of two or more functions
 
-$$(f*g)' = f'*g + f*g'$$
+  the product rule is a formula used to find the derivatives of products of two or more functions
+
+  $$(f*g)' = *f'*g + f*g'*$$
 
 * **What is the chain rule?**
 
-The chain rule lets us "zoom into" a function and see how an initial change (x) can effect the final result down the line (g).
+  The chain rule lets us "zoom into" a function and see how an initial change (x) can effect the final result down the line (g).
 
-* Common derivative rules
+* **Common derivative rules**
     * Chain Rule
     * Product Rule
     * Power Rule
 
 * **What is a partial derivative?**
-the partial derivative takes the derivative of certain indicated variables of a function and doesn't differentiate the other variable(s).
+
+  the partial derivative takes the derivative of certain indicated variables of a function and doesn't differentiate the other variable(s).
 
 * **What is an indefinite integral?**
 * **What is a definite integral?**
@@ -87,10 +91,11 @@ the partial derivative takes the derivative of certain indicated variables of a 
 
 ## 6. It is difficult to free fools from the chains they revere
 <img src="https://latex.codecogs.com/gif.latex?\frac{d&amp;space;(ln(x^2))}{dx}">
+
 1. <img src="https://latex.codecogs.com/gif.latex?\frac{2}{x}">
 2. <img src="https://latex.codecogs.com/gif.latex?\frac{1}{x^2}">
 3. <img src="https://latex.codecogs.com/gif.latex?\frac{2}{x^2}">
-4. <img src="h<img src="https://latex.codecogs.com/gif.latex?\frac{1}{x}">
+4. <img src="https://latex.codecogs.com/gif.latex?4x^3&amp;space;+&amp;space;9x^2&amp;space;-&amp;space;4">
 
 ## 7. Partial truths are often more insidious than total falsehoods
 <img src="https://latex.codecogs.com/gif.latex?\frac{\partial}{\partial&amp;space;y}&amp;space;f(x,&amp;space;y)"> where <img src="https://latex.codecogs.com/gif.latex?f(x,&amp;space;y)&amp;space;=&amp;space;e^{xy}">
@@ -109,7 +114,7 @@ the partial derivative takes the derivative of certain indicated variables of a 
 4. <img src="https://latex.codecogs.com/gif.latex?e^{2x}">
 
 ## 9. Our life is the sum total of all the decisions we make every day, and those decisions are determined by our priorities
-Write a function def summation_i_squared(n): that calculates <img src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^{n}&amp;space;i^2">:
+Write a function `def summation_i_squared(n):` that calculates <img src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^{n}&amp;space;i^2">:
 
 * `n` is the stopping condition
 * Return the integer value of the sum
@@ -130,7 +135,7 @@ alexa@ubuntu:0x02-calculus$
 ```
 
 ## 10. Derive happiness in oneself from a good day's work 
-Write a function def poly_derivative(poly): that calculates the derivative of a polynomial:
+Write a function `def poly_derivative(poly):` that calculates the derivative of a polynomial:
 
 * `poly` is a list of coefficients representing a polynomial
     * the index of the list represents the power of `x` that the coefficient belongs to
