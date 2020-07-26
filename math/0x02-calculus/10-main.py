@@ -16,3 +16,6 @@ print(poly_derivative(poly))
 
 poly = [6]
 print(poly_derivative(poly))
+
+poly = ['a']
+print(poly_derivative(poly))
