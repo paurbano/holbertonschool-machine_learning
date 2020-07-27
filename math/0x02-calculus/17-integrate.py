@@ -19,7 +19,10 @@ def poly_integral(poly, C=0):
         True
     else:
         return None
-    poly.insert(0, 0)
+    # when is just the constant
+    if len(poly) > 1:
+        poly.insert(0, 0)
+
     integral = [poly[i] / i for i in range(len(poly)) if i > 0]
     del poly[0]
     for coeff in range(len(integral)):
