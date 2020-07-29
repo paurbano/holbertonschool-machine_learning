@@ -21,8 +21,8 @@ Probability is the branch of mathematics concerning numerical descriptions of ho
     * intersection = The probability that Events A and B both occur is the probability of the `intersection` of A and B. The probability of the intersection of Events A and B is denoted by P(A ∩ B). If Events A and B are mutually exclusive, P(A ∩ B) = 0.
 
 * **What are the general addition and multiplication rules?**
-    *  Mulitplication Rule  = The rule of multiplication applies to the situation when we want to know the probability of the intersection of two events; that is, we want to know the probability that two events (Event A and Event B) both occur.
-    * The rule of addition applies to the following situation. We have two events, and we want to know the probability that either event occurs.
+    *  **Mulitplication Rule**  = The rule of multiplication applies to the situation when we want to know the probability of the intersection of two events; that is, we want to know the probability that two events (Event A and Event B) both occur.
+    * **The rule of addition** applies to the following situation. We have two events, and we want to know the probability that either event occurs.
 
 * **What is a probability distribution?**
 is the mathematical function that gives the probabilities of occurrence of different possible outcomes for an experiment.
@@ -37,15 +37,15 @@ is the mathematical function that gives the probabilities of occurrence of diffe
 * **What is a percentile?**
 A **percentile** (or a **centile**) is a measure used in statistics indicating the value below which a given percentage of observations in a group of observations falls. For example, the 20th percentile is the value (or score) below which 20% of the observations may be found. Equivalently, 80% of the observations are found above the 20th percentile.
 
-* What is mean, standard deviation, and variance?
-    * mean = The mean and the median are summary measures used to describe the most "typical" value in a set of values. Statisticians sometimes refer to the mean and median as measures of central tendency.
+* **What is mean, standard deviation, and variance?**
+    * **mean** = The mean and the median are summary measures used to describe the most "typical" value in a set of values. Statisticians sometimes refer to the mean and median as measures of central tendency.
     The **mean** of a sample or a population is computed by adding all of the observations and dividing by the number of observations.
 
-    * standard deviation = is a measure of the amount of variation or dispersion of a set of values. A low standard deviation indicates that the values tend to be close to the mean of the set, while a high standard deviation indicates that the values are spread out over a wider range.
+    * **standard deviation** = is a measure of the amount of variation or dispersion of a set of values. A low standard deviation indicates that the values tend to be close to the mean of the set, while a high standard deviation indicates that the values are spread out over a wider range.
 
-    * variance = is the expectation of the squared deviation of a random variable from its mean. Informally, it measures how far a set of numbers are spread out from their average value. Variance has a central role in statistics, where some ideas that use it include descriptive statistics, statistical inference, hypothesis testing, goodness of fit, and Monte Carlo sampling. Variance is an important tool in the sciences, where statistical analysis of data is common. The variance is the square of the standard deviation, the second central moment of a distribution, and the covariance of the random variable with itself.
+    * **variance** = is the expectation of the squared deviation of a random variable from its mean. Informally, it measures how far a set of numbers are spread out from their average value. Variance has a central role in statistics, where some ideas that use it include descriptive statistics, statistical inference, hypothesis testing, goodness of fit, and Monte Carlo sampling. Variance is an important tool in the sciences, where statistical analysis of data is common. The variance is the square of the standard deviation, the second central moment of a distribution, and the covariance of the random variable with itself.
 
-* Common probability distributions
+* **Common probability distributions**
     * Bernoulli and Uniform
     * Binomial and Hypergeometric
     * Poisson
