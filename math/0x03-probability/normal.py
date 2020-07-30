@@ -33,7 +33,27 @@ class Normal():
         pi = 3.1415926536
         e = 2.7182818285
         factor = float(1 / ((self.stddev) * (2 * pi) ** 0.5))
-        print(factor)
-        exp = -0.5 * ((x - self.mean / self.stddev) ** 2)
-        print(exp)
+        exp = -0.5 * (((x - self.mean) / self.stddev) ** 2)
         return float(factor * (e ** exp))
+
+    def cdf(self, x):
+        '''calculate cdf for x'''
+        pi = 3.1415926536
+        '''
+        summa = sum([pow(-1, i) * pow(x, ((2 * i) + 1)) /
+        (self.factorial(i) * ((2 * i) + 1)) for i in range(5)])
+        erf = 0.9999999846  # (2 / pow(pi, 0.5)) * summa #
+        # print ('suma:', summa)
+        print(erf * ((x - self.mean) / (self.stddev * pow(2, 0.5))))
+        cdf = 0.5 * (1 + (erf * ((x - self.mean) / (self.stddev * pow(2, 0.5)))
+        '''
+        return cdf
+
+    def factorial(self, x):
+        '''calculate factorial x'''
+        if x == 0:
+            return 1
+        fact = 1
+        for i in range(1, int(x) + 1):
+            fact = fact * i
+        return fact
