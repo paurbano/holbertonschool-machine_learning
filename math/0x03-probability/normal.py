@@ -38,15 +38,8 @@ class Normal():
 
     def cdf(self, x):
         '''calculate cdf for x'''
-        pi = 3.1415926536
-        '''
-        summa = sum([pow(-1, i) * pow(x, ((2 * i) + 1)) /
-        (self.factorial(i) * ((2 * i) + 1)) for i in range(5)])
-        erf = 0.9999999846  # (2 / pow(pi, 0.5)) * summa #
-        # print ('suma:', summa)
-        print(erf * ((x - self.mean) / (self.stddev * pow(2, 0.5))))
-        cdf = 0.5 * (1 + (erf * ((x - self.mean) / (self.stddev * pow(2, 0.5)))
-        '''
+        erf = (x - self.mean) / (self.stddev * (2 ** 0.5))
+        cdf = 0.5 * (1 + (self.erf(erf)))
         return cdf
 
     def factorial(self, x):
@@ -57,3 +50,12 @@ class Normal():
         for i in range(1, int(x) + 1):
             fact = fact * i
         return fact
+
+    def erf(self, x):
+        '''calculate erf'''
+        pi = 3.1415926536
+        summa = sum([pow(-1, i) * pow(x, ((2 * i) + 1)) / (self.factorial(i) *
+                    ((2 * i) + 1)) for i in range(5)])
+
+        error = (2 / (pi ** 0.5)) * summa
+        return error
