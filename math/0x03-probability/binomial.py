@@ -26,7 +26,7 @@ class Binomial():
 
     def pmf(self, k):
         '''calculates mass function '''
-        if k <= 0:
+        if k < 0:
             return 0
         k = int(k)
         n_f = self.factorial(self.n)
@@ -38,7 +38,7 @@ class Binomial():
 
     def cdf(self, k):
         '''calculate CDF function'''
-        if k <= 0:
+        if k < 0:
             return 0
         k = int(k)
         cdf = sum(self.pmf(i) for i in range(k + 1))
