@@ -1,4 +1,4 @@
-#!/usr/bin/env ptyhon3
+#!/usr/bin/env python3
 '''Class NeuralNetwork'''
 
 import numpy as np
