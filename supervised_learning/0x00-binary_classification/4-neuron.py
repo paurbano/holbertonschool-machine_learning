@@ -50,3 +50,20 @@ class Neuron():
         self.forward_prop(X)
         cost = self.cost(Y, self.__A)
         return np.where(self.__A >= 0.5, 1, 0), cost
+
+    def gradient_descent(self, X, Y, A, alpha=0.05):
+        '''Calculates one pass of gradient descent on the neuron
+            X: is a numpy.ndarray with shape (nx, m) that contains the input data
+                nx is the number of input features to the neuron
+                m is the number of examples
+            Y: array (1,m) correct labels for the input data
+            A: array (1,m) with activated output
+            alpha:  learning rate
+        '''
+        m = X[1]
+        dz = A - Y
+        dzT = dz.transpose()
+        dw = 1 / m * (np.multiply(X, dzT))
+        db = 1 / m * np.sum(dz)
+        self.__W = self.__W - (alpha * dw)
+        self.__b = self.__b - (alpha * db)
