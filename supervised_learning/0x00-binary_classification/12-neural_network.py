@@ -98,5 +98,5 @@ class NeuralNetwork():
             return:neuron’s prediction and the cost of the network
         '''
         self.forward_prop(X)
-        cost = self.cost(Y, self.__A)
-        return np.where(self.__A >= 0.5, 1, 0), cost
+        cost = self.cost(Y, self.__A2)
+        return np.where(self.__A2 >= 0.5, 1, 0), cost
