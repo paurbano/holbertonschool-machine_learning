@@ -53,7 +53,7 @@ class Neuron():
 
     def gradient_descent(self, X, Y, A, alpha=0.05):
         '''Calculates one pass of gradient descent on the neuron
-            X: is a numpy.ndarray with shape (nx, m) that contains the input data
+            X: is a array with shape (nx, m) that contains the input data
                 nx is the number of input features to the neuron
                 m is the number of examples
             Y: array (1,m) correct labels for the input data
