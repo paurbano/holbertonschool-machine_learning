@@ -10,7 +10,13 @@ class DeepNeuralNetwork():
         binary classification:
     '''
     def __init__(self, nx, layers):
-        '''constructor'''
+        '''constructor
+            nx: number of input features
+            layers: list representing number of nodes in each layer
+            L: The number of layers
+            cache: dictionary to hold all intermediary values of the network
+            weights: dictionary to hold all weights and biased of the network
+        '''
         if type(nx) is not int:
             raise TypeError('nx must be an integer')
         if nx < 1:
