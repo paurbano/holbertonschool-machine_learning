@@ -2,7 +2,7 @@
 '''Class NeuralNetwork'''
 
 import numpy as np
-import matploit as plt
+import matplotlib.pyplot as plt
 
 
 class NeuralNetwork():
