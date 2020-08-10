@@ -165,10 +165,10 @@ class NeuralNetwork():
                 print(msg.format(iteration=iter, cost=c))
             self.forward_prop(X)
             self.gradient_descent(X, Y, self.__A1, self.__A2, alpha)
-        ''' if graph:
+        if graph:
             plt.plot(steps, costs, 'b')
             plt.xlabel('iteration')
             plt.ylabel('cost')
             plt.suptitle('Training Cost')
-            plt.show() '''
+            plt.show()
         return self.evaluate(X, Y)
