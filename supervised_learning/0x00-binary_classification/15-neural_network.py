@@ -2,7 +2,7 @@
 '''Class NeuralNetwork'''
 
 import numpy as np
-
+import matploit as plt
 
 class NeuralNetwork():
     '''defines a neural network with one
