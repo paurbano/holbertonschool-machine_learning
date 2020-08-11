@@ -19,8 +19,8 @@ def one_hot_encode(Y, classes):
     if type(classes) is not int or classes <= Y.max():
         return None
 
-    oh = np.zeros((classes, Y.shape[0]))
+    one_hot = np.zeros((classes, Y.shape[0]))
 
-    for i in range(classes):
-        oh[Y[i], i] = 1
-    return oh
+    for i in range(len(Y)):
+        one_hot[Y[i]][i] = 1
+    return one_hot
