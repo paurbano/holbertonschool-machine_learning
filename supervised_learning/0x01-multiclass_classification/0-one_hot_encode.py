@@ -14,7 +14,7 @@ def one_hot_encode(Y, classes):
     '''
     if len(Y) == 0 or type(classes) is not int:
         return None
-    if classes <= max(Y):
+    if classes <= Y.max():
         return None
     if not isinstance(Y, np.ndarray):
         return None
