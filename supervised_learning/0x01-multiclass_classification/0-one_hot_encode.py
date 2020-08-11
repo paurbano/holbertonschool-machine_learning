@@ -12,10 +12,13 @@ def one_hot_encode(Y, classes):
         classes: is the maximum number of classes found in Y
         Returns: a one-hot encoding of Y with shape (classes, m)
     '''
-    if Y is None:
+    if len(Y) == 0 or type(classes) is not int:
         return None
-    if classes <= 0 or classes is None:
+    if classes <= max(Y):
         return None
+    if not isinstance(Y, np.ndarray):
+        return None
+
     oh = np.zeros((classes, Y.shape[0]))
 
     for i in range(classes):
