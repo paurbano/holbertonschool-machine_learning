@@ -204,5 +204,3 @@ class DeepNeuralNetwork():
             return obj
         except FileNotFoundError:
             return None
-        finally:
-            fileObject.close()
