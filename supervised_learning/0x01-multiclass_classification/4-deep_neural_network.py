@@ -5,14 +5,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
-import os
 
 
 class DeepNeuralNetwork():
     ''' defines a deep neural network performing
         binary classification:
     '''
-    def __init__(self, nx, layers, activation='sig'):
+    def __init__(self, nx, layers):
         '''constructor
             nx: number of input features
             layers: list representing number of nodes in each layer
@@ -90,28 +89,38 @@ class DeepNeuralNetwork():
             ai = sigmoid(zi)
             '''
             xi = self.__cache['A'+str(i-1)]
-            z = np.matmul(self.__weights['W'+str(i)], xi) +\
+            z = np.dot(self.__weights['W'+str(i)], xi) +\
                 self.__weights['b'+str(i)]
-            if i != self.__L:
-                if self.__activation == 'sig':
-                    activ_func = 1 / (1 + np.exp(-z))
-                else:
-                    activ_func = np.sinh(z) / np.cosh(z)
+            # use softmax for multiclass classification
+            # it must calcutate before output layer
+            if i == self.__L:
+                # softmax as activation function
+                t = np.exp(z)
+                activation = t / np.sum(t, axis=0, keepdims=True)
             else:
-                # softmax activation function
-                s = np.exp(z)
-                activ_func = np.exp(z) / np.sum(t, axis=0, keepdims=True)
-            self.__cache['A'+str(i)] = activ_func
+                if self.__activation == 'sig':
+                    # use sigmoid
+                    activation = 1 / (1 + np.exp(-z))
+                else:
+                    activation = np.sinh(z) / np.cosh(z)
 
-        return activ_func, self.__cache
+            self.__cache['A'+str(i)] = activation
+            # self.__cache['A'+str(i)] = softmax
+        # return sigmoid, self.__cache
+        return activation, self.__cache
 
     def cost(self, Y, A):
-        '''Calculates the cost of the model using logistic regression
-            Y: array (1, m) contains the correct labels for the input data
+        '''Calculates the cost/loss of the model using logistic regression
+            Y: is now a one-hot numpy.ndarray of shape (classes, m)
             A: array (1, m) activated output of the neuron for each example
         '''
         m = Y.shape[1]
-        cost = -(1 / m) * np.sum(Y, np.log(A))
+        '''
+        cost = -(1 / m) * np.sum(np.multiply(Y, np.log(A)) +
+                                 np.multiply(1 - Y, np.log(1.0000001 - A)))
+        '''
+        # cross - entropy
+        cost = -(1 / m) * np.sum(Y * np.log(A))
         return cost
 
     def evaluate(self, X, Y):
@@ -132,7 +141,7 @@ class DeepNeuralNetwork():
             cache: dictionary with all the intermediary values of the network
             alpha:  learning rate
         '''
-        m = len(Y[1])
+        m = len(Y[0])
         # derivative of last Z 'network output'
         dz = cache['A'+str(self.__L)] - Y  # loss, error
         # from that point make the backpropagation
@@ -141,8 +150,8 @@ class DeepNeuralNetwork():
             db = (1 / m) * np.sum(dz, axis=1, keepdims=True)
             # derivative of weight wi
             dW = (1 / m) * np.matmul(cache['A'+str(i-1)], dz.T)
-            # derivative of Zi
-            if self.__activation = 'sig':
+            if self.__activation == 'sig':
+                # derivative of Zi
                 dz = np.matmul(self.__weights['W'+str(i)].T, dz) *\
                     (cache['A'+str(i-1)] * (1 - cache['A'+str(i-1)]))
             else:
@@ -164,32 +173,33 @@ class DeepNeuralNetwork():
             alpha: learning rate
             iterations: number of iterations to train over
         '''
-        if type(iterations) is not int:
+        if type(iterations) != int:
             raise TypeError('iterations must be an integer')
         if iterations <= 0:
             raise ValueError('iterations must be a positive integer')
-        if type(alpha) is not float:
+        if type(alpha) != float:
             raise TypeError('alpha must be a float')
         if alpha <= 0:
             raise ValueError('alpha must be positive')
-        if verbose or graph:
-            if type(step) is not int:
+        if verbose is True or graph is True:
+            if type(step) != int:
                 raise TypeError('step must be an integer')
             if step <= 0 or step > iterations:
                 raise ValueError('step must be positive and <= iterations')
-
-        steps = list(range(0, iterations + 1, step))
+        steps = []
         costs = []
-        msg = "Cost after {iteration} iterations: {cost}"
-        for iter in range(iterations + 1):
-            if verbose and iter in steps:
-                p, c = self.evaluate(X, Y)
-                costs.append(c)
-                print(msg.format(iteration=iter, cost=c))
+        for i in range(iterations + 1):
             self.forward_prop(X)
-            self.gradient_descent(Y, self.__cache, alpha)
-        if graph:
-            plt.plot(steps, costs, 'b')
+            cost = self.cost(Y, self.__cache['A'+str(self.__L)])
+            if i % step == 0 or i == iterations:
+                costs.append(cost)
+                steps.append(i)
+                if verbose is True:
+                    print('Cost after {} iterations: {}'.format(i, cost))
+            if i < iterations:
+                self.gradient_descent(Y, self.__cache, alpha)
+        if graph is True:
+            plt.plot(np.array(steps), np.array(costs))
             plt.xlabel('iteration')
             plt.ylabel('cost')
             plt.suptitle('Training Cost')
@@ -200,9 +210,9 @@ class DeepNeuralNetwork():
         ''' Saves the instance object to a file in pickle format
             filename: file to which the object should be saved
         '''
-        _, extension = os.path.splitext(filename)
-        if extension == '':
+        if '.pkl' not in filename:
             filename = filename + '.pkl'
+
         # open the file for writing
         with open(filename, 'wb') as fileObject:
             # this writes the object a to the file
