@@ -5,7 +5,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
-import os
 
 
 class DeepNeuralNetwork():
@@ -146,32 +145,33 @@ class DeepNeuralNetwork():
             alpha: learning rate
             iterations: number of iterations to train over
         '''
-        if type(iterations) is not int:
+        if type(iterations) != int:
             raise TypeError('iterations must be an integer')
         if iterations <= 0:
             raise ValueError('iterations must be a positive integer')
-        if type(alpha) is not float:
+        if type(alpha) != float:
             raise TypeError('alpha must be a float')
         if alpha <= 0:
             raise ValueError('alpha must be positive')
-        if verbose or graph:
-            if type(step) is not int:
+        if verbose is True or graph is True:
+            if type(step) != int:
                 raise TypeError('step must be an integer')
             if step <= 0 or step > iterations:
                 raise ValueError('step must be positive and <= iterations')
-
-        steps = list(range(0, iterations + 1, step))
+        steps = []
         costs = []
-        msg = "Cost after {iteration} iterations: {cost}"
-        for iter in range(iterations + 1):
-            if verbose and iter in steps:
-                p, c = self.evaluate(X, Y)
-                costs.append(c)
-                print(msg.format(iteration=iter, cost=c))
+        for i in range(iterations + 1):
             self.forward_prop(X)
-            self.gradient_descent(Y, self.__cache, alpha)
-        if graph:
-            plt.plot(steps, costs, 'b')
+            cost = self.cost(Y, self.__cache['A'+str(self.__L)])
+            if i % step == 0 or i == iterations:
+                costs.append(cost)
+                steps.append(i)
+                if verbose is True:
+                    print('Cost after {} iterations: {}'.format(i, cost))
+            if i < iterations:
+                self.gradient_descent(Y, self.__cache, alpha)
+        if graph is True:
+            plt.plot(np.array(steps), np.array(costs))
             plt.xlabel('iteration')
             plt.ylabel('cost')
             plt.suptitle('Training Cost')
@@ -184,6 +184,7 @@ class DeepNeuralNetwork():
         '''
         if '.pkl' not in filename:
             filename = filename + '.pkl'
+
         # open the file for writing
         with open(filename, 'wb') as fileObject:
             # this writes the object a to the file
