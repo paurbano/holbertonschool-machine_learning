@@ -159,7 +159,7 @@ class NeuralNetwork():
         steps = list(range(0, iterations + 1, step))
         costs = []
         msg = "Cost after {iteration} iterations: {cost}"
-        for iter in range(iterations):
+        for iter in range(iterations + 1):
             if verbose and iter in steps:
                 p, c = self.evaluate(X, Y)
                 costs.append(c)
