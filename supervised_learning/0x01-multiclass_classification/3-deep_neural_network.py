@@ -85,7 +85,7 @@ class DeepNeuralNetwork():
                 self.__weights['b'+str(i)]
             # use softmax for multiclass classification
             # it must calcutate before output layer
-            if i == self.__L - 1:
+            if i == self.__L:
                 # softmax as activation function
                 t = np.exp(z)
                 activation = t / np.sum(t, axis=0, keepdims=True)
