@@ -11,7 +11,7 @@ class DeepNeuralNetwork():
     ''' defines a deep neural network performing
         binary classification:
     '''
-    def __init__(self, nx, layers):
+    def __init__(self, nx, layers, activation='sig'):
         '''constructor
             nx: number of input features
             layers: list representing number of nodes in each layer
@@ -96,18 +96,19 @@ class DeepNeuralNetwork():
             if i == self.__L:
                 # softmax as activation function
                 t = np.exp(z)
-                activation = t / np.sum(t, axis=0, keepdims=True)
+                activ_func = t / np.sum(t, axis=0, keepdims=True)
             else:
                 if self.__activation == 'sig':
                     # use sigmoid
-                    activation = 1 / (1 + np.exp(-z))
+                    activ_func = 1 / (1 + np.exp(-z))
                 else:
-                    activation = np.sinh(z) / np.cosh(z)
+                    # tanh func
+                    activ_func = np.sinh(z) / np.cosh(z)
 
-            self.__cache['A'+str(i)] = activation
+            self.__cache['A'+str(i)] = activ_func
             # self.__cache['A'+str(i)] = softmax
         # return sigmoid, self.__cache
-        return activation, self.__cache
+        return activ_func, self.__cache
 
     def cost(self, Y, A):
         '''Calculates the cost/loss of the model using logistic regression
