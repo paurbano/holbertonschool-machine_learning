@@ -182,7 +182,7 @@ class DeepNeuralNetwork():
         ''' Saves the instance object to a file in pickle format
             filename: file to which the object should be saved
         '''
-        if '.pkl' not in fileObject:
+        if '.pkl' not in filename:
             filename = filename + '.pkl'
         # open the file for writing
         with open(filename, 'wb') as fileObject:
