@@ -82,14 +82,10 @@ class DeepNeuralNetwork():
             ai = sigmoid(zi)
             '''
             xi = self.__cache['A'+str(i-1)]
-            z = np.matmul(self.__weights['W'+str(i)], xi) +\
+            z = np.dot(self.__weights['W'+str(i)], xi) +\
                 self.__weights['b'+str(i)]
-            if i != self.__L:
-                sigmoid = 1 / (1 + np.exp(-z))
-            else:
-                # softmax activation function
-                s = np.exp(z)
-                sigmoid = np.exp(z) / np.sum(t, axis=0, keepdims=True)
+
+            sigmoid = 1 / (1 + np.exp(-z))
             self.__cache['A'+str(i)] = sigmoid
 
         return sigmoid, self.__cache
@@ -100,7 +96,8 @@ class DeepNeuralNetwork():
             A: array (1, m) activated output of the neuron for each example
         '''
         m = Y.shape[1]
-        cost = -(1 / m) * np.sum(Y, np.log(A))
+        cost = -(1 / m) * np.sum(np.multiply(Y, np.log(A)) +
+                                 np.multiply(1 - Y, np.log(1.0000001 - A)))
         return cost
 
     def evaluate(self, X, Y):
@@ -121,7 +118,7 @@ class DeepNeuralNetwork():
             cache: dictionary with all the intermediary values of the network
             alpha:  learning rate
         '''
-        m = len(Y[1])
+        m = len(Y[0])
         # derivative of last Z 'network output'
         dz = cache['A'+str(self.__L)] - Y  # loss, error
         # from that point make the backpropagation
@@ -185,8 +182,7 @@ class DeepNeuralNetwork():
         ''' Saves the instance object to a file in pickle format
             filename: file to which the object should be saved
         '''
-        _, extension = os.path.splitext(filename)
-        if extension == '':
+        if '.pkl' not in fileObject:
             filename = filename + '.pkl'
         # open the file for writing
         with open(filename, 'wb') as fileObject:
