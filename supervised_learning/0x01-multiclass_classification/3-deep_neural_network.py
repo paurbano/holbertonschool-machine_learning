@@ -88,7 +88,7 @@ class DeepNeuralNetwork():
             if i == self.__L - 1:
                 # softmax as activation function
                 t = np.exp(z)
-                activation = t / np.sum(t)
+                activation = t / np.sum(t, axis=0, keepdims=True)
             else:
                 # use sigmoid
                 activation = 1 / (1 + np.exp(-z))
