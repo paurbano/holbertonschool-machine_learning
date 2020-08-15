@@ -25,13 +25,10 @@ class DeepNeuralNetwork():
             raise ValueError('nx must be a positive integer')
         if type(layers) is not list or not layers:
             raise TypeError('layers must be a list of positive integers')
-        if activation not in ('sig', 'tanh'):
-            raise ValueError("activation must be 'sig' or 'tanh'")
 
         self.__L = len(layers)
         self.__cache = {}
         self.__weights = {}
-        self.__activation = activation
 
         for i in range(self.__L):
             if type(layers[i]) is not int or layers[i] <= 0:
@@ -46,6 +43,10 @@ class DeepNeuralNetwork():
                 self.__weights[wi] = np.random.randn(layers[i], layers[i-1])\
                                    * np.sqrt(2/layers[i-1])
             self.__weights[bi] = np.zeros((layers[i], 1))
+
+        if activation not in ('sig', 'tanh'):
+            raise ValueError("activation must be 'sig' or 'tanh'")
+        self.__activation = activation
 
     @property
     def L(self):
@@ -89,7 +90,7 @@ class DeepNeuralNetwork():
             ai = sigmoid(zi)
             '''
             xi = self.__cache['A'+str(i-1)]
-            z = np.dot(self.__weights['W'+str(i)], xi) +\
+            z = np.matmul(self.__weights['W'+str(i)], xi) +\
                 self.__weights['b'+str(i)]
             # use softmax for multiclass classification
             # it must calcutate before output layer
