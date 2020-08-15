@@ -15,9 +15,9 @@ class DeepNeuralNetwork():
         '''constructor
             nx: number of input features
             layers: list representing number of nodes in each layer
-            L: The number of layers
-            cache: dictionary to hold all intermediary values of the network
-            weights: dictionary to hold all weights and biased of the network
+            activation: type of activation function used in the hidden layers
+                sig: represents a sigmoid activation
+                tanh: represents a tanh activation
         '''
         if type(nx) is not int:
             raise TypeError('nx must be an integer')
@@ -70,8 +70,8 @@ class DeepNeuralNetwork():
     def forward_prop(self, X):
         '''Calculates the forward propagation of the neural network
             X: array with shape (nx, m) that contains the input data
-            nx: is the number of input features to the neuron
-            m: is the number of examples
+                nx: is the number of input features to the neuron
+                m: is the number of examples
             Returns: output of the neural network and the cache, respectively
         '''
         self.__cache['A0'] = X
