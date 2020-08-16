@@ -14,8 +14,5 @@ def create_layer(prev, n, activation):
     '''
     kerinit = tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
     y = tf.layers.dense(prev, activation=activation, units=n, name='layer',
-                        kernel_initializer=kerinit)
-    init = tf.global_variables_initializer()
-    sess = tf.Session()
-    sess.run(init)
+                        kernel_initializer=kerinit, reuse=True)
     return y
