@@ -12,7 +12,10 @@ def create_layer(prev, n, activation):
         activation: activation function that the layer should use
         Returns: the tensor output of the layer
     '''
-    init = tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
+    kerinit = tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
     y = tf.layers.dense(prev, activation=activation, units=n, name='layer',
-                        kernel_initializer=init)
+                        kernel_initializer=kerinit)
+    init = tf.global_variables_initializer()
+    sess = tf.Session()
+    sess.run(init)
     return y
