@@ -61,10 +61,10 @@ def train(X_train, Y_train, X_valid, Y_valid, layer_sizes,
             v_loss = sess.run(loss, feed_dict={x: X_valid, y: Y_valid})
             if i % 100 == 0 or i == iterations:
                 print('After {} iterations:'.format(i))
-                print('    Training Cost: {}'.format(t_loss))
-                print('    Training Accuracy: {}'.format(t_accur))
-                print('    Validation Cost: {}'.format(v_loss))
-                print('    Validation Accuracy: {}'.format(v_accur))
+                print('\tTraining Cost: {}'.format(t_loss))
+                print('\tTraining Accuracy: {}'.format(t_accur))
+                print('\tValidation Cost: {}'.format(v_loss))
+                print('\tValidation Accuracy: {}'.format(v_accur))
             if i < iterations:
                 sess.run(train_op, feed_dict={x: X_train, y: Y_train})
         # save the model in a file
