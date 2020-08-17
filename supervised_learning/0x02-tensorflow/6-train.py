@@ -25,8 +25,6 @@ def train(X_train, Y_train, X_valid, Y_valid, layer_sizes,
         @iteratios: number of iterations to train over
         @save_path :where to save the model
     '''
-    # reset the graph
-    tf.reset_default_graph()
     # create placeholders
     x, y = create_placeholders(X_train.shape[1], Y_train.shape[1])
     # forward propagation
