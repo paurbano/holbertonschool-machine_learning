@@ -34,8 +34,11 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
         loss = tf.get_collection('loss')[0]
         train_op = tf.get_collection('train_op')[0]
         # define number of steps
-        steps = len(X_train) / batch_size
-        # X_trainS, Y_trainS = shuffle_data(X_train, Y_train)
+        # print(batch_size)
+        steps = round(len(X_train) / batch_size)
+        # print(steps)
+        # print(X_train.shape[0])
+        length = X_train.shape[0]
         for epoch in range(epochs + 1):
             # ={x: X_valid, y: Y_valid}
             feed_dict = {x: X_train, y: Y_train}
@@ -43,23 +46,24 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
             t_accur = session.run(accuracy, feed_dict)
             t_loss = session.run(loss, feed_dict)
             # valid values
-            v_accur = session.run(accuracy, feed_dict)
-            v_loss = session.run(loss, feed_dict)
+            # feed_dict = {x: X_valid, y: Y_valid}
+            vaccur = session.run(accuracy, feed_dict={x: X_valid, y: Y_valid})
+            v_loss = session.run(loss, feed_dict={x: X_valid, y: Y_valid})
             print('After {} epochs:'.format(epoch))
             print('\tTraining Cost: {}'.format(t_loss))
             print('\tTraining Accuracy: {}'.format(t_accur))
             print('\tValidation Cost: {}'.format(v_loss))
-            print('\tValidation Accuracy: {}'.format(v_accur))
+            print('\tValidation Accuracy: {}'.format(vaccur))
             if epoch != epochs:
                 # pointer where
-                ptr = 0
+                start = 0
+                end = batch_size
                 # shuffle training data before each epoch
                 X_trainS, Y_trainS = shuffle_data(X_train, Y_train)
-                for step in range(1, round(steps)):
-                    # print(ptr)
+                for step in range(1, steps + 1):
                     # slice train data according to mini bach size every
-                    train_batch = X_trainS[ptr:ptr + batch_size]
-                    train_label = Y_trainS[ptr:ptr + batch_size]
+                    train_batch = X_trainS[start:end]
+                    train_label = Y_trainS[start:end]
                     feed_dict = {x: train_batch, y: train_label}
                     # run train operation
                     b_train = session.run(train_op, feed_dict)
@@ -70,7 +74,9 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
                         print('\tStep {}:'.format(step))
                         print('\t\tCost: {}'.format(b_cost))
                         print('\t\tAccuracy: {}'.format(b_accuracy))
+                        print('\t\t {}'.format(end))
                     # increment point to slice according to batch size
-                    ptr += batch_size
+                    start = start + batch_size
+                    end = end + batch_size
 
         return saver.save(session, save_path)
