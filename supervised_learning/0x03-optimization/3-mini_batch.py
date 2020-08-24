@@ -60,7 +60,7 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
                 end = batch_size
                 # shuffle training data before each epoch
                 X_trainS, Y_trainS = shuffle_data(X_train, Y_train)
-                for step in range(1, steps + 1):
+                for step in range(1, steps + 2):
                     # slice train data according to mini bach size every
                     train_batch = X_trainS[start:end]
                     train_label = Y_trainS[start:end]
@@ -74,9 +74,11 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
                         print('\tStep {}:'.format(step))
                         print('\t\tCost: {}'.format(b_cost))
                         print('\t\tAccuracy: {}'.format(b_accuracy))
-                        print('\t\t {}'.format(end))
                     # increment point to slice according to batch size
                     start = start + batch_size
-                    end = end + batch_size
-
+                    if (length - start) < batch_size:
+                        end = end + (length - start)
+                    else:
+                        end = end + batch_size
+        # print('after {} steps - start:{} - end:{}'.format(step,start,end))
         return saver.save(session, save_path)
