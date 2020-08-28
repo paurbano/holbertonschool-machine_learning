@@ -33,7 +33,8 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
         dW = ((1 / m) * np.matmul(dz, cache['A'+str(i-1)].T)) + L2
         # derivative of Zi
         dz = np.matmul(weights['W'+str(i)].T, dz) *\
-            (cache['A'+str(i-1)] * (1 - cache['A'+str(i-1)]))
+            ((1 - cache['A'+str(i-1)] ** 2))
+
         # update weights and bias
         weights['W'+str(i)] = weights['W'+str(i)] -\
             (alpha * dW)
