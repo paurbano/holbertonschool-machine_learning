@@ -21,5 +21,5 @@ def load_model(filename):
         filename is the path of the file that the model should be loaded from
         Returns: the loaded model
     '''
-    model = K.odels.load_model(filename)
+    model = K.models.load_model(filename)
     return model
