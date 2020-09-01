@@ -20,8 +20,6 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
     '''
     inputs = K.Input(shape=(nx,))
     L2 = K.regularizers.l2(lambtha)
-    # Applies Dropout to the input.
-    dropout = K.layers.Dropout(1 - keep_prob)
     dense = K.layers.Dense(layers[0], activation=activations[0],
                            kernel_regularizer=L2)
     x = dense(inputs)
@@ -30,8 +28,9 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
     for i in range(1, n - 1):
         x = K.layers.Dense(layers[i], activation=activations[i],
                            kernel_regularizer=L2)(x)
-        if i != n - 1:
+        if i < n - 1:
             x = K.layers.Dropout(1 - keep_prob)(x)
+
     outputs = K.layers.Dense(layers[i + 1], activation=activations[i + 1],
                              kernel_regularizer=L2)(x)
     model = K.Model(inputs=inputs, outputs=outputs)
