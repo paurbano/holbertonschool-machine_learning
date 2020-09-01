@@ -13,7 +13,7 @@ def save_weights(network, filename, save_format='h5'):
         save_format is the format in which the weights should be saved
     Returns: None
     '''
-    network.save_weights(save_format)
+    network.save_weights(filename, save_format=save_format)
     return None
 
 
