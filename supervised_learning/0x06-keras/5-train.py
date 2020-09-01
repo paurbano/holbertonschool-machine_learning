@@ -23,7 +23,14 @@ def train_model(network, data, labels, batch_size, epochs,
                 reproducibility, we have chosen to set the default to False.
         Returns: the History object generated after training the model
     '''
-    History = network.fit(x=data, y=labels, batch_size=batch_size,
-                          epochs=epochs, verbose=verbose, shuffle=shuffle,
-                          validation_data=validation_data)
+    if validation_data:
+        History = network.fit(x=data, y=labels, batch_size=batch_size,
+                              pochs=epochs, verbose=verbose,
+                              shuffle=shuffle,
+                              validation_data=validation_data)
+    else:
+        History = network.fit(x=data, y=labels, batch_size=batch_size,
+                              epochs=epochs, verbose=verbose,
+                              shuffle=shuffle,
+                              validation_data=None)
     return History
