@@ -17,8 +17,9 @@ def train_model(network, data, labels, batch_size, epochs,
         batch_size: size of the batch used for mini-batch gradient descent
         epochs: number of passes through data for mini-batch gradient descent
         validation_data: is the data to validate the model with, if not None
-        early_stopping: boolean that indicates whether early stopping should be used
-                early stopping should only be performed if validation_data exists
+        early_stopping: boolean that indicates whether early stopping should
+                        be used
+            early stopping should only be performed if validation_data exists
                 early stopping should be based on validation loss
         patience: is the patience used for early stopping
         verbose: boolean that determines if output should be printed during
@@ -29,13 +30,15 @@ def train_model(network, data, labels, batch_size, epochs,
         Returns: the History object generated after training the model
     '''
     if early_stopping and validation_data is not None:
-        callback = [K.callbacks.EarlyStopping(monitor='loss', patience=patience)]
-        History= network.fit(x=data,y=labels, batch_size=batch_size, epochs=epochs,
-                        verbose=verbose, validation_data=validation_data,
-                        shuffle=shuffle, callbacks=callback)
+        callback = [K.callbacks.EarlyStopping(monitor='loss',
+                                              patience=patience)]
+        History = network.fit(x=data, y=labels, batch_size=batch_size,
+                              verbose=verbose, epochs=epochs, shuffle=shuffle,
+                              validation_data=validation_data,
+                              callbacks=callback)
     else:
         # print('sin validation data')
-        History= network.fit(x=data,y=labels, batch_size=batch_size, epochs=epochs,
-                        verbose=verbose, validation_data=validation_data,
-                        shuffle=shuffle)
+        History = network.fit(x=data, y=labels, batch_size=batch_size,
+                              epochs=epochs, validation_data=validation_data,
+                              verbose=verbose, shuffle=shuffle)
     return History
