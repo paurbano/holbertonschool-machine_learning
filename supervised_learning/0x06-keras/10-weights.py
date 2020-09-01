@@ -24,5 +24,4 @@ def load_weights(network, filename):
         filename: path of the file that the weights should be loaded from
     Returns: None
     '''
-    network.load_weights(filename)
-    return None
+    return network.load_weights(filename)
