@@ -23,7 +23,7 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
     # Applies Dropout to the input.
     dropout = K.layers.Dropout(1 - keep_prob)
     dense = K.layers.Dense(layers[0], activation=activations[0],
-                       kernel_regularizer=L2)
+                           kernel_regularizer=L2)
     x = dense(inputs)
     x = K.layers.Dropout(1 - keep_prob)(x)
     n = len(layers)
