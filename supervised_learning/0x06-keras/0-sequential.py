@@ -20,7 +20,7 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
     model = K.Sequential()
     L2 = K.regularizers.l2(lambtha)
     # Applies Dropout to the input.
-    dropout = K.layers.Dropout(keep_prob)
+    dropout = K.layers.Dropout(1 - keep_prob)
     n = len(layers)
     for i in range(n):
         if i == 0:
@@ -30,5 +30,5 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
             model.add(K.layers.Dense(layers[i], activation=activations[i],
                       kernel_regularizer='l2'))
         if i != n - 1:
-            model.add(K.layers.Dropout(keep_prob))
+            model.add(K.layers.Dropout(1 - keep_prob))
     return model
