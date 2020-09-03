@@ -6,20 +6,12 @@ def matrix_shape(matrix):
     ''' function that calculates the shape of a matrix'''
     shape = []
 
-    if not isinstance(matrix, list):
-        return shape
-
-    if matrix is None or len(matrix) == 0:
-        return shape
-
-    if isinstance(matrix[0], list):
+    while type(matrix) is list:
+        '''size of dimension'''
         shape.append(len(matrix))
-        shape.append(len(matrix[0]))
-        if isinstance(matrix[0][0], list):
-            shape.append(len(matrix[0][0]))
-        return shape
-    elif isinstance(matrix[0], int):
-        shape.append(len(matrix))
-        return shape
-    else:
-        return shape
+        '''move to next one'''
+        if matrix[0]:
+            matrix = matrix[0]
+        else:
+            break
+    return shape
