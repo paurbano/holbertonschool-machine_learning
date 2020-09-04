@@ -33,15 +33,15 @@ def convolve_grayscale(images, kernel, padding='same', stride=(1, 1)):
     kw = kernel.shape[1]
     sh = stride[0]
     sw = stride[1]
+    # # calculate padding according to type
     if type(padding) is tuple:
         # padding
         padh = padding[0]
         padw = padding[1]
     elif padding == 'same':
-        padh = (((h - 1) * sh - h + kh) / 2) + 1
-        padw = (((w - 1) * sw - w + kw) / 2) + 1
+        padh = int((((h - 1) * sh - h + kh) / 2)) + 1
+        padw = int((((w - 1) * sw - w + kw) / 2)) + 1
     elif padding == 'valid':
-        # calculate padding
         padh = padw = 0
 
     # new dimensions with stride
@@ -56,6 +56,7 @@ def convolve_grayscale(images, kernel, padding='same', stride=(1, 1)):
     # Loop over every pixel of the output
     for i in range(nh):
         for j in range(nw):
+            # apply strided
             x = i * sh
             y = j * sw
             # slice every image according to kernel size
