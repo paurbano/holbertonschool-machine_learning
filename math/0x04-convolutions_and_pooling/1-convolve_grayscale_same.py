@@ -24,10 +24,12 @@ def convolve_grayscale_same(images, kernel):
     n_h = h - kh + 1
     n_w = w - kw + 1
     # calculate padding
-    pad = int((kh - 1) / 2)
+    padh = int((kh - 1) / 2)
+    padw = int((kw - 1) / 2)
+    pad = ((0, 0), (padh, padh), (padw, padw))
     convolved = np.zeros([m, h, w])
     # pad images
-    imagepaded = np.pad(images, pad_width=0, mode='constant',
+    imagepaded = np.pad(images, pad_width=pad, mode='constant',
                         constant_values=0)
     # Loop over every pixel of the output
     for x in range(n_h):
