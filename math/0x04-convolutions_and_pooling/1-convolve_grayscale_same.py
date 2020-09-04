@@ -21,8 +21,6 @@ def convolve_grayscale_same(images, kernel):
     w = images.shape[2]
     kh = kernel.shape[0]
     kw = kernel.shape[1]
-    n_h = h - kh + 1
-    n_w = w - kw + 1
     # calculate padding
     padh = int((kh - 1) / 2)
     padw = int((kw - 1) / 2)
@@ -32,8 +30,8 @@ def convolve_grayscale_same(images, kernel):
     imagepaded = np.pad(images, pad_width=pad, mode='constant',
                         constant_values=0)
     # Loop over every pixel of the output
-    for x in range(n_h):
-        for y in range(n_w):
+    for x in range(h):
+        for y in range(w):
             # slice every image according to kernel size
             image = imagepaded[:, x:x+kh, y:y+kw]
             # element-wise multiplication of the kernel and the image
