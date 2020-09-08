@@ -23,10 +23,16 @@ def convolve_grayscale_valid(images, kernel):
     kw = kernel.shape[1]
     n_h = h - kh + 1
     n_w = w - kw + 1
+    # size output convolved
     convolved = np.zeros([m, n_h, n_w])
+    # Loop over every pixel of the output
     for x in range(n_h):
         for y in range(n_w):
+            # slice every image according to kernel size
             image = images[:, x:x+kh, y:y+kw]
+            # apply convolution:
+            # element-wise multiplication of the kernel and the image
+            # and sum it
             convolved[:, x, y] = np.multiply(image, kernel).sum(axis=(1, 2))
     # Making sure output shape is correct
     # assert(convolved.shape == (m, n_h, n_w))
