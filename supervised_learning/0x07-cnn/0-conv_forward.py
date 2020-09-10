@@ -31,12 +31,11 @@ def conv_forward(A_prev, W, b, activation, padding="same", stride=(1, 1)):
             Returns: the output of the convolutional layer
     '''
     m, h_prev, w_prev, c_prev = A_prev.shape
-    kh, kw, _, c_new = W.shape
-    sh = stride[0]
-    sw = stride[1]
+    kh, kw, c_prev, c_new = W.shape
+    sh, sw = stride
     if padding == 'same':
-        padh = int((((h_prev - 1) * sh - h_prev + kh) / 2)) + 1
-        padw = int((((w_prev - 1) * sw - w_prev + kw) / 2)) + 1
+        padh = int((((h_prev - 1) * sh - h_prev + kh) / 2))
+        padw = int((((w_prev - 1) * sw - w_prev + kw) / 2))
     else:
         padh = padw = 0
 
@@ -45,7 +44,7 @@ def conv_forward(A_prev, W, b, activation, padding="same", stride=(1, 1)):
     nw = int(((w_prev + (2 * padw) - kw) / sw)) + 1
     # Initialize output volume Z and activations A
     Z = np.zeros([m, nh, nw, c_new])
-    # Padding A_prev
+    # Add Padding to input: A_prev
     pad = ((0, 0), (padh, padh), (padw, padw), (0, 0))
     A_prev_pad = np.pad(A_prev, pad_width=pad, mode='constant',
                         constant_values=0)
@@ -66,5 +65,4 @@ def conv_forward(A_prev, W, b, activation, padding="same", stride=(1, 1)):
                     sum(axis=(1, 2, 3))
     Z = Z + b
     # Apply activation
-    Z = activation(Z)
-    return Z
+    return activation(Z)
