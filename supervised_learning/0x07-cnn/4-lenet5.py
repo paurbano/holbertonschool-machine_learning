@@ -81,16 +81,15 @@ def lenet5(x, y):
     # labels = tf.one_hot(indices=tf.cast(y, tf.int32), depth=10)
 
     # Compute the cross-entropy loss
-    cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(
-           logits=dense3, labels=y))
+    y_pred = tf.equal(tf.argmax(dense3, 1), tf.argmax(y, 1))
+    loss = tf.losses.softmax_cross_entropy(y, y_pred)
 
     # Use adam optimizer to reduce cost
     optimizer = tf.train.AdamOptimizer()
-    train_op = optimizer.minimize(cost)
+    train_op = optimizer.minimize(loss)
 
     # For testing and prediction
-    predictions = tf.equal(tf.argmax(dense3, 1), tf.argmax(y, 1))
-    # correct_prediction = tf.equal(predictions, y)
-    accuracy = tf.reduce_mean(tf.cast(predictions, "float"))
+    correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_pred, 1))
+    accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
-    return softmax, train_op, cost, accuracy
+    return softmax, train_op, loss, accuracy
