@@ -45,8 +45,8 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
     sh, sw = stride
 
     if padding == 'same':
-        padh = int((((h_prev - 1) * sh - h_prev + kh) / 2)) + 1
-        padw = int((((w_prev - 1) * sw - w_prev + kw) / 2)) + 1
+        padh = int((((h_prev - 1) * sh - h_prev + kh) / 2))
+        padw = int((((w_prev - 1) * sw - w_prev + kw) / 2))
     else:
         padh = padw = 0
 
