@@ -39,7 +39,7 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
     (m, h_prev, w_prev, c_prev) = A_prev.shape
 
     # Retrieve dimensions from W's shape
-    (kh, kw, n_C_prev, n_C) = W.shape
+    (kh, kw, c_prev, c_new) = W.shape
 
     # stride
     sh, sw = stride
@@ -70,7 +70,7 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
         # select ith training example from A_prev_pad and dA_prev_pad
         a_prev_pad = A_prev_pad[i]
         da_prev_pad = dA_prev_pad[i]
-        # loop over vertical axis of the output volume
+        # loop over vertical(height) axis of the output volume
         for h in range(n_H):
             # loop over horizontal axis of the output volume
             for w in range(n_W):
@@ -83,10 +83,10 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
                     horiz_end = horiz_start + kw
                     # Use the corners to define the slice from a_prev_pad
                     a_slice = a_prev_pad[vert_start:vert_end,
-                                         horiz_start:horiz_end, :]
+                                         horiz_start:horiz_end]
 
                     # Update gradients for the window and the filter's
-                    da_prev_pad[vert_start:vert_end, horiz_start:horiz_end, :]\
+                    da_prev_pad[vert_start:vert_end, horiz_start:horiz_end]\
                         += W[:, :, :, c] * dZ[i, h, w, c]
 
                     dW[:, :, :, c] += a_slice * dZ[i, h, w, c]
