@@ -63,15 +63,17 @@ def lenet5(x, y):
 
     # Reshaping output into a single dimention array for input
     # to fully connected layer
-    #pool2_flat = tf.reshape(pool2, [-1, 5 * 5 * 16])
+    # pool2_flat = tf.reshape(pool2, [-1, 5 * 5 * 16])
     pool2_flat = Flatten()(pool2)
 
     # Fully connected layer #1: Has 120 neurons
     dense1 = tf.layers.dense(inputs=pool2_flat, units=120,
                              activation=tf.nn.relu)
 
+    dense1_flat = Flatten()(dense1)
     # Fully connected layer #2: Has 84 neurons
-    dense2 = tf.layers.dense(inputs=dense1, units=84, activation=tf.nn.relu)
+    dense2 = tf.layers.dense(inputs=dense1_flat, units=84,
+                             activation=tf.nn.relu)
 
     # Output layer, 10 neurons for each digit
     dense3 = tf.layers.dense(inputs=dense2, units=10)
