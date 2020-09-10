@@ -90,7 +90,7 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
                         += W[:, :, :, c] * dZ[i, h, w, c]
 
                     dW[:, :, :, c] += a_slice * dZ[i, h, w, c]
-                    db[:, :, :, c] += dZ[i, h, w, c]
+                    # db[:, :, :, c] += dZ[i, h, w, c]
 
         # why ?
         if padding == 'same':
