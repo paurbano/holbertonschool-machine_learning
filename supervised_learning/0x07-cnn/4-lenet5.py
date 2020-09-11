@@ -36,16 +36,15 @@ def lenet5(x, y):
     # 6 kernels 5x5, padding = same
     init = tf.contrib.layers.variance_scaling_initializer()
     conv1 = tf.layers.Conv2D(
-          inputs=x,
           filters=6,  # Number of filters.
           kernel_size=5,  # Size of each filter is 5x5.
           padding="same",  # padding is applied to the input.
           activation=tf.nn.relu,  # relu activation function
-          kernel_initializer=init)
+          kernel_initializer=init)(x)
 
     # pooling layer #1
     pool1 = tf.layers.MaxPooling2D(inputs=conv1, pool_size=[2, 2],
-                                   strides=(2, 2))
+                                   strides=2)(conv1)
 
     # convolutional layer 2
     # 16 kernels 5x5, padding = valid
@@ -55,11 +54,11 @@ def lenet5(x, y):
           kernel_size=5,  # Size of each filter is 5x5.
           padding="valid",  # padding is applied to the input.
           activation=tf.nn.relu,  # relu activation function
-          kernel_initializer=init)
+          kernel_initializer=init)(pool1)
 
     # pooling layer #2
     pool2 = tf.layers.MaxPooling2D(inputs=conv2, pool_size=[2, 2],
-                                   strides=(2, 2))
+                                   strides=2)(conv2)
 
     # Reshaping output into a single dimention array for input
     # to fully connected layer
@@ -67,16 +66,16 @@ def lenet5(x, y):
     pool2_flat = tf.layers.Flatten()(pool2)
 
     # Fully connected layer #1: Has 120 neurons
-    dense1 = tf.layers.Dense(inputs=pool2_flat, units=120,
-                             activation=tf.nn.relu, kernel_initializer=init)
+    dense1 = tf.layers.Dense(units=120, activation=tf.nn.relu,
+                             kernel_initializer=init)(pool2_flat)
 
     # dense1_flat = Flatten()(dense1)
     # Fully connected layer #2: Has 84 neurons
-    dense2 = tf.layers.Dense(inputs=dense1, units=84,
-                             activation=tf.nn.relu, kernel_initializer=init)
+    dense2 = tf.layers.Dense(units=84, activation=tf.nn.relu,
+                             kernel_initializer=init)(dense1)
 
     # Output layer, 10 neurons for each digit
-    dense3 = tf.layers.Dense(inputs=dense2, units=10, kernel_initializer=init)
+    dense3 = tf.layers.Dense(units=10, kernel_initializer=init)(dense2)
 
     softmax = tf.nn.softmax(dense3)
 
@@ -84,8 +83,8 @@ def lenet5(x, y):
     # labels = tf.one_hot(indices=tf.cast(y, tf.int32), depth=10)
 
     # Compute the cross-entropy loss
-    y_pred = tf.equal(tf.argmax(dense3, 1), tf.argmax(y, 1))
-    loss = tf.losses.softmax_cross_entropy(y, dense3)
+    y_pred = dense3
+    loss = tf.losses.softmax_cross_entropy(y, y_pred)
 
     # Use adam optimizer to reduce cost
     optimizer = tf.train.AdamOptimizer()
