@@ -45,7 +45,7 @@ def lenet5(x, y):
 
     # pooling layer #1
     pool1 = tf.layers.MaxPooling2D(inputs=conv1, pool_size=[2, 2],
-                                    strides=(2, 2))
+                                   strides=(2, 2))
 
     # convolutional layer 2
     # 16 kernels 5x5, padding = valid
@@ -59,7 +59,7 @@ def lenet5(x, y):
 
     # pooling layer #2
     pool2 = tf.layers.MaxPooling2D(inputs=conv2, pool_size=[2, 2],
-                                    strides=(2, 2))
+                                   strides=(2, 2))
 
     # Reshaping output into a single dimention array for input
     # to fully connected layer
