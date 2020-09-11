@@ -84,7 +84,7 @@ def lenet5(x, y):
     # labels = tf.one_hot(indices=tf.cast(y, tf.int32), depth=10)
 
     # Compute the cross-entropy loss
-    y_pred = tf.equal(tf.argmax(dense3, 1), tf.argmax(y, 1))
+    y_pred = tf.equal(tf.argmax(softmax, 1), tf.argmax(y, 1))
     loss = tf.losses.softmax_cross_entropy(y, y_pred)
 
     # Use adam optimizer to reduce cost
