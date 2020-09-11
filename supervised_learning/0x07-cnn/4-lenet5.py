@@ -35,7 +35,7 @@ def lenet5(x, y):
     # convolutional layer 1
     # 6 kernels 5x5, padding = same
     init = tf.contrib.layers.variance_scaling_initializer()
-    conv1 = tf.layers.Conv2d(
+    conv1 = tf.layers.Conv2D(
           inputs=x,
           filters=6,  # Number of filters.
           kernel_size=5,  # Size of each filter is 5x5.
@@ -49,7 +49,7 @@ def lenet5(x, y):
 
     # convolutional layer 2
     # 16 kernels 5x5, padding = valid
-    conv2 = tf.layers.Conv2d(
+    conv2 = tf.layers.Conv2D(
           inputs=pool1,
           filters=16,  # Number of filters.
           kernel_size=5,  # Size of each filter is 5x5.
@@ -64,16 +64,16 @@ def lenet5(x, y):
     # Reshaping output into a single dimention array for input
     # to fully connected layer
     # pool2_flat = tf.reshape(pool2, [-1, 5 * 5 * 16])
-    pool2_flat = Flatten()(pool2)
+    pool2_flat = tf.layers.Flatten()(pool2)
 
     # Fully connected layer #1: Has 120 neurons
     dense1 = tf.layers.Dense(inputs=pool2_flat, units=120,
-                             activation=tf.nn.relu)
+                             activation=tf.nn.relu, kernel_initializer=init)
 
-    dense1_flat = Flatten()(dense1)
+    # dense1_flat = Flatten()(dense1)
     # Fully connected layer #2: Has 84 neurons
-    dense2 = tf.layers.Dense(inputs=dense1_flat, units=84,
-                             activation=tf.nn.relu)
+    dense2 = tf.layers.Dense(inputs=dense1, units=84,
+                             activation=tf.nn.relu, kernel_initializer=init)
 
     # Output layer, 10 neurons for each digit
     dense3 = tf.layers.Dense(inputs=dense2, units=10)
