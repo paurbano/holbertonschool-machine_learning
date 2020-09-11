@@ -43,13 +43,12 @@ def lenet5(x, y):
           kernel_initializer=init)(x)
 
     # pooling layer #1
-    pool1 = tf.layers.MaxPooling2D(inputs=conv1, pool_size=[2, 2],
+    pool1 = tf.layers.MaxPooling2D(pool_size=[2, 2],
                                    strides=2)(conv1)
 
     # convolutional layer 2
     # 16 kernels 5x5, padding = valid
     conv2 = tf.layers.Conv2D(
-          inputs=pool1,
           filters=16,  # Number of filters.
           kernel_size=5,  # Size of each filter is 5x5.
           padding="valid",  # padding is applied to the input.
@@ -57,7 +56,7 @@ def lenet5(x, y):
           kernel_initializer=init)(pool1)
 
     # pooling layer #2
-    pool2 = tf.layers.MaxPooling2D(inputs=conv2, pool_size=[2, 2],
+    pool2 = tf.layers.MaxPooling2D(pool_size=[2, 2],
                                    strides=2)(conv2)
 
     # Reshaping output into a single dimention array for input
@@ -78,9 +77,6 @@ def lenet5(x, y):
     dense3 = tf.layers.Dense(units=10, kernel_initializer=init)(dense2)
 
     softmax = tf.nn.softmax(dense3)
-
-    # Convert our labels into one-hot-vectors
-    # labels = tf.one_hot(indices=tf.cast(y, tf.int32), depth=10)
 
     # Compute the cross-entropy loss
     y_pred = dense3
