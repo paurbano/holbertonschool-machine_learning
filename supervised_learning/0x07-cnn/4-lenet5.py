@@ -35,7 +35,7 @@ def lenet5(x, y):
     # convolutional layer 1
     # 6 kernels 5x5, padding = same
     init = tf.contrib.layers.variance_scaling_initializer()
-    conv1 = tf.layers.conv2d(
+    conv1 = tf.layers.Conv2d(
           inputs=x,
           filters=6,  # Number of filters.
           kernel_size=5,  # Size of each filter is 5x5.
@@ -44,12 +44,12 @@ def lenet5(x, y):
           kernel_initializer=init)
 
     # pooling layer #1
-    pool1 = tf.layers.max_pooling2d(inputs=conv1, pool_size=[2, 2],
+    pool1 = tf.layers.MaxPooling2D(inputs=conv1, pool_size=[2, 2],
                                     strides=(2, 2))
 
     # convolutional layer 2
     # 16 kernels 5x5, padding = valid
-    conv2 = tf.layers.conv2d(
+    conv2 = tf.layers.Conv2d(
           inputs=pool1,
           filters=16,  # Number of filters.
           kernel_size=5,  # Size of each filter is 5x5.
@@ -58,7 +58,7 @@ def lenet5(x, y):
           kernel_initializer=init)
 
     # pooling layer #2
-    pool2 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2],
+    pool2 = tf.layers.MaxPooling2D(inputs=conv2, pool_size=[2, 2],
                                     strides=(2, 2))
 
     # Reshaping output into a single dimention array for input
@@ -67,16 +67,16 @@ def lenet5(x, y):
     pool2_flat = Flatten()(pool2)
 
     # Fully connected layer #1: Has 120 neurons
-    dense1 = tf.layers.dense(inputs=pool2_flat, units=120,
+    dense1 = tf.layers.Dense(inputs=pool2_flat, units=120,
                              activation=tf.nn.relu)
 
     dense1_flat = Flatten()(dense1)
     # Fully connected layer #2: Has 84 neurons
-    dense2 = tf.layers.dense(inputs=dense1_flat, units=84,
+    dense2 = tf.layers.Dense(inputs=dense1_flat, units=84,
                              activation=tf.nn.relu)
 
     # Output layer, 10 neurons for each digit
-    dense3 = tf.layers.dense(inputs=dense2, units=10)
+    dense3 = tf.layers.Dense(inputs=dense2, units=10)
 
     softmax = tf.nn.softmax(dense3)
 
