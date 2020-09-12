@@ -2,12 +2,20 @@
 
 ## General
 * **What is a convolutional layer?**
-    
+    The convolutional layers are the main component on a CNN, is matrix (heigth,width,channels) and contains a set of filters whose parameters need to be learned. The height and weight of the filters are smaller than those of the input volume. Each filter is convolved with the input volume to compute an activation map made of neurons. In other words, the filter is slid across the width and height of the input and the dot products between the input and filter are computed at every spatial position
+    [source](https://www.sciencedirect.com/topics/engineering/convolutional-layer)    
 * **What is a pooling layer?**
-  It's a layer that reduce computing in the network and to prevent or control overfitting. Use same concept that pool to obtein pooling units using max, average funtions
+    It's a layer that reduce  the number of parameters and computation in the network by down-sampling the representation to prevent or control overfitting as well as helps make feature detectors more invariant to its position in the input. Use same concept that pool to obtain pooling units using max or average funtions. Max pooling is commonly used as it works better.
+    [source](https://www.sciencedirect.com/topics/engineering/convolutional-layer)
 * **Forward propagation over convolutional and pooling layers**
+    In the forward pass, you will take many filters and convolve them on the input. Each 'convolution' gives you a 2D matrix output. You will then stack these outputs to get a 3D volume:
+    [source](https://datascience-enthusiast.com/DL/Convolution_model_Step_by_Stepv2.html)
 * **Back propagation over convolutional and pooling layers**
+    [source](https://datascience-enthusiast.com/DL/Convolution_model_Step_by_Stepv2.html)
+    [souce](https://medium.com/@pavisj/convolutions-and-backpropagations-46026a8f5d2c)
 * **How to build a CNN using Tensorflow and Keras**
+    [TensorFlow](https://www.kaggle.com/niranjanjagannath/lenet-5-architecture-for-mnist-using-tensorflow)
+    [Keras](https://engmrk.com/lenet-5-a-classic-cnn-architecture/)
 
 # Tasks
 
