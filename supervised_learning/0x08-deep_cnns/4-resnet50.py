@@ -18,11 +18,11 @@ def resnet50():
     '''
     X_input = K.Input(shape=(224, 224, 3))
     # Zero-Padding
-    X = K.layers.ZeroPadding2D((3, 3))(X_input)
+    # X = K.layers.ZeroPadding2D((3, 3))(X_input)
 
     # Stage 1
-    X = K.layers.Conv2D(64, (7, 7), strides=(2, 2),
-                        kernel_initializer='he_normal')(X)
+    X = K.layers.Conv2D(64, kernel_size=(7, 7), strides=(2, 2), padding='same'
+                        kernel_initializer='he_normal',)(X_input)
     X = K.layers.BatchNormalization(axis=3)(X)
     X = K.layers.Activation('relu')(X)
     X = K.layers.MaxPooling2D((3, 3), strides=(2, 2), padding='same')(X)
