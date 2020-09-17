@@ -25,7 +25,7 @@ def resnet50():
                         kernel_initializer='he_normal')(X)
     X = K.layers.BatchNormalization(axis=3)(X)
     X = K.layers.Activation('relu')(X)
-    X = K.layers.MaxPooling2D((3, 3), strides=(2, 2))(X)
+    X = K.layers.MaxPooling2D((3, 3), strides=(2, 2), padding='same')(X)
 
     # Stage 2
     X = projection_block(X, filters=[64, 64, 256], s=1)
