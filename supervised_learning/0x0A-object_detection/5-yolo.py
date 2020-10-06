@@ -84,7 +84,6 @@ class Yolo():
             images.append(cv2.imread(image))
         return (images, image_paths)
 
-    @staticmethod
     def preprocess_images(self, images):
         '''
         Args:
@@ -106,12 +105,12 @@ class Yolo():
         '''
         pimages = []
         image_shapes = []
-        # new dimensions according to input expected by model
-        new_width = self.model.input.shape[1]
-        new_height = self.model.input.shape[2]
+        # new dimensions according to input by the model
+        new_width = self.model.input_shape[1]
+        new_height = self.model.input_shape[2]
         for img in images:
             # every image is a pixel matrix so you can get it size from shape
-            image_shapes.append([img.shape[0], img.shape[1]])
+            image_shapes.append((img.shape[0], img.shape[1]))
             # resize image to new dimensions
             resize = cv2.resize(img, (new_width, new_height),
                                 interpolation=cv2.INTER_CUBIC)
