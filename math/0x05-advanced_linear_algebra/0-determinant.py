@@ -36,4 +36,4 @@ def determinant(matrix):
     for i in range(n):
         product *= AM[i][i]  # ... product of diagonals is determinant
 
-    return product
+    return int(product)
