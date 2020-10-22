@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-'''cofactor matrix of a matrix'''
+'''adjugate matrix of a matrix'''
 
 
 def adjugate(matrix):
