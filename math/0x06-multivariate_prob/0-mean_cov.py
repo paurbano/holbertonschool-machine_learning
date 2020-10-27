@@ -18,7 +18,11 @@ def mean_cov(X):
     '''
     if type(X) is not np.ndarray:
         raise TypeError('X must be a 2D numpy.ndarray')
-    if len(X.shape) < 2:
+    if len(X.shape) != 2:
+        raise TypeError('X must be a 2D numpy.ndarray')
+    if not X.any():
+        raise TypeError('X must be a 2D numpy.ndarray')
+    if X.shape[0] < 2:
         raise ValueError('X must contain multiple data points')
     mean = X.mean(axis=0)
     cov = np.dot((X - X.mean(axis=0)).T, (X - X.mean(axis=0))) / X.shape[0]
