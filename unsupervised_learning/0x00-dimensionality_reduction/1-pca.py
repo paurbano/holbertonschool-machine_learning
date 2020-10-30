@@ -4,7 +4,7 @@
 import numpy as np
 
 
-def def pca(X, ndim):
+def pca(X, ndim):
     '''performs PCA on a dataset:
     Args:
         X: is a numpy.ndarray of shape (n, d) where:
@@ -15,7 +15,6 @@ def def pca(X, ndim):
     Returns: T, a numpy.ndarray of shape (n, ndim) containing the
             transformed version of X
     '''
-    """Function that performs PCA on a dataset"""
     normal = np.mean(X, axis=0)
     X_normal = X - normal
     vh = np.linalg.svd(X_normal)[2]
