@@ -17,11 +17,11 @@ def HP(Di, beta):
             the Gaussian distribution
     Returns: (Hi, Pi)
             Hi: the Shannon entropy of the points
-            Pi: a numpy.ndarray of shape (n - 1,) containing the P affinities of the points
+            Pi: a numpy.ndarray of shape (n - 1,) containing the P affinities
+                of the points
     '''
     Pi = np.exp(-Di * beta)
     sumPi = np.sum(Pi)
     Pi = Pi / sumPi
-    Hi = np.sum(Pi * np.log2(Pi)) * -1
+    Hi = -np.sum(Pi * np.log2(Pi))
     return Hi, Pi
-
