@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-'''initializes variables required to calculate the P affinities in t-SNE'''
+'''initializes variables required to calculate the P affinities in t-SNE
+https://mlcb.github.io/mlcb2019_proceedings/papers/paper_45.pdf
+https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf
+'''
 
 import numpy as np
 
