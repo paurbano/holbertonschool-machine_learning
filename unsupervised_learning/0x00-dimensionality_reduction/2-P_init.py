@@ -28,6 +28,5 @@ def P_init(X, perplexity):
     np.fill_diagonal(D, 0.)
     betas = np.ones((n, 1))
     P = np.zeros((n, n))
-    sumP = sum(P)
     H = np.log2(perplexity)
     return (D, P, betas, H)
