@@ -26,7 +26,7 @@ def intersection(x, n, P, Pr):
     if type(n) is not int or n <= 0:
         raise ValueError("n must be a positive integer")
 
-    if type(x) is not int or x <= 0:
+    if type(x) is not int or x < 0:
         raise ValueError("x must be an integer that is "
                          "greater than or equal to 0")
 
