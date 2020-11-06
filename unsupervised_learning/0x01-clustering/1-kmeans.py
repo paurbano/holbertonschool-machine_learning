@@ -25,7 +25,7 @@ def kmeans(X, k, iterations=1000):
         return None, None
     if type(k) is not int or k <= 0:
         return None, None
-    if type(iterations) is not int and iterations <= 0:
+    if type(iterations) is not int or iterations <= 0:
         return None, None
     # initialize centroids with multivariate uniform distribution
     n, d = X.shape
@@ -43,7 +43,7 @@ def kmeans(X, k, iterations=1000):
             # If a cluster contains no data points during the update step
             # reinitialize its centroid
             if c not in clss:
-                temp_C[c] = np.random.uniform(_max, _max)
+                temp_C[c] = np.random.uniform(_min, _max)
             else:
                 temp_C[c] = np.mean(X[clss == c], axis=0)
         # Centroids of newly formed clusters do not change return
