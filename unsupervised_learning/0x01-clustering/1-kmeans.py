@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 '''K-means
 https://medium.com/analytics-vidhya/k-means-clustering-with-python-77b20c2d538d
+https://www.youtube.com/watch?v=_aWzGGNrcic
 '''
 
 import numpy as np
@@ -34,22 +35,24 @@ def kmeans(X, k, iterations=1000):
     C = np.random.uniform(_min, _max, size=(k, d))
     #
     for i in range(iterations):
-        # Assign all the points to the nearest cluster centroid
+        # find all the points to the nearest cluster centroid
         # calculating Euclidean distance
         clss = np.argmin(np.linalg.norm(X[:, None] - C, axis=-1), axis=-1)
-        temp_C = np.copy(C)
-        # Recompute centroids of newly formed clusters
+        newCentroid = np.copy(C)
+        # Recompute position for every centroids for every cluster
         for c in range(k):
             # If a cluster contains no data points during the update step
             # reinitialize its centroid
+            # else recompute centroid with average of all points
             if c not in clss:
-                temp_C[c] = np.random.uniform(_min, _max)
+                newCentroid[c] = np.random.uniform(_min, _max)
             else:
-                temp_C[c] = np.mean(X[clss == c], axis=0)
-        # Centroids of newly formed clusters do not change return
-        if (temp_C == C).all():
+                newCentroid[c] = np.mean(X[clss == c], axis=0)
+        # if Centroids of newly formed clusters do not change return
+        # else assign new centroids to recompute it
+        if np.array_equal(newCentroid, C):
             return (C, clss)
         else:
-            C = temp_C
+            C = newCentroid
     clss = np.argmin(np.linalg.norm(X[:, None] - C, axis=-1), axis=-1)
     return (C, clss)
