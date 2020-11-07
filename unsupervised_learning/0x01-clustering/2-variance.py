@@ -17,6 +17,8 @@ def variance(X, C):
         return None
     if type(C) is not np.ndarray or len(C.shape) != 2:
         return None
+    if X.shape[1] != C.shape[1]:
+        return None
     # within variance
     var = np.sum((X - C[:, np.newaxis])**2, axis=-1)
     # between clusters
