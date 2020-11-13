@@ -2,6 +2,8 @@
 '''Viretbi Algorithm
 - https://www.adeveloperdiary.com/data-science/machine-learning/
 implement-viterbi-algorithm-in-hidden-markov-model-using-python-and-r/
+- http://www.blackarbs.com/blog/
+introduction-hidden-markov-models-python-networkx-sklearn/2/9/2017
 - https://github.com/zhangyk8/HMM/blob/master/HMM.py
 '''
 
@@ -48,9 +50,11 @@ def viterbi(Observation, Emission, Transition, Initial):
         return None, None
     T = Observation.shape[0]
     N, M = Emission.shape
+    # delta --> highest probability of any path that reaches state i
     d = np.zeros([N, T])
+    # phi --> argmax by time step for each state
     f = np.empty([N, T], dtype=int)
-    # Base case
+    # # init delta and phi 
     d[:, 0] = np.multiply(Initial.T, Emission[:, Observation[0]])
     # Recursive case
     for t in range(1, T):
