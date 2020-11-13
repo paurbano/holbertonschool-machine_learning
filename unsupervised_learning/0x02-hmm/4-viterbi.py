@@ -54,7 +54,7 @@ def viterbi(Observation, Emission, Transition, Initial):
     d = np.zeros([N, T])
     # phi --> argmax by time step for each state
     f = np.empty([N, T], dtype=int)
-    # # init delta and phi 
+    # # init delta and phi
     d[:, 0] = np.multiply(Initial.T, Emission[:, Observation[0]])
     # Recursive case
     for t in range(1, T):
