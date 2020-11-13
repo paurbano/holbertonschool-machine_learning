@@ -8,6 +8,7 @@ import numpy as np
 
 
 def forward(Observation, Emission, Transition, Initial):
+    '''performs the forward algorithm for a hidden markov model'''
     T = Observation.shape[0]
     N, M = Emission.shape
     F = np.zeros([N, T], dtype='float')
@@ -19,6 +20,7 @@ def forward(Observation, Emission, Transition, Initial):
 
 
 def backward(Observation, Emission, Transition, Initial):
+    '''performs the backward algorithm for a hidden markov model'''
     T = Observation.shape[0]
     N, M = Emission.shape
     B = np.empty([N, T], dtype='float')
