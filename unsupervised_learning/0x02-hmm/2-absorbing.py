@@ -1,4 +1,4 @@
-#!/usr/bin/env ptyhon3
+#!/usr/bin/env python3
 '''Absorbing Chains '''
 
 import numpy as np
