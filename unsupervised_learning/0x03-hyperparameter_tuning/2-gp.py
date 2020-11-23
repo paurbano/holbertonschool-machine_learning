@@ -58,6 +58,7 @@ class GaussianProcess():
             sigma: is a numpy.ndarray of shape (s,) containing the variance
                     for each point in X_s, respectively
         '''
+        '''
         # Sigma
         sigma_y = 1e-8
         K = self.K + sigma_y**2 * np.eye(len(self.X))
@@ -71,6 +72,13 @@ class GaussianProcess():
         # s2 = np.diag(K_ss) - np.sum(Lk**2, axis=0)
         s2 = K_ss - K_s.T.dot(K_inv).dot(K_s)
         return mu, np.diag(s2)
+        '''
+        Ks = self.kernel(self.X, X_s)
+        Kss = self.kernel(X_s, X_s)
+        Kinv = np.linalg.inv(self.K)
+        mus = Ks.T.dot(Kinv).dot(self.Y)
+        covs = Kss - Ks.T.dot(Kinv).dot(Ks)
+        return mus.T[0], np.diag(covs)
 
     def update(self, X_new, Y_new):
         '''updates a Gaussian Process:
