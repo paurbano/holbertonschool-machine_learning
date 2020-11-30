@@ -18,12 +18,12 @@ def autoencoder(input_dims, filters, latent_dims):
             the filters should be reversed for the decoder
         latent_dims: is a tuple of integers containing the dimensions of the
                     latent space representation
-        Returns: encoder, decoder, auto
+    Returns: encoder, decoder, auto
             encoder: is the encoder model
             decoder: is the decoder model
             auto: is the full autoencoder model
-        The autoencoder model should be compiled using adam optimization and
-        binary cross-entropy loss
+    The autoencoder model should be compiled using adam optimization and
+    binary cross-entropy loss
     '''
     # define the input for the model
     inputs = keras.Input(shape=(input_dims))
@@ -57,7 +57,7 @@ def autoencoder(input_dims, filters, latent_dims):
                                     padding='same')(x)
         x = keras.layers.UpSampling2D((2, 2))(x)
     # build the decoder model
-    decoded = keras.layers.Conv2D(input_dims[2], (3, 3), activation='sigmoid',
+    decoded = keras.layers.Conv2D(input_dims[-1], (3, 3), activation='sigmoid',
                                   padding='same')(x)
     decoder = keras.Model(latentInputs, decoded)
 
