@@ -29,6 +29,281 @@
 <li><a href="/rltoken/xJtOVXzAThX1hxCf6jDiag" title="BRNN" target="_blank">BRNN</a></li>
 </ul>
 
+
+  
+<h4 class="quiz_question">Question #0</h4>
+<p id="quiz_questions_collapse_toggle">Hide</p>
+  <!-- Quiz question tags -->
+
+  <!-- Quiz question Body -->
+  <p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2020/3/de01006f78ee385820615002c3bf281f22e1b1af.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20201203%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20201203T195109Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=8a390ea036a0c5cca2e2c934d53247b9f003b41c130ac88cc79cb53da59b61b8" alt="" style=""></p>
+
+<p>For the following questions, base your answers on the diagram above.</p>
+
+<p>Which are RNNs?</p>
+  <!-- Quiz question Answers -->
+<ul class="quiz_question_answers" data-question-id="1016">
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1016" data-quiz-answer-id="1585691385120" disabled="">
+    <p>A</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1016" data-quiz-answer-id="1585691386213" disabled="" checked="">
+    <p>B</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1016" data-quiz-answer-id="1585691387885" disabled="" checked="">
+    <p>C</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1016" data-quiz-answer-id="1585691389205" disabled="" checked="">
+    <p>D</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1016" data-quiz-answer-id="1585691390482" disabled="" checked="">
+    <p>E</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1016" data-quiz-answer-id="1585695009486" disabled="">
+    <p>F</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1016" data-quiz-answer-id="1585695012193" disabled="" checked="">
+    <p>G</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1016" data-quiz-answer-id="1585695014723" disabled="">
+    <p>H</p>
+  </li>
+</ul>
+    <!-- Quiz question Tips -->
+</div>
+
+</div>
+<div class="quiz_question_item_container" data-role="quiz_question1019" data-position="2">
+  <div class=" clearfix" id="quiz_question-1019">
+    
+  <h4 class="quiz_question">Question #1</h4>
+
+  <!-- Quiz question tags -->
+  <!-- Quiz question Body -->
+  <p>Which are basic RNNs?</p>
+
+  <!-- Quiz question Answers -->
+  <ul class="quiz_question_answers" data-question-id="1019">
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1019" data-quiz-answer-id="1585691415275" disabled="">
+    <p>A</p>
+  </li>
+
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1019" data-quiz-answer-id="1585691422451" disabled="" checked="">
+    <p>B</p>
+  </li>
+
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1019" data-quiz-answer-id="1585691426466" disabled="" checked="">
+    <p>C</p>
+  </li>
+
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1019" data-quiz-answer-id="1585691430041" disabled="">
+    <p>D</p>
+  </li>
+
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1019" data-quiz-answer-id="1585691432462" disabled="">
+    <p>E</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1019" data-quiz-answer-id="1585695048710" disabled="">
+    <p>F</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1019" data-quiz-answer-id="1585695051373" disabled="">
+    <p>G</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1019" data-quiz-answer-id="1585695054075" disabled="">
+    <p>H</p>
+  </li>
+</ul>
+    <!-- Quiz question Tips -->
+</div>
+
+</div>
+<div class="quiz_question_item_container" data-role="quiz_question1017" data-position="3">
+  <div class=" clearfix" id="quiz_question-1017">
+    
+  <h4 class="quiz_question">Question #2</h4>
+
+  <!-- Quiz question tags -->
+
+  <!-- Quiz question Body -->
+  <p>Which are Deep RNNs?</p>
+
+  <!-- Quiz question Answers -->
+<ul class="quiz_question_answers" data-question-id="1017">
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1017" data-quiz-answer-id="1585691446478" disabled="">
+    <p>A</p>
+  </li>
+  <li class="">
+  <input type="checkbox" data-quiz-question-id="1017" data-quiz-answer-id="1585691452097" disabled="">
+  <p>B</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1017" data-quiz-answer-id="1585691458697" disabled="">
+    <p>C</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1017" data-quiz-answer-id="1585691463485" disabled="">
+    <p>D</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1017" data-quiz-answer-id="1585691467002" disabled="" checked="">
+    <p>E</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1017" data-quiz-answer-id="1585695077559" disabled="">
+    <p>F</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1017" data-quiz-answer-id="1585695081590" disabled="" checked="">
+    <p>G</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1017" data-quiz-answer-id="1585695085319" disabled="">
+    <p>H</p>
+  </li>
+</ul>
+
+  <!-- Quiz question Tips -->
+
+</div>
+</div>
+<div class="quiz_question_item_container" data-role="quiz_question1018" data-position="4">
+  <div class=" clearfix" id="quiz_question-1018">
+    
+  <h4 class="quiz_question">Question #3</h4>
+
+  <!-- Quiz question tags -->
+
+  <!-- Quiz question Body -->
+  <p>Which are Bidirectional RNNs?</p>
+
+  <!-- Quiz question Answers -->
+  <ul class="quiz_question_answers" data-question-id="1018">
+  <li class="">
+  <input type="checkbox" data-quiz-question-id="1018" data-quiz-answer-id="1585691474220" disabled="">
+  <p>A</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1018" data-quiz-answer-id="1585691475433" disabled="">
+    <p>B</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1018" data-quiz-answer-id="1585691480256" disabled="">
+    <p>C</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1018" data-quiz-answer-id="1585691484059" disabled="" checked="">
+    <p>D</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1018" data-quiz-answer-id="1585691505533" disabled="">
+    <p>E</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1018" data-quiz-answer-id="1585695107451" disabled="">
+    <p>F</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1018" data-quiz-answer-id="1585695110439" disabled="" checked="">
+    <p>G</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1018" data-quiz-answer-id="1585695116384" disabled="">
+    <p>H</p>
+  </li>
+</ul>
+
+  <!-- Quiz question Tips -->
+</div>
+</div>
+<div class="quiz_question_item_container" data-role="quiz_question1027" data-position="5">
+  <div class=" clearfix" id="quiz_question-1027">
+    
+  <h4 class="quiz_question">Question #4</h4>
+
+  <!-- Quiz question tags -->
+
+  <!-- Quiz question Body -->
+  <p>What does RNN stand for?</p>
+
+
+  <!-- Quiz question Answers -->
+  <ul class="quiz_question_answers" data-question-id="1027">
+  <li class="">
+  <input type="checkbox" data-quiz-question-id="1027" data-quiz-answer-id="1585695576860" disabled="">
+  <p>Recursive Neural Network</p>
+  </li>
+  <li class="">
+  <input type="checkbox" data-quiz-question-id="1027" data-quiz-answer-id="1585695585778" disabled="">
+  <p>Radial Neural Network</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1027" data-quiz-answer-id="1585695593334" disabled="" checked="">
+    <p>Recurrent Neural Network</p>
+  </li>
+
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1027" data-quiz-answer-id="1585695602184" disabled="">
+    <p>Representational Neural Network</p>
+  </li>
+</ul>
+
+  <!-- Quiz question Tips -->
+
+</div>
+</div>
+<div class="quiz_question_item_container" data-role="quiz_question1028" data-position="6">
+<div class=" clearfix" id="quiz_question-1028">
+    
+  <h4 class="quiz_question">Question #5</h4>
+
+  <!-- Quiz question tags -->
+
+  <!-- Quiz question Body -->
+  <p>RNNs are typically used to analyze data that:</p>
+
+  <!-- Quiz question Answers -->
+  <ul class="quiz_question_answers" data-question-id="1028">
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1028" data-quiz-answer-id="1585695725494" disabled="">
+    <p>cannot be classified</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1028" data-quiz-answer-id="1585695736510" disabled="" checked="">
+    <p>is temporal in nature</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1028" data-quiz-answer-id="1585695806312" disabled="">
+    <p>is too large for other types of networks</p>
+  </li>
+  <li class="">
+    <input type="checkbox" data-quiz-question-id="1028" data-quiz-answer-id="1585695828386" disabled="">
+    <p>is too small for other types of networks</p>
+  </li>
+</ul>
+
+  <!-- Quiz question Tips -->
+
+</div>
+</div>
+
+</section>
+
 <h2 class="gap">Tasks</h2>
 
 <section class="formatted-content">
