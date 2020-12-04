@@ -20,7 +20,7 @@ class BidirectionalCell():
         self.Wy = np.random.normal(size=(h + h, o))
         self.bhf = np.zeros((1, h))
         self.bhb = np.zeros((1, h))
-        self.by = np.zeros((1, h))
+        self.by = np.zeros((1, o))
 
     def softmax(self, x):
         """ Softmax function """
