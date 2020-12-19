@@ -27,7 +27,7 @@ def pre_process():
     training_set = sc.fit_transform(bitstamp)
 
     # print(training_set.shape)
-    # del bitstamp
+    del bitstamp
     # print(training_set)
     result = []
     for index in range(len(training_set) - 24):

@@ -29,6 +29,8 @@ model.add(K.layers.Dense(units=1))
 model.compile(optimizer='adam', loss='mean_squared_error')
 
 # use a tf.data.Dataset to feed data to your model
+y_train = y_train.reshape(-1)
+y_test = y_test.reshape(-1)
 train_dataset = tf.data.Dataset.from_tensor_slices((X_train, y_train))
 test_dataset = tf.data.Dataset.from_tensor_slices((x_test, y_test))
 train_dataset = train_dataset.shuffle(100).batch(32)
