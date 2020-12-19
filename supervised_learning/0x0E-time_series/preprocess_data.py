@@ -7,6 +7,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 def pre_process():
+    ''' pre process function'''
     filename = 'bitstampUSD_1-min_data_2012-01-01_to_2020-04-22.csv'
     bitstamp = pd.read_csv(filename)
     bitstamp = bitstamp.drop(["High", "Low", "Open", "Volume_(BTC)",
