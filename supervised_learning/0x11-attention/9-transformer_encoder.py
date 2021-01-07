@@ -36,9 +36,9 @@ class Encoder(tf.keras.layers.Layer):
         self.N = N
 
         self.embedding = tf.keras.layers.Embedding(input_vocab, dm)
-        self.positional_encoding = positional_encoding(max_seq_len, self.dm)
+        self.positional_encoding = positional_encoding(max_seq_len, dm)
 
-        self.blocks = [EncoderBlock(dm, N, hidden, drop_rate)
+        self.blocks = [EncoderBlock(dm, h, hidden, drop_rate)
                        for _ in range(N)]
 
         self.dropout = tf.keras.layers.Dropout(drop_rate)
@@ -58,7 +58,7 @@ class Encoder(tf.keras.layers.Layer):
         # adding embedding and position encoding.
         x = self.embedding(x)  # (batch_size, input_seq_len, d_model)
         x *= tf.math.sqrt(tf.cast(self.dm, tf.float32))
-        x += self.positional_encoding[:, :seq_len, :]
+        x += self.positional_encoding[:seq_len, :]
 
         x = self.dropout(x, training=training)
 
