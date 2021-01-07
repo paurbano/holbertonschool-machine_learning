@@ -54,7 +54,7 @@ class DecoderBlock(tf.keras.layers.Layer):
         out1 = self.layernorm1(attn1 + x)
 
         attn2, attn_weights_block2 = self.mha2(
-            enc_output, enc_output, out1, padding_mask)
+            encoder_output, encoder_output, out1, padding_mask)
         attn2 = self.dropout2(attn2, training=training)
         out2 = self.layernorm2(attn2 + out1)
         ffn = tf.keras.Sequential([self.dense_hidden, self.dense_output])
