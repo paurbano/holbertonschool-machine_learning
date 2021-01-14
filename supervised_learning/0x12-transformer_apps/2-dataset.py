@@ -70,7 +70,7 @@ class Dataset():
             pt: tf.Tensor containing the Portuguese sentence
             en: tf.Tensor containing the corresponding English sentence
         '''
-        result_pt, result_en = tf.py_function(encode, [pt, en],
+        result_pt, result_en = tf.py_function(self.encode, [pt, en],
                                               [tf.int64, tf.int64])
         result_pt.set_shape([None])
         result_en.set_shape([None])

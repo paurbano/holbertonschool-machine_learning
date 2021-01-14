@@ -33,7 +33,8 @@ class Dataset():
         data_train = data_train.map(self.tf_encode)
         data_train = data_train.filter(self.filter_max_length)
         data_train = data_train.cache()
-        data_train = data_train.shuffle(data_info.splits['train'].num_examples)
+        BUFFER_SIZE = data_info.splits['train'].num_examples
+        data_train = data_train.shuffle(BUFFER_SIZE).padded_batch(batch_size)
         self.data_train = data_train.prefetch(tf.data.experimental.AUTOTUNE)
 
         data_valid = data_valid.map(self.tf_encode)
@@ -82,7 +83,7 @@ class Dataset():
             pt: tf.Tensor containing the Portuguese sentence
             en: tf.Tensor containing the corresponding English sentence
         '''
-        result_pt, result_en = tf.py_function(encode, [pt, en],
+        result_pt, result_en = tf.py_function(self.encode, [pt, en],
                                               [tf.int64, tf.int64])
         result_pt.set_shape([None])
         result_en.set_shape([None])
