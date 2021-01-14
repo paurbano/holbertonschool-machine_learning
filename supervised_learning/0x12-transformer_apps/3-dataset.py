@@ -21,11 +21,10 @@ class Dataset():
         tokenizer_en: is the English tokenizer created from the training set
         '''
         self.MAX_LENGTH = max_len
-        data_train, data_info = tfds.load('ted_hrlr_translate/pt_to_en',
-                                          split='train', as_supervised=True,
-                                          with_info=True)
-        data_valid = tfds.load('ted_hrlr_translate/pt_to_en',
-                               split='validation', as_supervised=True)
+        examples, metadata = tfds.load('ted_hrlr_translate/pt_to_en',
+                                       with_info=True,
+                                       as_supervised=True)
+        data_train, data_valid = examples['train'], examples['validation']
         tokenizer_pt, tokenizer_en = self.tokenize_dataset(data_train)
         self.tokenizer_pt = tokenizer_pt
         self.tokenizer_en = tokenizer_en
@@ -33,7 +32,7 @@ class Dataset():
         data_train = data_train.map(self.tf_encode)
         data_train = data_train.filter(self.filter_max_length)
         data_train = data_train.cache()
-        BUFFER_SIZE = data_info.splits['train'].num_examples
+        BUFFER_SIZE = metadata.splits['train'].num_examples
         data_train = data_train.shuffle(BUFFER_SIZE).padded_batch(batch_size)
         self.data_train = data_train.prefetch(tf.data.experimental.AUTOTUNE)
 
