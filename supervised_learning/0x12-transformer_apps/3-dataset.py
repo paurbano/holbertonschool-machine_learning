@@ -20,7 +20,7 @@ class Dataset():
         tokenizer_pt: is the Portuguese tokenizer created from the training set
         tokenizer_en: is the English tokenizer created from the training set
         '''
-        def filter_max_length(self, x, y, max_length=max_len):
+        def filter_max_length(x, y, max_length=max_len):
             '''filter method'''
             return tf.logical_and(tf.size(x) <= max_length,
                                   tf.size(y) <= max_length)
@@ -34,7 +34,7 @@ class Dataset():
         self.tokenizer_en = tokenizer_en
 
         data_train = data_train.map(self.tf_encode)
-        data_train = data_train.filter(self.filter_max_length)
+        data_train = data_train.filter(filter_max_length)
         data_train = data_train.cache()
         BUFFER_SIZE = metadata.splits['train'].num_examples
         data_train = data_train.shuffle(BUFFER_SIZE).\
@@ -42,7 +42,7 @@ class Dataset():
         self.data_train = data_train.prefetch(tf.data.experimental.AUTOTUNE)
 
         data_valid = data_valid.map(self.tf_encode)
-        data_valid = data_valid.filter(self.filter_max_length).\
+        data_valid = data_valid.filter(filter_max_length).\
             padded_batch(batch_size, padded_shapes=([None], [None]))
         self.data_valid = data_valid
 
