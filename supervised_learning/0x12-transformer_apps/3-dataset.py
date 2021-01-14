@@ -20,7 +20,11 @@ class Dataset():
         tokenizer_pt: is the Portuguese tokenizer created from the training set
         tokenizer_en: is the English tokenizer created from the training set
         '''
-        self.MAX_LENGTH = max_len
+        def filter_max_length(self, x, y, max_length=max_len):
+            '''filter method'''
+            return tf.logical_and(tf.size(x) <= max_length,
+                                  tf.size(y) <= max_length)
+
         examples, metadata = tfds.load('ted_hrlr_translate/pt_to_en',
                                        with_info=True,
                                        as_supervised=True)
@@ -33,12 +37,13 @@ class Dataset():
         data_train = data_train.filter(self.filter_max_length)
         data_train = data_train.cache()
         BUFFER_SIZE = metadata.splits['train'].num_examples
-        data_train = data_train.shuffle(BUFFER_SIZE).padded_batch(batch_size)
+        data_train = data_train.shuffle(BUFFER_SIZE).\
+            padded_batch(batch_size, padded_shapes=([None], [None]))
         self.data_train = data_train.prefetch(tf.data.experimental.AUTOTUNE)
 
         data_valid = data_valid.map(self.tf_encode)
         data_valid = data_valid.filter(self.filter_max_length).\
-            padded_batch(batch_size)
+            padded_batch(batch_size, padded_shapes=([None], [None]))
         self.data_valid = data_valid
 
     def tokenize_dataset(self, data):
@@ -88,9 +93,3 @@ class Dataset():
         result_en.set_shape([None])
 
         return result_pt, result_en
-
-    def filter_max_length(self, x, y):
-        '''filter method'''
-        max_length = self.MAX_LENGTH
-        return tf.logical_and(tf.size(x) <= max_length,
-                              tf.size(y) <= max_length)
