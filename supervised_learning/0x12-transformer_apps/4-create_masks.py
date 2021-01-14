@@ -2,7 +2,7 @@
 '''Create Masks
 https://www.tensorflow.org/tutorials/text/transformer#masking
 '''
-import tensorflow as tf
+import tensorflow.compat.v2 as tf
 
 
 def create_masks(inputs, target):
@@ -33,7 +33,6 @@ def create_masks(inputs, target):
     size = tf.shape(target)[1]
     look_ahead_mask = 1 - tf.linalg.band_part(tf.ones((size, size)), -1, 0)
 
-    # dec_target_padding_mask = create_padding_mask(tar)
     dec_target_mask = tf.cast(tf.math.equal(target, 0), tf.float32)
     dec_target_mask = dec_target_padding_mask[:, tf.newaxis, tf.newaxis, :]
 
