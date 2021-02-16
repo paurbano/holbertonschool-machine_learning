@@ -1,7 +1,7 @@
 #  Machine Learning
 ![](https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/machine-learning1.jpg)
 
- These is the training program on machine learning (ML) from holberton School, split into three trimester. Start with some of maths and then go deep with differents techniques (Supervised, Unsupervised,Reinforcement) all across practical exercises.
+ This is the training program on machine learning (ML) from holberton School, split into three trimester. Start with some of maths and then go deep with differents techniques (Supervised, Unsupervised,Reinforcement) learning, all across practical exercises.
 
 Some of topics of the curriculum:
 ## First Trimester
