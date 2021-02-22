@@ -25,11 +25,13 @@ model.add(Flatten())
 model.add(Dense(512, activation='relu'))
 model.add(Dense(nb_actions, activation='relu'))
 
+'''
 policy = LinearAnnealedPolicy(GreedyQPolicy(), attr='eps', value_max=1.,
                               value_min=.1, value_test=.05, nb_steps=10000)
+'''
 memory = SequentialMemory(limit=1000000, window_length=WINDOW_LENGTH)
 
-dqn = DQNAgent(model=model, nb_actions=nb_actions, policy=policy,
+dqn = DQNAgent(model=model, nb_actions=nb_actions, policy=GreedyQPolicy(),
                memory=memory, processor=processor, nb_steps_warmup=500,
                gamma=.99, target_model_update=1e-2, train_interval=4,
                delta_clip=1.)
