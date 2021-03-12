@@ -13,8 +13,8 @@ def sentientPlanets():
     # page = 1
     while _next:
         for result in json.get('results'):
-            if result['designation'] == 'sentient' or
-            result['classification'] == 'sentient':
+            if result['designation'] == 'sentient' or\
+               result['classification'] == 'sentient':
                 planet = result['homeworld']
                 if planet:
                     p = requests.get(planet)
