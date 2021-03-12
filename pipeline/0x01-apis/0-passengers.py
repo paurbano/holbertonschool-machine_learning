@@ -15,7 +15,7 @@ def availableShips(passengerCount):
     while _next:
         for result in json.get('results'):
             try:
-                passengers = result['passengers'].replace(',','')
+                passengers = result['passengers'].replace(',', '')
                 if int(passengers) >= passengerCount:
                     list_ships.append(result['name'])
             except ValueError:
