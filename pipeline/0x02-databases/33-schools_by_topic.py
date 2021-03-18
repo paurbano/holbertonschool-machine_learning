@@ -7,7 +7,8 @@ def schools_by_topic(mongo_collection, topic):
     '''list of school having a specific topic
     '''
     list_schools = []
-    mycol = mongo_collection.find({'topics': {'$all': [topics]}})
+    mycol = mongo_collection.find({'topics': {'$all': [topic]}})
     for res in mycol:
         list_schools.append(res)
+
     return list_schools
