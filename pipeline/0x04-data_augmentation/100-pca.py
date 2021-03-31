@@ -8,7 +8,7 @@ import tensorflow as tf
 
 
 def pca_color(image, alphas):
-    '''performs PCA color augmentation as described 
+    '''performs PCA color augmentation as described
     Args:
         image is a 3D tf.Tensor containing the image to change
         alphas a tuple of length 3 containing the amount that each channel
@@ -26,7 +26,7 @@ def pca_color(image, alphas):
     # Step 4. Centering the pixels around their mean
     img_centered = img_rs - np.mean(img_rs, axis=0)
     # Step 5. Calculate the 3x3 covariance matrix using numpy.cov.
-    # The parameter rowvar is set as False because each column represents a 
+    # The parameter rowvar is set as False because each column represents a
     # variable, while rows contain the values.
     img_cov = np.cov(img_centered, rowvar=False)
     # Step 6. Calculate the eigenvalues (3x1 matrix) and eigenvectors
