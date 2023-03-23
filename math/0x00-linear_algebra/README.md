@@ -23,6 +23,7 @@
 <li><a href="/rltoken/iv73fN04gTbpeV_XcIIaPQ" title="numpy.ndarray.transpose" target="_blank">numpy.ndarray.transpose</a> </li>
 <li><a href="/rltoken/MbHJEqjwavimnL8HRtaYCA" title="numpy.matmul" target="_blank">numpy.matmul</a> </li>
 </ul>
+
 # 0x00. Linear Algebra
 General
 * What is a vector?
