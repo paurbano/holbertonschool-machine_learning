@@ -1,5 +1,37 @@
 # 0x01. Plotting
 
+<h2>Resources</h2>
+<p><strong>Read or watch</strong>:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Plot_%28graphics%29" title="Plot (graphics)" target="_blank">Plot (graphics)</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Scatter_plot" title="Scatter plot" target="_blank">Scatter plot</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Line_chart" title="Line chart" target="_blank">Line chart</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Bar_chart" title="Bar chart" target="_blank">Bar chart</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Histogram" title="Histogram" target="_blank">Histogram</a> </li>
+</ul>
+<p><strong>References</strong>:</p>
+<ul>
+<li><a href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html" title="Pyplot tutorial" target="_blank">Pyplot tutorial</a> </li>
+<li><a href="https://matplotlib.org/3.5.3/api/_as_gen/matplotlib.pyplot.html" title="matplotlib.pyplot" target="_blank">matplotlib.pyplot</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html" title="matplotlib.pyplot.plot" target="_blank">matplotlib.pyplot.plot</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html" title="matplotlib.pyplot.scatter" target="_blank">matplotlib.pyplot.scatter</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar.html" title="matplotlib.pyplot.bar" target="_blank">matplotlib.pyplot.bar</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html" title="matplotlib.pyplot.hist" target="_blank">matplotlib.pyplot.hist</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html" title="matplotlib.pyplot.xlabel" target="_blank">matplotlib.pyplot.xlabel</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html" title="matplotlib.pyplot.ylabel" target="_blank">matplotlib.pyplot.ylabel</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html" title="matplotlib.pyplot.title" target="_blank">matplotlib.pyplot.title</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html" title="matplotlib.pyplot.subplot" target="_blank">matplotlib.pyplot.subplot</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html" title="matplotlib.pyplot.subplots" target="_blank">matplotlib.pyplot.subplots</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot2grid.html" title="matplotlib.pyplot.subplot2grid" target="_blank">matplotlib.pyplot.subplot2grid</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html" title="matplotlib.pyplot.suptitle" target="_blank">matplotlib.pyplot.suptitle</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xscale.html" title="matplotlib.pyplot.xscale" target="_blank">matplotlib.pyplot.xscale</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.yscale.html" title="matplotlib.pyplot.yscale" target="_blank">matplotlib.pyplot.yscale</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlim.html" title="matplotlib.pyplot.xlim" target="_blank">matplotlib.pyplot.xlim</a> </li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylim.html" title="matplotlib.pyplot.ylim" target="_blank">matplotlib.pyplot.ylim</a> </li>
+<li><a href="https://matplotlib.org/2.0.2/mpl_toolkits/mplot3d/tutorial.html" title="mplot3d tutorial" target="_blank">mplot3d tutorial</a> </li>
+<li><a href="https://matplotlib.org/stable/tutorials/index.html" title="additional tutorials" target="_blank">additional tutorials</a> </li>
+</ul>
+
 ## General
 * What is a plot?
 * What is a scatter plot? line graph? bar graph? histogram?
@@ -27,7 +59,7 @@ Update your `Vagrantfile` to include the following:
 
 If you are running vagrant on a Mac, you will have to install XQuartz and restart your computer.
 
-If you are running vagrant on a Windows computer, you may have to follow these instructions.
+If you are running vagrant on a Windows computer, you may have to follow [these instructions](https://jcook0017.medium.com/how-to-enable-x11-forwarding-in-windows-10-on-a-vagrant-virtual-box-running-ubuntu-d5a7b34363f).
 
 Once complete, you should simply be able to vagrant ssh to log into your VM and then any GUI application should forward to your local machine.
 
