@@ -1,3 +1,28 @@
+<h2>Resources</h2>
+<p><strong>Read or watch</strong>:</p>
+<ul>
+<li><a href="/rltoken/C05mTOfKzZgz_AVSosNKIw" title="Introduction to vectors" target="_blank">Introduction to vectors</a> </li>
+<li><a href="/rltoken/vLe4BBPfmLXy2s_Idqo87w" title="What is a matrix?" target="_blank">What is a matrix?</a> (<em>not <a href="/rltoken/Zad2ReJ9SU4IuQ3ZX986qw" title="the matrix" target="_blank">the matrix</a></em>)</li>
+<li><a href="/rltoken/xHWwQjqH9tgEcskvFQaV7A" title="Transpose" target="_blank">Transpose</a> </li>
+<li><a href="/rltoken/2tYcOFY35stXjd0nhTpgFA" title="Understanding the dot product" target="_blank">Understanding the dot product</a> </li>
+<li><a href="/rltoken/pV4znghCxaXAAny4Ou-cNw" title="Matrix Multiplication" target="_blank">Matrix Multiplication</a> </li>
+<li><a href="/rltoken/ih50DhE4FvilyItYPo1x5A" title="What is the relationship between matrix multiplication and the dot product?" target="_blank">What is the relationship between matrix multiplication and the dot product?</a> </li>
+<li><a href="/rltoken/DnAvjbmojZutluWV9OJVOg" title="The Dot Product, Matrix Multiplication, and the Magic of Orthogonal Matrices" target="_blank">The Dot Product, Matrix Multiplication, and the Magic of Orthogonal Matrices</a> (<em>advanced</em>)</li>
+<li><a href="/rltoken/MBHHb0eiN0OummbEdI9g_Q" title="numpy tutorial" target="_blank">numpy tutorial</a> (<em>until Shape Manipulation (excluded)</em>)</li>
+<li><a href="/rltoken/L8RdIDGi3GGO-_erGcMORg" title="numpy basics" target="_blank">numpy basics</a> (<em>until Universal Functions (included)</em>)</li>
+<li><a href="/rltoken/1LPk4EosRetS_C7eX-mQNA" title="array indexing" target="_blank">array indexing</a> </li>
+<li><a href="/rltoken/slRzAgt6aom5-Nj5XSdUcQ" title="numerical operations on arrays" target="_blank">numerical operations on arrays</a> </li>
+<li><a href="/rltoken/xgq6QIOHufhg8lHCZn0jwA" title="Broadcasting" target="_blank">Broadcasting</a> </li>
+<li><a href="/rltoken/Q5FEVV4BArJtnJnbReng7Q" title="numpy mutations and broadcasting" target="_blank">numpy mutations and broadcasting</a> </li>
+</ul>
+<p><strong>References</strong>:</p>
+<ul>
+<li><a href="/rltoken/Ah-QtZhAhFSYnloj837a8Q" title="numpy.ndarray" target="_blank">numpy.ndarray</a> </li>
+<li><a href="/rltoken/mvx-STJbJ4Nn1N_BFfpnaQ" title="numpy.ndarray.shape" target="_blank">numpy.ndarray.shape</a> </li>
+<li><a href="/rltoken/I1V8iDWar7Hnoh_VwQzZ_Q" title="numpy.transpose" target="_blank">numpy.transpose</a> </li>
+<li><a href="/rltoken/iv73fN04gTbpeV_XcIIaPQ" title="numpy.ndarray.transpose" target="_blank">numpy.ndarray.transpose</a> </li>
+<li><a href="/rltoken/MbHJEqjwavimnL8HRtaYCA" title="numpy.matmul" target="_blank">numpy.matmul</a> </li>
+</ul>
 # 0x00. Linear Algebra
 General
 * What is a vector?
