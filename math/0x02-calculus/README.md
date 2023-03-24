@@ -194,7 +194,7 @@ alexa@ubuntu:0x02-calculus$
 ```
 
 ## 11. Good grooming is integral and impeccable style is a must
-<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/ada047ad4cbee23dfed8.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=d0984455f6e902208dd53182e7d1d1e8e52bff376c137244dc3f6fea5fcc322f" alt="" style="">
+<img src="https://latex.codecogs.com/svg.image?\int&space;x^{3}dx" alt="" style="">
 
 1. 3x^2 + C
 2. x^4/4 + C
@@ -202,7 +202,7 @@ alexa@ubuntu:0x02-calculus$
 4. x^4/3 + C
 
 ## 12. We are all an integral part of the web of life
-<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/9ed107b0dcdde8dd49ac.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=306297646dd10750a818335f24f70be2b8d126ac7a855550eee743ea1eb3033b" alt="" style="">
+<img src="https://latex.codecogs.com/svg.image?\int&space;e^{2y}&space;dy" alt="" style="">
 
 1. e^2y + C
 2. e^y + C
@@ -210,7 +210,7 @@ alexa@ubuntu:0x02-calculus$
 4. e^y/2 + C
 
 ## 13. Create a definite plan for carrying out your desire and begin at once
-<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/b94ec3cf3ae61acd0275.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=399b00801d66b0ad5432f20659e46847e73bef7f2b554bd1c14bbee6279f7ba9" alt="" style="">
+<img src="https://latex.codecogs.com/svg.image?\int_{0}^{3}&space;u^{2}&space;du" alt="" style="">
 
 1. 3
 2. 6
@@ -218,7 +218,7 @@ alexa@ubuntu:0x02-calculus$
 4. 27
 
 ## 14. My talents fall within definite limitations
-<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/44057bed4938503a9978.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=1635bafa96f582522190d95209ef7e719415d8145fe891e16e2ae4150027faf1" alt="" style="">
+<img src="https://latex.codecogs.com/svg.image?\int_{-1}^{0}\frac{1}{v}&space;dv" alt="" style="">
 
 1. -1
 2. 0
@@ -226,7 +226,7 @@ alexa@ubuntu:0x02-calculus$
 4. undefined
 
 ## 15. Winners are people with definite purpose in life
-<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/3d88d653f3ba869b43b1.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=d03f738dd0c8d4b9c1fef7e7af67d8d6801aa72b3a20e794673ce032ce04e986" alt="" style="">
+<img src="https://latex.codecogs.com/svg.image?\int_{0}^{5}x&space;dy" alt="" style="">
 
 1. 5
 2. 5x
@@ -234,7 +234,7 @@ alexa@ubuntu:0x02-calculus$
 4. 25x
 
 ## 16. Double whammy
-<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/a2409c32448118661d05.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=571458adfffa8d8e42e402b0b678854bc7dfce06034b09f9dae86a19434837b7" alt="" style="">
+<img src="https://latex.codecogs.com/svg.image?\int_{1}^{1}&space;\int_{0}^{3}&space;x^{2}y^{-1}&space;dxdy" alt="" style="">
 
 1. 9ln(2)
 2. 9
