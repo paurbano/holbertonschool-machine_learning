@@ -1,3 +1,39 @@
+<h2>Resources</h2>
+<p><strong>Read or watch</strong>:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=TjMLzklnn2c" title="Sigma Notation" target="_blank">Sigma Notation</a> (<em>starting at 0:32</em>)</li>
+<li><a href="https://www.youtube.com/watch?v=sP1-EQJKSgk" title="Π Product Notation" target="_blank">Π Product Notation</a> (<em>up to 0:20</em>)</li>
+<li><a href="https://mathmaine.com/2010/04/01/sigma-and-pi-notation/" title="Sigma and Pi Notation" target="_blank">Sigma and Pi Notation</a> </li>
+<li><a href="https://virtualnerd.com/algebra-2/sequences-series/define/defining-series/series-definition" title="What is a Series?" target="_blank">What is a Series?</a> </li>
+<li><a href="https://www.quickanddirtytips.com/" title="What is a Mathematical Series?" target="_blank">What is a Mathematical Series?</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_mathematical_series#Sums_of_powers" title="List of mathematical series: Sums of powers" target="_blank">List of mathematical series: Sums of powers</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Bernoulli_number" title="Bernoulli Numbers(Bn)" target="_blank">Bernoulli Numbers(Bn)</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Bernoulli_polynomials" title="Bernoulli Polynomials(Bn(x))" target="_blank">Bernoulli Polynomials(Bn(x))</a> </li>
+<li><a href="https://simple.wikipedia.org/wiki/Derivative_%28mathematics%29" title="Derivative (mathematics)" target="_blank">Derivative (mathematics)</a> </li>
+<li><a href="https://ml-cheatsheet.readthedocs.io/en/latest/calculus.html" title="Calculus for ML" target="_blank">Calculus for ML</a> </li>
+<li><a href="https://www.youtube.com/watch?v=tt2DGYOi3hc" title="1 of 2: Seeing the big picture" target="_blank">1 of 2: Seeing the big picture</a> </li>
+<li><a href="https://www.youtube.com/watch?v=50Bda5VKbqA" title="2 of 2: First Principles" target="_blank">2 of 2: First Principles</a> </li>
+<li><a href="https://www.youtube.com/watch?v=fXYhyyJpFe8" title="1 of 2: Finding the Derivative" target="_blank">1 of 2: Finding the Derivative</a> </li>
+<li><a href="https://www.youtube.com/watch?v=Un0RcTMPJ64" title="2 of 2: What do we discover?" target="_blank">2 of 2: What do we discover?</a> </li>
+<li><a href="https://www.youtube.com/watch?v=I8IM9P-2TRU" title="Deriving a Rule for Differentiating Powers of x" target="_blank">Deriving a Rule for Differentiating Powers of x</a> </li>
+<li><a href="https://www.youtube.com/watch?v=U0m4MsOgETw" title="1 of 3: Introducing a substitution" target="_blank">1 of 3: Introducing a substitution</a> </li>
+<li><a href="https://www.youtube.com/watch?v=z-tEsz0bSrA" title="2 of 3: Combining derivatives" target="_blank">2 of 3: Combining derivatives</a> </li>
+<li><a href="https://betterexplained.com/articles/derivatives-product-power-chain/" title="How To Understand Derivatives: The Product, Power &amp; Chain Rules" target="_blank">How To Understand Derivatives: The Product, Power &amp; Chain Rules</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Product_rule" title="Product Rule" target="_blank">Product Rule</a> </li>
+<li><a href="https://www.coastal.edu/media/academics/universitycollege/mathcenter/handouts/calculus/deranint.PDF" title="Common Derivatives and Integrals" target="_blank">Common Derivatives and Integrals</a> </li>
+<li><a href="https://mathinsight.org/partial_derivative_introduction" title="Introduction to partial derivatives" target="_blank">Introduction to partial derivatives</a> </li>
+<li><a href="https://www.youtube.com/watch?v=rnoToCoEK48" title="Partial derivatives - How to solve?" target="_blank">Partial derivatives - How to solve?</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Integral" title="Integral" target="_blank">Integral</a></li>
+<li><a href="https://www.youtube.com/watch?v=rfG8ce4nNh0" title="Integration and the fundamental theorem of calculus" target="_blank">Integration and the fundamental theorem of calculus</a></li>
+<li><a href="https://www.mathsisfun.com/calculus/integration-introduction.html" title="Introduction to Integration" target="_blank">Introduction to Integration</a></li>
+<li><a href="https://www.youtube.com/watch?v=o75AqTInKDU" title="Indefinite Integral - Basic Integration Rules, Problems, Formulas, Trig Functions, Calculus" target="_blank">Indefinite Integral - Basic Integration Rules, Problems, Formulas, Trig Functions, Calculus</a></li>
+<li><a href="https://www.mathsisfun.com/calculus/integration-definite.html" title="Definite Integrals" target="_blank">Definite Integrals</a></li>
+<li><a href="https://www.youtube.com/watch?v=Gc3QvUB0PkI" title="Definite Integral" target="_blank">Definite Integral</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Multiple_integral" title="Multiple integral" target="_blank">Multiple integral</a></li>
+<li><a href="https://www.youtube.com/watch?v=85zGYB-34jQ" title="Double integral 1" target="_blank">Double integral 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=TdLD2Zh-nUQ" title="Double integrals 2" target="_blank">Double integrals 2</a></li>
+</ul>
+
 # 0x02. Calculus
 ![](https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/calculus.jpg)
 
@@ -85,8 +121,8 @@
 <img src="https://latex.codecogs.com/gif.latex?\frac{d&amp;space;(xln(x))}{dx}">
 
 1. <img src="https://latex.codecogs.com/gif.latex?ln(x)">
-2. <img src="https://latex.codecogs.com/gif.latex?\frac{1}{x} + 1">
-3. <img src="https://latex.codecogs.com/gif.latex?ln(x) + 1">
+2. <img src="https://latex.codecogs.com/gif.latex?\frac{1}{x}%20+%201">
+3. <img src="https://latex.codecogs.com/gif.latex?ln(x)%20+%201">
 4. <img src="https://latex.codecogs.com/gif.latex?\frac{1}{x}">
 
 ## 6. It is difficult to free fools from the chains they revere
@@ -158,7 +194,7 @@ alexa@ubuntu:0x02-calculus$
 ```
 
 ## 11. Good grooming is integral and impeccable style is a must
-<img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2019/6/ada047ad4cbee23dfed8.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200726%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20200726T040210Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=f912a8096803080a3643fd19ce17d095b1e9dee610c98035f883ce2e2a1d6761" alt="" style="">
+<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/ada047ad4cbee23dfed8.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=d0984455f6e902208dd53182e7d1d1e8e52bff376c137244dc3f6fea5fcc322f" alt="" style="">
 
 1. 3x^2 + C
 2. x^4/4 + C
@@ -166,7 +202,7 @@ alexa@ubuntu:0x02-calculus$
 4. x^4/3 + C
 
 ## 12. We are all an integral part of the web of life
-<img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2019/6/9ed107b0dcdde8dd49ac.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200726%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20200726T040210Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=72bd243ee601167d9b3f44552297febcadf0aadb99ee88c451dbbd040104373b" alt="" style="">
+<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/9ed107b0dcdde8dd49ac.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=306297646dd10750a818335f24f70be2b8d126ac7a855550eee743ea1eb3033b" alt="" style="">
 
 1. e^2y + C
 2. e^y + C
@@ -174,7 +210,7 @@ alexa@ubuntu:0x02-calculus$
 4. e^y/2 + C
 
 ## 13. Create a definite plan for carrying out your desire and begin at once
-<img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2019/6/b94ec3cf3ae61acd0275.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200726%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20200726T040210Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=fd13e5adb912ebc6314f0c14198b416768b1094600585dd2df18fa57326dc44d" alt="" style="">
+<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/b94ec3cf3ae61acd0275.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=399b00801d66b0ad5432f20659e46847e73bef7f2b554bd1c14bbee6279f7ba9" alt="" style="">
 
 1. 3
 2. 6
@@ -182,6 +218,7 @@ alexa@ubuntu:0x02-calculus$
 4. 27
 
 ## 14. My talents fall within definite limitations
+<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/44057bed4938503a9978.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=1635bafa96f582522190d95209ef7e719415d8145fe891e16e2ae4150027faf1" alt="" style="">
 
 1. -1
 2. 0
@@ -189,6 +226,7 @@ alexa@ubuntu:0x02-calculus$
 4. undefined
 
 ## 15. Winners are people with definite purpose in life
+<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/3d88d653f3ba869b43b1.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=d03f738dd0c8d4b9c1fef7e7af67d8d6801aa72b3a20e794673ce032ce04e986" alt="" style="">
 
 1. 5
 2. 5x
@@ -196,6 +234,7 @@ alexa@ubuntu:0x02-calculus$
 4. 25x
 
 ## 16. Double whammy
+<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/6/a2409c32448118661d05.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230324%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230324T142905Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=571458adfffa8d8e42e402b0b678854bc7dfce06034b09f9dae86a19434837b7" alt="" style="">
 
 1. 9ln(2)
 2. 9
