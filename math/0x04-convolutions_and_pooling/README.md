@@ -1,5 +1,35 @@
 # 0x04. Convolutions and Pooling
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/11/ed9ca14839ad0201f19e.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230325T164628Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=17f2bd9b49d133713769d1d1fafb10ac5fa7e542dc88debe28ea0662b5e3d2c5" alt="" loading="lazy" style=""></p>
+<h2>Resources</h2>
+<p><strong>Read or watch</strong>:</p>
+<ul>
+<li><a href="https://setosa.io/ev/image-kernels/" title="Image Kernels" target="_blank">Image Kernels</a> </li>
+<li><a href="https://github.com/Machinelearninguru/Image-Processing-Computer-Vision/blob/master/Convolutional%20Neural%20Network/Convolutional%20Layers/README.md" title="Undrestanding Convolutional Layers" target="_blank">Undrestanding Convolutional Layers</a> </li>
+<li><a href="https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53" title="A Comprehensive Guide to Convolutional Neural Networks — the ELI5 way" target="_blank">A Comprehensive Guide to Convolutional Neural Networks — the ELI5 way</a></li>
+<li><a href="https://www.quora.com/What-is-max-pooling-in-convolutional-neural-networks" title="What is max pooling in convolutional neural networks?" target="_blank">What is max pooling in convolutional neural networks?</a> </li>
+<li><a href="https://www.youtube.com/watch?v=XuD4C8vJzEQ&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&index=3" title="Edge Detection Examples" target="_blank">Edge Detection Examples</a></li>
+<li><a href="https://www.youtube.com/watch?v=smHa2442Ah4&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&index=5" title="Padding" target="_blank">Padding</a></li>
+<li><a href="https://www.youtube.com/watch?v=tQYZaDn_kSg&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&index=6" title="Strided Convolutions" target="_blank">Strided Convolutions</a> </li>
+<li><a href="https://www.youtube.com/watch?v=KTB_OFoAQcc&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&index=7" title="Convolutions over Volumes" target="_blank">Convolutions over Volumes</a></li>
+<li><a href="https://www.youtube.com/watch?v=8oOgPUO-TBY&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&index=10" title="Pooling Layers" target="_blank">Pooling Layers</a></li>
+<li><a href="https://mmuratarat.github.io/2019-01-17/implementing-padding-schemes-of-tensorflow-in-python" title="Implementing 'SAME' and 'VALID' padding of Tensorflow in Python" target="_blank">Implementing ‘SAME’ and ‘VALID’ padding of Tensorflow in Python</a>
 
+<ul>
+<li><strong>NOTE: In this document, there is a mistake regarding valid padding. Floor rounding should be used for valid padding instead of ceiling</strong></li>
+</ul></li>
+</ul>
+<p><strong>Definitions to skim:</strong></p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Convolution" title="Convolution" target="_blank">Convolution</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Kernel_(image_processing)" title="Kernel (image processing)" target="_blank">Kernel (image processing)</a> </li>
+</ul>
+<p><strong>References:</strong></p>
+<ul>
+<li><a href="https://numpy.org/doc/stable/reference/generated/numpy.pad.html" title="numpy.pad" target="_blank">numpy.pad</a> </li>
+<li><a href="https://arxiv.org/pdf/1603.07285.pdf" title="A guide to convolution arithmetic for deep learning" target="_blank">A guide to convolution arithmetic for deep learning</a> </li>
+</ul>
+<h3>Testing</h3>
+<p>Please download <a href="https://s3.eu-west-3.amazonaws.com/hbtn.intranet.project.files/holbertonschool-ml/animals_1.npz" title="this dataset" target="_blank">this dataset</a> for use in some of the following main files.</p>
 ## General
 * **What is a convolution?**
     Mathematical operation on two functions that produces a third function representing how the shape of one is modified by the other.
@@ -75,9 +105,9 @@ ubuntu@alexa-ml:~/math/0x04-convolutions_and_pooling$ ./0-main.py
 (50000, 26, 26)
 </code></pre>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/17e3fb852b947ff6d845.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=0decf54c3ad66bcb2ffcc52158f015dee0cb2dd34d11d52faf11bd602055336a" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/17e3fb852b947ff6d845.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230325T164628Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=1ba08d0ace99590a8af82df48fe88855facced4bd3c03b51541d0b49ef10b861" alt="" loading="lazy" style=""></p>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/6e1b02cc87497f12f17e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=d382b75861bdcb5202e6e5edef2e645f6c7c4387230788e7a87ee70824d37f9b" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/6e1b02cc87497f12f17e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230325T164628Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=a592283336fe8c1bcbaf73f2b30ed0016ac7c68e130c66e4ace42fa516817509" alt="" loading="lazy" style=""></p>
 <!-- Task URLs -->
 <!-- Github information -->
 <p class="sm-gap"><strong>Repo:</strong></p>
@@ -147,9 +177,9 @@ ubuntu@alexa-ml:~/math/0x04-convolutions_and_pooling$ ./1-main.py
 (50000, 28, 28)
 </code></pre>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/17e3fb852b947ff6d845.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=0decf54c3ad66bcb2ffcc52158f015dee0cb2dd34d11d52faf11bd602055336a" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/17e3fb852b947ff6d845.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=1ba08d0ace99590a8af82df48fe88855facced4bd3c03b51541d0b49ef10b861" alt="" loading="lazy" style=""></p>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/b32bba8fea86011c3372.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=801326ddf4f25aa5f607617f7af80eed527720e4911d75c299bb457c2c77425f" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/b32bba8fea86011c3372.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=6cc5710aeba4b628a5fe5037685bc60188fbb2f94214466b1df66f26f4c334db" alt="" style=""></p>
 
 
 <!-- Task URLs -->
@@ -230,9 +260,9 @@ ubuntu@alexa-ml:~/math/0x04-convolutions_and_pooling$ ./2-main.py
 (50000, 30, 34)
 </code></pre>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/17e3fb852b947ff6d845.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=0decf54c3ad66bcb2ffcc52158f015dee0cb2dd34d11d52faf11bd602055336a" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/17e3fb852b947ff6d845.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=1ba08d0ace99590a8af82df48fe88855facced4bd3c03b51541d0b49ef10b861" alt="" style=""></p>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/3f178b675c1e2fdc86bd.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=2a0bc5374adef57eee968f6e64c6de4c37949763888cf5b65f0966d15d5e02c1" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/3f178b675c1e2fdc86bd.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=9bb0020a0ee7b95e51e473699943d01eb00172fb21373181ec2a71e0fe5a7c24" alt="" style=""></p>
 
 
 <!-- Task URLs -->
@@ -337,9 +367,9 @@ ubuntu@alexa-ml:~/math/0x04-convolutions_and_pooling$ ./3-main.py
 (50000, 13, 13)
 </code></pre>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/17e3fb852b947ff6d845.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=0decf54c3ad66bcb2ffcc52158f015dee0cb2dd34d11d52faf11bd602055336a" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/17e3fb852b947ff6d845.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=1ba08d0ace99590a8af82df48fe88855facced4bd3c03b51541d0b49ef10b861" alt="" style=""></p>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/036ccba7dccf211dab76.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=f02033b012d0d442cf7076fbeb2a1cbef24aa89f0dfb14c8a371271cb3fb9d6c" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/036ccba7dccf211dab76.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=cc538768e7b774b7db8d22f7fcf368de0704857148c864476e66c2bf12154de2" alt="" style=""></p>
 
 
 <!-- Task URLs -->
@@ -444,9 +474,9 @@ ubuntu@alexa-ml:~/math/0x04-convolutions_and_pooling$ ./4-main.py
 (10000, 30, 30)
 </code></pre>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/6add724c812e8dcddb21.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=b9ad84a29db746e1368df2584880317fefd584831f03097994c03ac79f78a27e" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/6add724c812e8dcddb21.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e16104855e016c3afe585e0cefcdf33482ce3542651de629aa460e18d79eb48e" alt="" style=""></p>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/8bc039fb38d60601b01a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=c944744c38e3ef34fae52f5f38152bd636f716a28ced4d713e3b70c8b232b4e5" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/8bc039fb38d60601b01a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=4206f2266ff191136e1744464b10f6bb5711c53fd9f9254418beb4db6c45e318" alt="" style=""></p>
 
 <!-- Task URLs -->
 
@@ -561,13 +591,13 @@ ubuntu@alexa-ml:~/math/0x04-convolutions_and_pooling$ ./5-main.py
 (10000, 30, 30, 3)
 </code></pre>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/6add724c812e8dcddb21.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=b9ad84a29db746e1368df2584880317fefd584831f03097994c03ac79f78a27e" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/6add724c812e8dcddb21.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e16104855e016c3afe585e0cefcdf33482ce3542651de629aa460e18d79eb48e" alt="" style=""></p>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/6d6319bb470e3566e885.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=03ac33346e660d9da7ebb173be4729b10e2b12340b69ee2198b488087f79218f" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/6d6319bb470e3566e885.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=9447a25d03cd6bc1485b680306cbe212aa7250322fe3fd3215047a2d954825f6" alt="" style=""></p>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/1370dd6200e942eee8f9.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=811c4ab3c575da43c9e36f86794adfe35730db93e8c6aaa69f54615c3b7b4463" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/1370dd6200e942eee8f9.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=ace8fcd47683666ffa93730e1004d72685e5e93d4b4ca6cebb3342501409b3cb" alt="" style=""></p>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/a24b7d741b3c378f9f89.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=ef033e8a3e53375bcec4cfe581b378aae8272377e1f2b66f25b128aba49a4b8a" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/a24b7d741b3c378f9f89.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=1593251498e5b964b97387f2f4b85d5297bb09edd8802b408ab736145c58f876" alt="" style=""></p>
 
 <!-- Task URLs -->
 
@@ -661,9 +691,9 @@ ubuntu@alexa-ml:~/math/0x04-convolutions_and_pooling$ ./6-main.py
 (10000, 16, 16, 3)
 </code></pre>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/6add724c812e8dcddb21.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=b9ad84a29db746e1368df2584880317fefd584831f03097994c03ac79f78a27e" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/6add724c812e8dcddb21.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e16104855e016c3afe585e0cefcdf33482ce3542651de629aa460e18d79eb48e" alt="" style=""></p>
 
-<p><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/12/ab4705f939c3a8e487bb.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210221%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210221T001528Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=4785d0dda586c07b5f14682316b90b31289b81d8d888cf9249c834a384eccdb2" alt="" style=""></p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/12/ab4705f939c3a8e487bb.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230325T164628Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=4d4e30cd44dbdf1bb67f21c91a1e2e55a69d3576249d79fe882fa72aaa9112ff" alt="" style=""></p>
 
 <!-- Task URLs -->
 <!-- Github information -->
