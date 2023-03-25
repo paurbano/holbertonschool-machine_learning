@@ -1,3 +1,5 @@
+# 0x03. Probability
+
 <h2>Resources</h2>
 <p><strong>Read or watch</strong>:</p>
 <ul>
@@ -28,8 +30,6 @@
 <li><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.binomial.html" title="numpy.random.binomial" target="_blank">numpy.random.binomial</a></li>
 <li><a href="https://mathworld.wolfram.com/Erf.html" title="erf" target="_blank">erf</a></li>
 </ul>
-
-# 0x03. Probability
 
 ## General
 * **What is probability?**
