@@ -1,3 +1,34 @@
+<h2>Resources</h2>
+<p><strong>Read or watch</strong>:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Probability" title="Probability" target="_blank">Probability</a></li>
+<li><a href="https://onlinestatbook.com/2/probability/basic.html" title="Basic Concepts" target="_blank">Basic Concepts</a></li>
+<li><a href="https://www.youtube.com/watch?v=TkU3BvDAOtQ" title="Intro to probability 1: Basic notation" target="_blank">Intro to probability 1: Basic notation</a></li>
+<li><a href="https://www.youtube.com/watch?v=GnWHt9nqwBA" title="Intro to probability 2: Independent and disjoint" target="_blank">Intro to probability 2: Independent and disjoint</a></li>
+<li><a href="https://www.youtube.com/watch?v=TyAaVGR4MrA" title="Intro to Probability 3: General Addition Rule; Union; OR" target="_blank">Intro to Probability 3: General Addition Rule; Union; OR</a></li>
+<li><a href="https://www.youtube.com/watch?v=wB-ZG9bgPXY" title="Intro to Probability 4: General multiplication rule; Intersection; AND" target="_blank">Intro to Probability 4: General multiplication rule; Intersection; AND</a></li>
+<li><a href="https://onlinestatbook.com/2/probability/permutations.html" title="Permutations and Combinations" target="_blank">Permutations and Combinations</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Probability_distribution" title="Probability distribution" target="_blank">Probability distribution</a></li>
+<li><a href="https://towardsdatascience.com/probability-fundamentals-of-machine-learning-part-1-a156b4703e69" title="Probability Theory" target="_blank">Probability Theory</a></li>
+<li><a href="https://www.oreilly.com/library/view/think-stats-2nd/9781491907344/ch04.html" title="Cumulative Distribution Functions" target="_blank">Cumulative Distribution Functions</a></li>
+<li><a href="https://medium.com/@srowen/common-probability-distributions-347e6b945ce4" title="Common Probability Distributions: The Data Scientist’s Crib Sheet" target="_blank">Common Probability Distributions: The Data Scientist’s Crib Sheet</a></li>
+<li><a href="https://www.youtube.com/watch?v=xgolpGrAZWo&list=PLFGZup_HuWTtIs0Xbzt7vDoFrnZxN4VXT&index=23" title="NORMAL MODEL PART 1 --- EMPIRICAL RULE" target="_blank">NORMAL MODEL PART 1 — EMPIRICAL RULE</a></li>
+<li><a href="https://www.mathsisfun.com/data/standard-normal-distribution.html" title="Normal Distribution" target="_blank">Normal Distribution</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Variance" title="Variance" target="_blank">Variance</a></li>
+<li><a href="https://www.youtube.com/watch?v=2eP14USYwtg" title="Variance (Concept)" target="_blank">Variance (Concept)</a></li>
+<li><a href="https://onlinestatbook.com/2/probability/binomial.html" title="Binomial Distribution" target="_blank">Binomial Distribution</a></li>
+<li><a href="https://onlinestatbook.com/2/probability/poisson.html" title="Poisson Distribution" target="_blank">Poisson Distribution</a></li>
+<li><a href="https://onlinestatbook.com/2/probability/hypergeometric.html" title="Hypergeometric Distribution" target="_blank">Hypergeometric Distribution</a></li>
+</ul>
+<p><strong>References</strong>:</p>
+<ul>
+<li><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.poisson.html" title="numpy.random.poisson" target="_blank">numpy.random.poisson</a></li>
+<li><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.exponential.html" title="numpy.random.exponential" target="_blank">numpy.random.exponential</a></li>
+<li><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html" title="numpy.random.normal" target="_blank">numpy.random.normal</a></li>
+<li><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.binomial.html" title="numpy.random.binomial" target="_blank">numpy.random.binomial</a></li>
+<li><a href="https://mathworld.wolfram.com/Erf.html" title="erf" target="_blank">erf</a></li>
+</ul>
+
 # 0x03. Probability
 
 ## General
@@ -27,9 +58,9 @@ Probability is the branch of mathematics concerning numerical descriptions of ho
 * **What is a probability distribution?**
 is the mathematical function that gives the probabilities of occurrence of different possible outcomes for an experiment.
 
-* What is a probability distribution function? probability mass function?
-    * probability distribution function =  some function that may be used to define a particular **probability distribution**
-    * probability mass function = In probability and statistics, a probability mass function **(PMF)** is a function that gives the probability that a discrete random variable is exactly equal to some value. Sometimes it is also known as the discrete density function. The probability mass function is often the primary means of defining a discrete probability distribution, and such functions exist for either scalar or multivariate random variables whose domain is discrete.
+* **What is a probability distribution function? probability mass function?**
+    * **probability distribution function** =  some function that may be used to define a particular **probability distribution**
+    * **probability mass function** = In probability and statistics, a probability mass function **(PMF)** is a function that gives the probability that a discrete random variable is exactly equal to some value. Sometimes it is also known as the discrete density function. The probability mass function is often the primary means of defining a discrete probability distribution, and such functions exist for either scalar or multivariate random variables whose domain is discrete.
 
 * **What is a cumulative distribution function?**
 **cumulative distribution function (CDF)** of a real-valued random variable **X**, or just distribution function of **X**, evaluated at *x*, is the probability that `X` will take a value less than or equal to `x`
