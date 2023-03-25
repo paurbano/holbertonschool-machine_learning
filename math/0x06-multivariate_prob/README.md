@@ -1,4 +1,28 @@
 # 0x06. Multivariate Probability
+<h2>Resources</h2>
+<p><strong>Read or watch</strong>:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=gEOG2N6jta0" title="Joint Probability Distributions" target="_blank">Joint Probability Distributions</a></li>
+<li><a href="https://www.youtube.com/watch?v=eho8xH3E6mE" title="Multivariate Gaussian distributions" target="_blank">Multivariate Gaussian distributions</a></li>
+<li><a href="https://cs229.stanford.edu/section/gaussians.pdf" title="The Multivariate Gaussian Distribution" target="_blank">The Multivariate Gaussian Distribution</a></li>
+<li><a href="https://www.alchemer.com/resources/blog/variance-covariance-correlation/" title="An Introduction to Variance, Covariance &amp; Correlation" target="_blank">An Introduction to Variance, Covariance &amp; Correlation</a></li>
+<li><a href="https://www.youtube.com/watch?v=G16c2ZODcg8" title="Variance-covariance matrix using matrix notation of factor analysis" target="_blank">Variance-covariance matrix using matrix notation of factor analysis</a></li>
+</ul>
+<p><strong>Definitions to skim:</strong></p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss" title="Carl Friedrich Gauss" target="_blank">Carl Friedrich Gauss</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Joint_probability_distribution" title="Joint probability distribution" target="_blank">Joint probability distribution</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Covariance" title="Covariance" target="_blank">Covariance</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Covariance_matrix" title="Covariance matrix" target="_blank">Covariance matrix</a></li>
+</ul>
+<p><strong>As references</strong>:</p>
+<ul>
+<li><a href="https://numpy.org/doc/stable/reference/generated/numpy.cov.html" title="numpy.cov" target="_blank">numpy.cov</a></li>
+<li><a href="https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html" title="numpy.corrcoef" target="_blank">numpy.corrcoef</a></li>
+<li><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html" title="numpy.linalg.det" target="_blank">numpy.linalg.det</a></li>
+<li><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html" title="numpy.linalg.inv" target="_blank">numpy.linalg.inv</a></li>
+<li><a href="https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.random.multivariate_normal.html" title="numpy.random.multivariate_normal" target="_blank">numpy.random.multivariate_normal</a></li>
+</ul>
 
 ## General
 * **Who is Carl Friedrich Gauss?**
