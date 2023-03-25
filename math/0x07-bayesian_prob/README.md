@@ -1,4 +1,24 @@
 # 0x07. Bayesian Probability
+<p><img src="https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/bayesianProbability.png" alt="" loading="lazy" style=""></p>
+<h2>Resources</h2>
+<p><strong>Read or watch</strong>:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Bayesian_probability" title="Bayesian probability" target="_blank">Bayesian probability</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bayesian_statistics" title="Bayesian statistics" target="_blank">Bayesian statistics</a></li>
+<li><a href="https://www.youtube.com/watch?v=XQoLVl31ZfQ" title="Bayes' Theorem - The Simplest Case" target="_blank">Bayes’ Theorem - The Simplest Case</a></li>
+<li><a href="https://www.youtube.com/watch?v=BrK7X_XlGB8" title="A visual guide to Bayesian thinking" target="_blank">A visual guide to Bayesian thinking</a></li>
+<li><a href="https://onlinestatbook.com/2/probability/base_rates.html" title="Base Rates" target="_blank">Base Rates</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLFDbGp5YzjqXQ4oE4w9GVWdiokWB9gEpm" title="Bayesian statistics: a comprehensive course" target="_blank">Bayesian statistics: a comprehensive course</a>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=EbyUsf_jUjk&list=PLFDbGp5YzjqXQ4oE4w9GVWdiokWB9gEpm&index=15" title="Bayes' rule - an intuitive explanation" target="_blank">Bayes’ rule - an intuitive explanation</a></li>
+<li><a href="https://www.youtube.com/watch?v=i567qvWejJA&list=PLFDbGp5YzjqXQ4oE4w9GVWdiokWB9gEpm&index=16" title="Bayes' rule in statistics" target="_blank">Bayes’ rule in statistics</a></li>
+<li><a href="https://www.youtube.com/watch?v=c69a_viMRQU&list=PLFDbGp5YzjqXQ4oE4w9GVWdiokWB9gEpm&index=17" title="Bayes' rule in inference - likelihood" target="_blank">Bayes’ rule in inference - likelihood</a></li>
+<li><a href="https://www.youtube.com/watch?v=a5QDDZLGSXY&list=PLFDbGp5YzjqXQ4oE4w9GVWdiokWB9gEpm&index=18" title="Bayes' rule in inference - the prior and denominator" target="_blank">Bayes’ rule in inference - the prior and denominator</a></li>
+<li><a href="https://www.youtube.com/watch?v=QEzeLh6L9Tg&list=PLFDbGp5YzjqXQ4oE4w9GVWdiokWB9gEpm&index=25" title="Bayes' rule denominator: discrete and continuous" target="_blank">Bayes’ rule denominator: discrete and continuous</a></li>
+<li><a href="https://www.youtube.com/watch?v=sm60vapz2jQ&list=PLFDbGp5YzjqXQ4oE4w9GVWdiokWB9gEpm&index=26" title="Bayes' rule: why likelihood is not a probability" target="_blank">Bayes’ rule: why likelihood is not a probability</a></li>
+</ul></li>
+</ul>
 
 ## Learning Objectives
 * What is Bayesian Probability?
