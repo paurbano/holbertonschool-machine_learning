@@ -2133,9 +2133,8 @@ Test accuracy: 94.77%
 File:<code>28-deep_neural_network.py</code>
 
 <h2 class="panel-title">
-
-      29. Blogpost
-    </h2>
+  29. Blogpost
+</h2>
 <p>Write a blog post that explains the purpose of activation functions and compares and contrasts (at the minimum) the following functions:</p>
 <ul>
 <li>Binary</li>
