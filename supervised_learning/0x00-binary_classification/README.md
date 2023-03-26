@@ -88,6 +88,7 @@
     Activation functions are mathematical equations that determine the output of a neural network. The function is attached to each neuron in the network, and determines whether it should be activated (“fired”) or not, based on whether each neuron’s input is relevant for the model’s prediction.
     * **Sigmoid?**
         it is nonlinear in nature having a characteristic "S"-shaped curve or sigmoid curve. A common example of a sigmoid function is the logistic function, any small changes in the values of X in that region will cause values of Y to change significantly
+        
         <p><img src="https://github.com/paurbano/holbertonschool-machine_learning/tree/master/images/sigmoid.png" alt="" loading="lazy" style=""></p>
         
     * **Tanh?**
