@@ -252,11 +252,6 @@ File: [`0-neuron.py`]
       1. Privatize Neuron
     </h3>
 
-    <div>
-        <span class="label label-info">
-          mandatory
-        </span>
-    </div>
 </div>
 <p>Write a class <code>Neuron</code> that defines a single neuron performing binary classification (Based on <code>0-neuron.py</code>):</p>
 <ul>
@@ -401,4 +396,907 @@ alexa@ubuntu-xenial:$ ./3-main.py
 alexa@ubuntu-xenial:$
 </code></pre>
 File: <code>3-neuron.py</code>
+
+<h3 class="panel-title">4. Evaluate Neuron</h3>
+<p>Write a class <code>Neuron</code> that defines a single neuron performing binary classification (Based on <code>3-neuron.py</code>):</p>
+<ul>
+<li>Add the public method <code>def evaluate(self, X, Y):</code>
+
+<ul>
+<li>Evaluates the neuron’s predictions</li>
+<li><code>X</code> is a <code>numpy.ndarray</code> with shape (<code>nx</code>, <code>m</code>) that contains the input data
+
+<ul>
+<li><code>nx</code> is the number of input features to the neuron</li>
+<li><code>m</code> is the number of examples</li>
+</ul></li>
+<li><code>Y</code> is a <code>numpy.ndarray</code> with shape (1, <code>m</code>) that contains the correct labels for the input data</li>
+<li>Returns the neuron’s prediction and the cost of the network, respectively
+
+<ul>
+<li>The prediction should be a <code>numpy.ndarray</code> with shape (1, <code>m</code>) containing the predicted labels for each example</li>
+<li>The label values should be 1 if the output of the network is &gt;= 0.5 and 0 otherwise</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 4-main.py
+#!/usr/bin/env python3
+
+import numpy as np
+
+Neuron = __import__('4-neuron').Neuron
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_3D, Y = lib_train['X'], lib_train['Y']
+X = X_3D.reshape((X_3D.shape[0], -1)).T
+
+np.random.seed(0)
+neuron = Neuron(X.shape[0])
+A, cost = neuron.evaluate(X, Y)
+print(A)
+print(cost)
+alexa@ubuntu-xenial:$ ./4-main.py
+[[0 0 0 ... 0 0 0]]
+4.365104944262272
+alexa@ubuntu-xenial:$
+</code></pre>
+File: <code>4-neuron.py</code>
+
+<h3 class="panel-title">
+      5. Neuron Gradient Descent
+</h3>
+<p>Write a class <code>Neuron</code> that defines a single neuron performing binary classification (Based on <code>4-neuron.py</code>):</p>
+<ul>
+<li>Add the public method <code>def gradient_descent(self, X, Y, A, alpha=0.05):</code>
+
+<ul>
+<li>Calculates one pass of gradient descent on the neuron</li>
+<li><code>X</code> is a <code>numpy.ndarray</code> with shape (<code>nx</code>, <code>m</code>) that contains the input data
+
+<ul>
+<li><code>nx</code> is the number of input features to the neuron</li>
+<li><code>m</code> is the number of examples</li>
+</ul></li>
+<li><code>Y</code> is a <code>numpy.ndarray</code> with shape (1, <code>m</code>) that contains the correct labels for the input data</li>
+<li><code>A</code> is a <code>numpy.ndarray</code> with shape (1, <code>m</code>) containing the activated output of the neuron for each example</li>
+<li><code>alpha</code> is the learning rate</li>
+<li>Updates the private attributes <code>__W</code> and <code>__b</code></li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 5-main.py
+#!/usr/bin/env python3
+
+import numpy as np
+
+Neuron = __import__('5-neuron').Neuron
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_3D, Y = lib_train['X'], lib_train['Y']
+X = X_3D.reshape((X_3D.shape[0], -1)).T
+
+np.random.seed(0)
+neuron = Neuron(X.shape[0])
+A = neuron.forward_prop(X)
+neuron.gradient_descent(X, Y, A, 0.5)
+print(neuron.W)
+print(neuron.b)
+alexa@ubuntu-xenial:$ ./5-main.py
+[[ 1.76405235e+00  4.00157208e-01  9.78737984e-01  2.24089320e+00
+   1.86755799e+00 -9.77277880e-01  9.50088418e-01 -1.51357208e-01
+
+...
+
+  -5.85865511e-02 -3.17543094e-01 -1.63242330e+00 -6.71341546e-02
+   1.48935596e+00  5.21303748e-01  6.11927193e-01 -1.34149673e+00]]
+0.2579495783615682
+alexa@ubuntu-xenial:$
+</code></pre>
+File: <code>5-neuron.py</code>
+
+<h3 class="panel-title">
+      6. Train Neuron
+    </h3>
+<p>Write a class <code>Neuron</code> that defines a single neuron performing binary classification (Based on <code>5-neuron.py</code>):</p>
+<ul>
+<li>Add the public method <code>def train(self, X, Y, iterations=5000, alpha=0.05):</code>
+
+<ul>
+<li>Trains the neuron</li>
+<li><code>X</code> is a <code>numpy.ndarray</code> with shape (<code>nx</code>, <code>m</code>) that contains the input data
+
+<ul>
+<li><code>nx</code> is the number of input features to the neuron</li>
+<li><code>m</code> is the number of examples</li>
+</ul></li>
+<li><code>Y</code> is a <code>numpy.ndarray</code> with shape (1, <code>m</code>) that contains the correct labels for the input data</li>
+<li><code>iterations</code> is the number of iterations to train over
+
+<ul>
+<li>if <code>iterations</code> is not an integer, raise a <code>TypeError</code> with the exception <code>iterations must be an integer</code></li>
+<li>if <code>iterations</code> is not positive, raise a <code>ValueError</code> with the exception <code>iterations must be a positive integer</code></li>
+</ul></li>
+<li><code>alpha</code> is the learning rate
+
+<ul>
+<li>if <code>alpha</code> is not a float, raise a <code>TypeError</code> with the exception <code>alpha must be a float</code></li>
+<li>if <code>alpha</code> is not positive, raise a <code>ValueError</code> with the exception <code>alpha must be positive</code></li>
+</ul></li>
+<li>All exceptions should be raised in the order listed above</li>
+<li>Updates the private attributes <code>__W</code>, <code>__b</code>, and <code>__A</code></li>
+<li>You are allowed to use one loop</li>
+<li>Returns the evaluation of the training data after <code>iterations</code> of training have occurred</li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 6-main.py
+#!/usr/bin/env python3
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+Neuron = __import__('6-neuron').Neuron
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_train_3D, Y_train = lib_train['X'], lib_train['Y']
+X_train = X_train_3D.reshape((X_train_3D.shape[0], -1)).T
+lib_dev = np.load('../data/Binary_Dev.npz')
+X_dev_3D, Y_dev = lib_dev['X'], lib_dev['Y']
+X_dev = X_dev_3D.reshape((X_dev_3D.shape[0], -1)).T
+
+np.random.seed(0)
+neuron = Neuron(X_train.shape[0])
+A, cost = neuron.train(X_train, Y_train, iterations=10)
+accuracy = np.sum(A == Y_train) / Y_train.shape[1] * 100
+print("Train cost:", np.round(cost, decimals=10))
+print("Train accuracy: {}%".format(np.round(accuracy, decimals=10)))
+print("Train data:", np.round(A, decimals=10))
+print("Train Neuron A:", np.round(neuron.A, decimals=10))
+
+A, cost = neuron.evaluate(X_dev, Y_dev)
+accuracy = np.sum(A == Y_dev) / Y_dev.shape[1] * 100
+print("Dev cost:", np.round(cost, decimals=10))
+print("Dev accuracy: {}%".format(np.round(accuracy, decimals=10)))
+print("Dev data:", np.round(A, decimals=10))
+print("Dev Neuron A:", np.round(neuron.A, decimals=10))
+
+fig = plt.figure(figsize=(10, 10))
+for i in range(100):
+    fig.add_subplot(10, 10, i + 1)
+    plt.imshow(X_dev_3D[i])
+    plt.title(A[0, i])
+    plt.axis('off')
+plt.tight_layout()
+plt.show()
+
+alexa@ubuntu-xenial:$ ./6-main.py
+Train cost: 1.3805076999
+Train accuracy: 64.737465456%
+Train data: [[0 0 0 ... 0 0 1]]
+Train Neuron A: [[2.70000000e-08 2.18229559e-01 1.63492900e-04 ... 4.66530830e-03
+  6.06518000e-05 9.73817942e-01]]
+Dev cost: 1.4096194345
+Dev accuracy: 64.4917257683%
+Dev data: [[1 0 0 ... 0 0 1]]
+Dev Neuron A: [[0.85021134 0.         0.3526692  ... 0.10140937 0.         0.99555018]]
+</code></pre>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/10/7251476d2c799bd66b1b.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230325T230517Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=053b72086266d40879867d3e7c9522a124e35497a619ace0da7e52f2b0160792" alt="" loading="lazy" style=""></p>
+<p><em>Not that great… Let’s get more data!</em></p>
+File: <code>6-neuron.py</code>
+
+<h3 class="panel-title">
+      7. Upgrade Train Neuron
+    </h3>
+<p>Write a class <code>Neuron</code> that defines a single neuron performing binary classification (Based on <code>6-neuron.py</code>):</p>
+<ul>
+<li>Update the public method <code>train</code> to <code>def train(self, X, Y, iterations=5000, alpha=0.05, verbose=True, graph=True, step=100):</code>
+
+<ul>
+<li>Trains the neuron by updating the private attributes <code>__W</code>, <code>__b</code>, and <code>__A</code></li>
+<li><code>X</code> is a <code>numpy.ndarray</code> with shape (<code>nx</code>, <code>m</code>) that contains the input data
+
+<ul>
+<li><code>nx</code> is the number of input features to the neuron</li>
+<li><code>m</code> is the number of examples</li>
+</ul></li>
+<li><code>Y</code> is a <code>numpy.ndarray</code> with shape (1, <code>m</code>) that contains the correct labels for the input data</li>
+<li><code>iterations</code> is the number of iterations to train over
+
+<ul>
+<li>if <code>iterations</code> is not an integer, raise a <code>TypeError</code> with the exception <code>iterations must be an integer</code></li>
+<li>if <code>iterations</code> is not positive, raise a <code>ValueError</code> with the exception <code>iterations must be a positive integer</code></li>
+</ul></li>
+<li><code>alpha</code> is the learning rate
+
+<ul>
+<li>if <code>alpha</code> is not a float, raise a <code>TypeError</code> with the exception <code>alpha must be a float</code></li>
+<li>if <code>alpha</code> is not positive, raise a <code>ValueError</code> with the exception <code>alpha must be positive</code></li>
+</ul></li>
+<li><code>verbose</code> is a boolean that defines whether or not to print information about the training. If <code>True</code>, print <code>Cost after {iteration} iterations: {cost}</code> every <code>step</code> iterations:
+
+<ul>
+<li> Include data from the 0th and last iteration</li>
+</ul></li>
+<li> <code>graph</code> is a boolean that defines whether or not to graph information about the training once the training has completed. If <code>True</code>:
+
+<ul>
+<li> Plot the training data every <code>step</code> iterations as a blue line</li>
+<li> Label the x-axis as <code>iteration</code></li>
+<li> Label the y-axis as <code>cost</code></li>
+<li> Title the plot <code>Training Cost</code></li>
+<li> Include data from the 0th and last iteration</li>
+</ul></li>
+<li> Only if either <code>verbose</code> or <code>graph</code> are <code>True</code>:
+
+<ul>
+<li>if <code>step</code> is not an integer, raise a <code>TypeError</code> with the exception <code>step must be an integer</code></li>
+<li>if <code>step</code> is not positive or is greater than <code>iterations</code>, raise a <code>ValueError</code> with the exception <code>step must be positive and &lt;= iterations</code></li>
+</ul></li>
+<li>All exceptions should be raised in the order listed above</li>
+<li> The 0th iteration should represent the state of the neuron before any training has occurred</li>
+<li> You are allowed to use one loop</li>
+<li> You can use <code>import matplotlib.pyplot as plt</code></li>
+<li>Returns: the evaluation of the training data after <code>iterations</code> of training have occurred</li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 7-main.py
+#!/usr/bin/env python3
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+Neuron = __import__('7-neuron').Neuron
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_train_3D, Y_train = lib_train['X'], lib_train['Y']
+X_train = X_train_3D.reshape((X_train_3D.shape[0], -1)).T
+lib_dev = np.load('../data/Binary_Dev.npz')
+X_dev_3D, Y_dev = lib_dev['X'], lib_dev['Y']
+X_dev = X_dev_3D.reshape((X_dev_3D.shape[0], -1)).T
+
+np.random.seed(0)
+neuron = Neuron(X_train.shape[0])
+A, cost = neuron.train(X_train, Y_train, iterations=3000)
+accuracy = np.sum(A == Y_train) / Y_train.shape[1] * 100
+print("Train cost:", cost)
+print("Train accuracy: {}%".format(accuracy))
+A, cost = neuron.evaluate(X_dev, Y_dev)
+accuracy = np.sum(A == Y_dev) / Y_dev.shape[1] * 100
+print("Dev cost:", cost)
+print("Dev accuracy: {}%".format(accuracy))
+fig = plt.figure(figsize=(10, 10))
+for i in range(100):
+    fig.add_subplot(10, 10, i + 1)
+    plt.imshow(X_dev_3D[i])
+    plt.title(A[0, i])
+    plt.axis('off')
+plt.tight_layout()
+plt.show()
+alexa@ubuntu-xenial:$ ./7-main.py
+Cost after 0 iterations: 4.365104944262272
+Cost after 100 iterations: 0.11955134491351888
+
+...
+
+Cost after 3000 iterations: 0.013386353289868338
+</code></pre>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/10/23a1fc5f90d79c63bd78.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230325T230517Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=f381099e429b769c3ed1eb4facca8e27da30dd5e99dd5e81d7ce6e5c8f1e0caa" alt="" loading="lazy" style=""></p>
+<pre><code>Train cost: 0.013386353289868338
+Train accuracy: 99.66837741808132%
+Dev cost: 0.010803484515167197
+Dev accuracy: 99.81087470449172%
+</code></pre>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/10/6ffa61a3b13fb602f400.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230325T230517Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=4e644b8cf749856056f82767766c9135d268be6e8122cb2093e6f8aa21b9164f" alt="" loading="lazy" style=""></p>
+File: <code>7-neuron.py</code>
+
+<h3 class="panel-title">
+    8. NeuralNetwork
+</h3>
+<p>Write a class <code>NeuralNetwork</code> that defines a neural network with one hidden layer performing binary classification:</p>
+<ul>
+<li>class constructor: <code>def __init__(self, nx, nodes):</code>
+
+<ul>
+<li><code>nx</code> is the number of input features
+
+<ul>
+<li>If <code>nx</code> is not an integer, raise a <code>TypeError</code> with the exception: <code>nx must be an integer</code></li>
+<li>If <code>nx</code> is less than 1, raise a <code>ValueError</code> with the exception: <code>nx must be a positive integer</code></li>
+</ul></li>
+<li><code>nodes</code> is the number of nodes found in the hidden layer
+
+<ul>
+<li>If <code>nodes</code> is not an integer, raise a <code>TypeError</code> with the exception: <code>nodes must be an integer</code></li>
+<li>If <code>nodes</code> is less than 1, raise a <code>ValueError</code> with the exception: <code>nodes must be a positive integer</code></li>
+</ul></li>
+<li>All exceptions should be raised in the order listed above</li>
+</ul></li>
+<li>Public instance attributes:
+
+<ul>
+<li><code>W1</code>: The weights vector for the hidden layer. Upon instantiation, it should be initialized using a random normal distribution.</li>
+<li><code>b1</code>: The bias for the hidden layer. Upon instantiation, it should be initialized with 0’s.</li>
+<li><code>A1</code>: The activated output for the hidden layer. Upon instantiation, it should be initialized to 0.</li>
+<li><code>W2</code>: The weights vector for the output neuron. Upon instantiation, it should be initialized using a random normal distribution.</li>
+<li><code>b2</code>: The bias for the output neuron. Upon instantiation, it should be initialized to 0.</li>
+<li><code>A2</code>: The activated output for the output neuron (prediction). Upon instantiation, it should be initialized to 0.</li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 8-main.py
+#!/usr/bin/env python3
+
+import numpy as np
+
+NN = __import__('8-neural_network').NeuralNetwork
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_3D, Y = lib_train['X'], lib_train['Y']
+X = X_3D.reshape((X_3D.shape[0], -1)).T
+
+np.random.seed(0)
+nn = NN(X.shape[0], 3)
+print(nn.W1)
+print(nn.W1.shape)
+print(nn.b1)
+print(nn.W2)
+print(nn.W2.shape)
+print(nn.b2)
+print(nn.A1)
+print(nn.A2)
+nn.A1 = 10
+print(nn.A1)
+alexa@ubuntu-xenial:$ ./8-main.py
+[[ 1.76405235  0.40015721  0.97873798 ...  0.52130375  0.61192719
+  -1.34149673]
+ [ 0.47689837  0.14844958  0.52904524 ...  0.0960042  -0.0451133
+   0.07912172]
+ [ 0.85053068 -0.83912419 -1.01177408 ... -0.07223876  0.31112445
+  -1.07836109]]
+(3, 784)
+[[0.]
+ [0.]
+ [0.]]
+[[ 1.06160017 -1.18488744 -1.80525169]]
+(1, 3)
+0
+0
+0
+10
+alexa@ubuntu-xenial:$
+</code></pre>
+File:<code>8-neural_network.py</code>
+
+<h3 class="panel-title">
+      9. Privatize NeuralNetwork
+    </h3>
+<p>Write a class <code>NeuralNetwork</code> that defines a neural network with one hidden layer performing binary classification (based on <code>8-neural_network.py</code>):</p>
+<ul>
+<li>class constructor: <code>def __init__(self, nx, nodes):</code>
+
+<ul>
+<li><code>nx</code> is the number of input features
+
+<ul>
+<li>If <code>nx</code> is not an integer, raise a <code>TypeError</code> with the exception: <code>nx must be an integer</code></li>
+<li>If <code>nx</code> is less than 1, raise a <code>ValueError</code> with the exception: <code>nx must be a positive integer</code></li>
+</ul></li>
+<li><code>nodes</code> is the number of nodes found in the hidden layer
+
+<ul>
+<li>If <code>nodes</code> is not an integer, raise a <code>TypeError</code> with the exception: <code>nodes must be an integer</code></li>
+<li>If <code>nodes</code> is less than 1, raise a <code>ValueError</code> with the exception: <code>nodes must be a positive integer</code></li>
+</ul></li>
+<li>All exceptions should be raised in the order listed above</li>
+</ul></li>
+<li><strong>Private</strong> instance attributes:
+
+<ul>
+<li><code>W1</code>: The weights vector for the hidden layer. Upon instantiation, it should be initialized using a random normal distribution.</li>
+<li><code>b1</code>: The bias for the hidden layer. Upon instantiation, it should be initialized with 0’s.</li>
+<li><code>A1</code>: The activated output for the hidden layer. Upon instantiation, it should be initialized to 0.</li>
+<li><code>W2</code>: The weights vector for the output neuron. Upon instantiation, it should be initialized using a random normal distribution.</li>
+<li><code>b2</code>: The bias for the output neuron. Upon instantiation, it should be initialized to 0.</li>
+<li><code>A2</code>: The activated output for the output neuron (prediction). Upon instantiation, it should be initialized to 0.</li>
+<li>Each private attribute should have a corresponding getter function (no setter function).</li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 9-main.py
+#!/usr/bin/env python3
+
+import numpy as np
+
+NN = __import__('9-neural_network').NeuralNetwork
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_3D, Y = lib_train['X'], lib_train['Y']
+X = X_3D.reshape((X_3D.shape[0], -1)).T
+
+np.random.seed(0)
+nn = NN(X.shape[0], 3)
+print(nn.W1)
+print(nn.b1)
+print(nn.W2)
+print(nn.b2)
+print(nn.A1)
+print(nn.A2)
+nn.A1 = 10
+print(nn.A1)
+alexa@ubuntu-xenial:$ ./9-main.py
+[[ 1.76405235  0.40015721  0.97873798 ...  0.52130375  0.61192719
+  -1.34149673]
+ [ 0.47689837  0.14844958  0.52904524 ...  0.0960042  -0.0451133
+   0.07912172]
+ [ 0.85053068 -0.83912419 -1.01177408 ... -0.07223876  0.31112445
+  -1.07836109]]
+[[0.]
+ [0.]
+ [0.]]
+[[ 1.06160017 -1.18488744 -1.80525169]]
+0
+0
+0
+Traceback (most recent call last):
+  File "./9-main.py", line 19, in &lt;module&gt;
+    nn.A1 = 10
+AttributeError: can't set attribute
+alexa@ubuntu-xenial:$
+</code></pre>
+File:<code>9-neural_network.py</code>
+
+<h3 class="panel-title">
+      10. NeuralNetwork Forward Propagation
+    </h3>
+<p>Write a class <code>NeuralNetwork</code> that defines a neural network with one hidden layer performing binary classification (based on <code>9-neural_network.py</code>):</p>
+<ul>
+<li>Add the public method <code>def forward_prop(self, X):</code>
+
+<ul>
+<li>Calculates the forward propagation of the neural network</li>
+<li><code>X</code> is a <code>numpy.ndarray</code> with shape (<code>nx</code>, <code>m</code>) that contains the input data
+
+<ul>
+<li><code>nx</code> is the number of input features to the neuron</li>
+<li><code>m</code> is the number of examples</li>
+</ul></li>
+<li>Updates the private attributes <code>__A1</code> and <code>__A2</code></li>
+<li>The neurons should use a sigmoid activation function</li>
+<li>Returns the private attributes <code>__A1</code> and <code>__A2</code>, respectively</li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 10-main.py
+#!/usr/bin/env python3
+
+import numpy as np
+
+NN = __import__('10-neural_network').NeuralNetwork
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_3D, Y = lib_train['X'], lib_train['Y']
+X = X_3D.reshape((X_3D.shape[0], -1)).T
+
+np.random.seed(0)
+nn = NN(X.shape[0], 3)
+nn._NeuralNetwork__b1 = np.ones((3, 1))
+nn._NeuralNetwork__b2 = 1
+A1, A2 = nn.forward_prop(X)
+if A1 is nn.A1:
+        print(A1)
+if A2 is nn.A2:
+        print(A2)
+alexa@ubuntu-xenial:$ ./10-main.py
+[[5.34775247e-10 7.24627778e-04 4.52416436e-07 ... 8.75691930e-05
+  1.13141966e-06 6.55799932e-01]
+ [9.99652394e-01 9.99999995e-01 6.77919152e-01 ... 1.00000000e+00
+  9.99662771e-01 9.99990554e-01]
+ [5.57969669e-01 2.51645047e-02 4.04250047e-04 ... 1.57024117e-01
+  9.97325173e-01 7.41310459e-02]]
+[[0.23294587 0.44286405 0.54884691 ... 0.38502756 0.12079644 0.593269  ]]
+alexa@ubuntu-xenial:$
+</code></pre>
+File:<code>10-neural_network.py</code>
+
+<div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      11. NeuralNetwork Cost
+    </h3>
+</div>
+<p>Write a class <code>NeuralNetwork</code> that defines a neural network with one hidden layer performing binary classification (based on <code>10-neural_network.py</code>):</p>
+<ul>
+<li>Add the public method <code>def cost(self, Y, A):</code>
+
+<ul>
+<li>Calculates the cost of the model using logistic regression</li>
+<li><code>Y</code> is a <code>numpy.ndarray</code> with shape (1, <code>m</code>) that contains the correct labels for the input data</li>
+<li><code>A</code> is a <code>numpy.ndarray</code> with shape (1, <code>m</code>) containing the activated output of the neuron for each example</li>
+<li>To avoid division by zero errors, please use <code>1.0000001 - A</code> instead of <code>1 - A</code></li>
+<li>Returns the cost</li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 11-main.py
+#!/usr/bin/env python3
+
+import numpy as np
+
+NN = __import__('11-neural_network').NeuralNetwork
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_3D, Y = lib_train['X'], lib_train['Y']
+X = X_3D.reshape((X_3D.shape[0], -1)).T
+
+np.random.seed(0)
+nn = NN(X.shape[0], 3)
+_, A = nn.forward_prop(X)
+cost = nn.cost(Y, A)
+print(cost)
+alexa@ubuntu-xenial:$ ./11-main.py
+0.7917984405648548
+alexa@ubuntu-xenial:$
+</code></pre>
+File: <code>11-neural_network.py</code>
+
+<h3 class="panel-title">
+      12. Evaluate NeuralNetwork
+    </h3>
+<p>Write a class <code>NeuralNetwork</code> that defines a neural network with one hidden layer performing binary classification (based on <code>11-neural_network.py</code>):</p>
+<ul>
+<li>Add the public method <code>def evaluate(self, X, Y):</code>
+
+<ul>
+<li>Evaluates the neural network’s predictions</li>
+<li><code>X</code> is a <code>numpy.ndarray</code> with shape (<code>nx</code>, <code>m</code>) that contains the input data
+
+<ul>
+<li><code>nx</code> is the number of input features to the neuron</li>
+<li><code>m</code> is the number of examples</li>
+</ul></li>
+<li><code>Y</code> is a <code>numpy.ndarray</code> with shape (1, <code>m</code>) that contains the correct labels for the input data</li>
+<li>Returns the neuron’s prediction and the cost of the network, respectively
+
+<ul>
+<li>The prediction should be a <code>numpy.ndarray</code> with shape (1, <code>m</code>) containing the predicted labels for each example</li>
+<li>The label values should be 1 if the output of the network is &gt;= 0.5 and 0 otherwise</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 12-main.py
+#!/usr/bin/env python3
+
+import numpy as np
+
+NN = __import__('12-neural_network').NeuralNetwork
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_3D, Y = lib_train['X'], lib_train['Y']
+X = X_3D.reshape((X_3D.shape[0], -1)).T
+
+np.random.seed(0)
+nn = NN(X.shape[0], 3)
+A, cost = nn.evaluate(X, Y)
+print(A)
+print(cost)
+alexa@ubuntu-xenial:$ ./12-main.py
+[[0 0 0 ... 0 0 0]]
+0.7917984405648548
+alexa@ubuntu-xenial:$
+</code></pre>
+File:<code>12-neural_network.py</code>
+
+<h3 class="panel-title">
+      13. NeuralNetwork Gradient Descent
+    </h3>
+<p>Write a class <code>NeuralNetwork</code> that defines a neural network with one hidden layer performing binary classification (based on <code>12-neural_network.py</code>):</p>
+<ul>
+<li>Add the public method <code>def gradient_descent(self, X, Y, A1, A2, alpha=0.05):</code>
+
+<ul>
+<li>Calculates one pass of gradient descent on the neural network</li>
+<li><code>X</code> is a <code>numpy.ndarray</code> with shape (<code>nx</code>, <code>m</code>) that contains the input data
+
+<ul>
+<li><code>nx</code> is the number of input features to the neuron</li>
+<li><code>m</code> is the number of examples</li>
+</ul></li>
+<li><code>Y</code> is a <code>numpy.ndarray</code> with shape (1, <code>m</code>) that contains the correct labels for the input data</li>
+<li><code>A1</code> is the output of the hidden layer</li>
+<li><code>A2</code> is the predicted output</li>
+<li><code>alpha</code> is the learning rate</li>
+<li>Updates the private attributes <code>__W1</code>, <code>__b1</code>, <code>__W2</code>, and <code>__b2</code></li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 13-main.py
+#!/usr/bin/env python3
+
+import numpy as np
+
+NN = __import__('13-neural_network').NeuralNetwork
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_3D, Y = lib_train['X'], lib_train['Y']
+X = X_3D.reshape((X_3D.shape[0], -1)).T
+
+np.random.seed(0)
+nn = NN(X.shape[0], 3)
+A1, A2 = nn.forward_prop(X)
+nn.gradient_descent(X, Y, A1, A2, 0.5)
+print(nn.W1)
+print(nn.b1)
+print(nn.W2)
+print(nn.b2)
+alexa@ubuntu-xenial:$ ./13-main.py
+[[ 1.76405235  0.40015721  0.97873798 ...  0.52130375  0.61192719
+  -1.34149673]
+ [ 0.47689837  0.14844958  0.52904524 ...  0.0960042  -0.0451133
+   0.07912172]
+ [ 0.85053068 -0.83912419 -1.01177408 ... -0.07223876  0.31112445
+  -1.07836109]]
+[[ 0.003193  ]
+ [-0.01080922]
+ [-0.01045412]]
+[[ 1.06583858 -1.06149724 -1.79864091]]
+[[0.15552509]]
+alexa@ubuntu-xenial:$
+</code></pre>
+File:<code>13-neural_network.py</code>
+
+<h3 class="panel-title">
+      14. Train NeuralNetwork
+    </h3>
+<p>Write a class <code>NeuralNetwork</code> that defines a neural network with one hidden layer performing binary classification (based on <code>13-neural_network.py</code>):</p>
+<ul>
+<li>Add the public method <code>def train(self, X, Y, iterations=5000, alpha=0.05):</code>
+
+<ul>
+<li>Trains the neural network</li>
+<li><code>X</code> is a <code>numpy.ndarray</code> with shape (<code>nx</code>, <code>m</code>) that contains the input data
+
+<ul>
+<li><code>nx</code> is the number of input features to the neuron</li>
+<li><code>m</code> is the number of examples</li>
+</ul></li>
+<li><code>Y</code> is a <code>numpy.ndarray</code> with shape (1, <code>m</code>) that contains the correct labels for the input data</li>
+<li><code>iterations</code> is the number of iterations to train over
+
+<ul>
+<li>if <code>iterations</code> is not an integer, raise a <code>TypeError</code> with the exception <code>iterations must be an integer</code></li>
+<li>if <code>iterations</code> is not positive, raise a <code>ValueError</code> with the exception <code>iterations must be a positive integer</code></li>
+</ul></li>
+<li><code>alpha</code> is the learning rate
+
+<ul>
+<li>if <code>alpha</code> is not a float, raise a <code>TypeError</code> with the exception <code>alpha must be a float</code></li>
+<li>if <code>alpha</code> is not positive, raise a <code>ValueError</code> with the exception <code>alpha must be positive</code></li>
+</ul></li>
+<li>All exceptions should be raised in the order listed above</li>
+<li>Updates the private attributes <code>__W1</code>, <code>__b1</code>,  <code>__A1</code>, <code>__W2</code>, <code>__b2</code>, and <code>__A2</code></li>
+<li>You are allowed to use one loop</li>
+<li>Returns the evaluation of the training data after <code>iterations</code> of training have occurred</li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 14-main.py
+#!/usr/bin/env python3
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+NN = __import__('14-neural_network').NeuralNetwork
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_train_3D, Y_train = lib_train['X'], lib_train['Y']
+X_train = X_train_3D.reshape((X_train_3D.shape[0], -1)).T
+lib_dev = np.load('../data/Binary_Dev.npz')
+X_dev_3D, Y_dev = lib_dev['X'], lib_dev['Y']
+X_dev = X_dev_3D.reshape((X_dev_3D.shape[0], -1)).T
+
+np.random.seed(0)
+nn = NN(X_train.shape[0], 3)
+A, cost = nn.train(X_train, Y_train, iterations=100)
+accuracy = np.sum(A == Y_train) / Y_train.shape[1] * 100
+print("Train cost:", cost)
+print("Train accuracy: {}%".format(accuracy))
+A, cost = nn.evaluate(X_dev, Y_dev)
+accuracy = np.sum(A == Y_dev) / Y_dev.shape[1] * 100
+print("Dev cost:", cost)
+print("Dev accuracy: {}%".format(accuracy))
+fig = plt.figure(figsize=(10, 10))
+for i in range(100):
+    fig.add_subplot(10, 10, i + 1)
+    plt.imshow(X_dev_3D[i])
+    plt.title(A[0, i])
+    plt.axis('off')
+plt.tight_layout()
+plt.show()
+alexa@ubuntu-xenial:$ ./14-main.py
+Train cost: 0.4680930945144984
+Train accuracy: 84.69009080142123%
+Dev cost: 0.45985938789496067
+Dev accuracy: 86.52482269503547%
+alexa@ubuntu-xenial:$
+</code></pre>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/10/c744ae1dae04204a56ab.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230325T230517Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=db249025f052ef0fc607f5544ebc7f8188e5a7918e4fe1aad31f6e22cff2bac0" alt="" loading="lazy" style=""></p>
+<p><em>Pretty good… but there are still some incorrect labels. We need more data to see why…</em></p>
+File:<code>14-neural_network.py</code>
+
+<h3 class="panel-title">
+      15. Upgrade Train NeuralNetwork
+    </h3>
+<p>Write a class <code>NeuralNetwork</code> that defines a neural network with one hidden layer performing binary classification (based on <code>14-neural_network.py</code>):</p>
+<ul>
+<li>Update the public method <code>train</code> to <code>def train(self, X, Y, iterations=5000, alpha=0.05, verbose=True, graph=True, step=100):</code>
+
+<ul>
+<li>Trains the neural network</li>
+<li><code>X</code> is a <code>numpy.ndarray</code> with shape (<code>nx</code>, <code>m</code>) that contains the input data
+
+<ul>
+<li><code>nx</code> is the number of input features to the neuron</li>
+<li><code>m</code> is the number of examples</li>
+</ul></li>
+<li><code>Y</code> is a <code>numpy.ndarray</code> with shape (1, <code>m</code>) that contains the correct labels for the input data</li>
+<li><code>iterations</code> is the number of iterations to train over
+
+<ul>
+<li>if <code>iterations</code> is not an integer, raise a <code>TypeError</code> with the exception <code>iterations must be an integer</code></li>
+<li>if <code>iterations</code> is not positive, raise a <code>ValueError</code> with the exception <code>iterations must be a positive integer</code></li>
+</ul></li>
+<li><code>alpha</code> is the learning rate
+
+<ul>
+<li>if <code>alpha</code> is not a float, raise a <code>TypeError</code> with the exception <code>alpha must be a float</code></li>
+<li>if <code>alpha</code> is not positive, raise a <code>ValueError</code> with the exception <code>alpha must be positive</code></li>
+</ul></li>
+<li>Updates the private attributes <code>__W1</code>, <code>__b1</code>, <code>__A1</code>, <code>__W2</code>, <code>__b2</code>, and <code>__A2</code></li>
+<li><code>verbose</code> is a boolean that defines whether or not to print information about the training. If <code>True</code>, print <code>Cost after {iteration} iterations: {cost}</code> every <code>step</code> iterations:
+
+<ul>
+<li> Include data from the 0th and last iteration</li>
+</ul></li>
+<li> <code>graph</code> is a boolean that defines whether or not to graph information about the training once the training has completed. If <code>True</code>:
+
+<ul>
+<li> Plot the training data every <code>step</code> iterations as a blue line</li>
+<li> Label the x-axis as <code>iteration</code></li>
+<li> Label the y-axis as <code>cost</code></li>
+<li> Title the plot <code>Training Cost</code></li>
+<li> Include data from the 0th and last iteration</li>
+</ul></li>
+<li> Only if either <code>verbose</code> or <code>graph</code> are <code>True</code>:
+
+<ul>
+<li>if <code>step</code> is not an integer, raise a <code>TypeError</code> with the exception <code>step must be an integer</code></li>
+<li>if <code>step</code> is not positive and less than or equal to <code>iterations</code>, raise a <code>ValueError</code> with the exception <code>step must be positive and &lt;= iterations</code></li>
+</ul></li>
+<li>All exceptions should be raised in the order listed above</li>
+<li> The 0th iteration should represent the state of the neuron before any training has occurred</li>
+<li> You are allowed to use one loop</li>
+<li>Returns the evaluation of the training data after <code>iterations</code> of training have occurred</li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 15-main.py
+#!/usr/bin/env python3
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+NN = __import__('15-neural_network').NeuralNetwork
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_train_3D, Y_train = lib_train['X'], lib_train['Y']
+X_train = X_train_3D.reshape((X_train_3D.shape[0], -1)).T
+lib_dev = np.load('../data/Binary_Dev.npz')
+X_dev_3D, Y_dev = lib_dev['X'], lib_dev['Y']
+X_dev = X_dev_3D.reshape((X_dev_3D.shape[0], -1)).T
+
+np.random.seed(0)
+nn = NN(X_train.shape[0], 3)
+A, cost = nn.train(X_train, Y_train)
+accuracy = np.sum(A == Y_train) / Y_train.shape[1] * 100
+print("Train cost:", cost)
+print("Train accuracy: {}%".format(accuracy))
+A, cost = nn.evaluate(X_dev, Y_dev)
+accuracy = np.sum(A == Y_dev) / Y_dev.shape[1] * 100
+print("Dev cost:", cost)
+print("Dev accuracy: {}%".format(accuracy))
+fig = plt.figure(figsize=(10, 10))
+for i in range(100):
+    fig.add_subplot(10, 10, i + 1)
+    plt.imshow(X_dev_3D[i])
+    plt.title(A[0, i])
+    plt.axis('off')
+plt.tight_layout()
+plt.show()
+alexa@ubuntu-xenial:$ ./15-main.py
+Cost after 0 iterations: 0.7917984405648547
+Cost after 100 iterations: 0.4680930945144984
+
+...
+
+Cost after 5000 iterations: 0.024369225667283875
+</code></pre>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/10/eab7b0b266e6b2b671f9.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230325T230517Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=b3dc0d4475d6727d8d4d98b1147d1a7d125c6222014c10b14d62547220a07100" alt="" loading="lazy" style=""></p>
+<pre><code>Train cost: 0.024369225667283875
+Train accuracy: 99.3999210422424%
+Dev cost: 0.020330639788072768
+Dev accuracy: 99.57446808510639%
+</code></pre>
+<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/10/af979f502eec55142860.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230325%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230325T230517Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=a9e058979fd39acd67dadb7f2689e3f32e4fe9e424819c9fa58cad9434386a19" alt="" loading="lazy" style=""></p>
+File:<code>15-neural_network.py</code>
+
+<h3 class="panel-title">
+      16. DeepNeuralNetwork
+    </h3>
+<p>Write a class <code>DeepNeuralNetwork</code> that defines a deep neural network performing binary classification:</p>
+<ul>
+<li>class constructor: <code>def __init__(self, nx, layers):</code>
+
+<ul>
+<li><code>nx</code> is the number of input features
+
+<ul>
+<li>If <code>nx</code> is not an integer, raise a <code>TypeError</code> with the exception: <code>nx must be an integer</code></li>
+<li>If <code>nx</code> is less than 1, raise a <code>ValueError</code> with the exception: <code>nx must be a positive integer</code></li>
+</ul></li>
+<li><code>layers</code> is a list representing the number of nodes in each layer of the network
+
+<ul>
+<li>If <code>layers</code> is not a list or an empty list, raise a <code>TypeError</code> with the exception: <code>layers must be a list of positive integers</code></li>
+<li>The first value in <code>layers</code> represents the number of nodes in the first layer, …</li>
+<li>If the elements in <code>layers</code> are not all positive integers, raise a <code>TypeError</code> with the exception <code>layers must be a list of positive integers</code></li>
+</ul></li>
+<li>All exceptions should be raised in the order listed above</li>
+<li>Sets the public instance attributes:
+
+<ul>
+<li><code>L</code>: The number of layers in the neural network.</li>
+<li><code>cache</code>: A dictionary to hold all intermediary values of the network. Upon instantiation, it should be set to an empty dictionary.</li>
+<li><code>weights</code>: A dictionary to hold all weights and biased of the network. Upon instantiation:
+
+<ul>
+<li>The weights of the network should be initialized using the <code>He et al.</code> method and saved in the <code>weights</code> dictionary using the key <code>W{l}</code> where <code>{l}</code> is the hidden layer the weight belongs to</li>
+<li>The biases of the network should be initialized to 0’s and saved in the <code>weights</code> dictionary using the key <code>b{l}</code> where <code>{l}</code> is the hidden layer the bias belongs to</li>
+</ul></li>
+</ul></li>
+<li>You are allowed to use one loop</li>
+</ul></li>
+</ul>
+<pre><code>alexa@ubuntu-xenial:$ cat 16-main.py
+#!/usr/bin/env python3
+
+import numpy as np
+
+Deep = __import__('16-deep_neural_network').DeepNeuralNetwork
+
+lib_train = np.load('../data/Binary_Train.npz')
+X_3D, Y = lib_train['X'], lib_train['Y']
+X = X_3D.reshape((X_3D.shape[0], -1)).T
+
+np.random.seed(0)
+deep = Deep(X.shape[0], [5, 3, 1])
+print(deep.cache)
+print(deep.weights)
+print(deep.L)
+deep.L = 10
+print(deep.L)
+alexa@ubuntu-xenial:$ ./16-main.py
+{}
+{'b3': array([[0.]]), 'W2': array([[ 0.4609219 ,  0.56004008, -1.2250799 , -0.09454199,  0.57799141],
+       [-0.16310703,  0.06882082, -0.94578088, -0.30359994,  1.15661914],
+       [-0.49841799, -0.9111359 ,  0.09453424,  0.49877298,  0.75503205]]), 'W3': array([[-0.42271877,  0.18165055,  0.4444639 ]]), 'b2': array([[0.],
+       [0.],
+       [0.]]), 'W1': array([[ 0.0890981 ,  0.02021099,  0.04943373, ...,  0.02632982,
+         0.03090699, -0.06775582],
+       [ 0.02408701,  0.00749784,  0.02672082, ...,  0.00484894,
+        -0.00227857,  0.00399625],
+       [ 0.04295829, -0.04238217, -0.05110231, ..., -0.00364861,
+         0.01571416, -0.05446546],
+       [ 0.05361891, -0.05984585, -0.09117898, ..., -0.03094292,
+        -0.01925805, -0.06308145],
+       [-0.01667953, -0.04216413,  0.06239623, ..., -0.02024521,
+        -0.05159656, -0.02373981]]), 'b1': array([[0.],
+       [0.],
+       [0.],
+       [0.],
+       [0.]])}
+3
+10
+alexa@ubuntu-xenial:$
+</code></pre>
+File:<code>16-deep_neural_network.py</code>
 
