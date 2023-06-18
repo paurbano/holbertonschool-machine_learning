@@ -169,18 +169,19 @@ Tensor("x:0", shape=(?, 784), dtype=float32)
 Tensor("y:0", shape=(?, 10), dtype=float32)
 ubuntu@alexa-ml:~/0x02-tensorflow$ 
 </code></pre>
+
 <div class="list-group">
     <!-- Task URLs -->
 
-    <!-- Github information -->
-      <div class="list-group-item">
-        <p><strong>Repo:</strong></p>
-        <ul>
-          <li>GitHub repository: <code>holbertonschool-machine_learning</code></li>
-            <li>Directory: <code>supervised_learning/0x02-tensorflow</code></li>
-            <li>File: <code>0-create_placeholders.py</code></li>
-        </ul>
-      </div>
+<!-- Github information -->
+<div class="list-group-item">
+<p><strong>Repo:</strong></p>
+<ul>
+    <li>GitHub repository: <code>holbertonschool-machine_learning</code></li>
+    <li>Directory: <code>supervised_learning/0x02-tensorflow</code></li>
+    <li>File: <code>0-create_placeholders.py</code></li>
+</ul>
+</div>
 
-    <!-- Self-paced manual review -->
-  </div>
+<!-- Self-paced manual review -->
+</div>
