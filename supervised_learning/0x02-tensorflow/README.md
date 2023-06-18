@@ -185,3 +185,32 @@ ubuntu@alexa-ml:/0x02-tensorflow$
 
 <!-- Self-paced manual review -->
 </div>
+
+<h3 class="panel-title">
+      1. Layers
+    </h3>
+<p>Write the function <code>def create_layer(prev, n, activation):</code></p>
+<ul>
+<li><code>prev</code> is the tensor output of the previous layer</li>
+<li><code>n</code> is the number of nodes in the layer to create</li>
+<li><code>activation</code> is the activation function that the layer should use</li>
+<li>use <code>tf.keras.initializers.VarianceScaling(mode='fan_avg')</code> to implement<code>He et. al</code> initialization for the layer weights</li>
+<li>each layer should be given the name <code>layer</code></li>
+<li>Returns: the tensor output of the layer</li>
+</ul>
+<pre><code>ubuntu@alexa-ml:~/0x02-tensorflow$ cat 1-main.py 
+#!/usr/bin/env python3
+
+import tensorflow.compat.v1 as tf
+tf.disable_eager_execution()
+
+create_placeholders = __import__('0-create_placeholders').create_placeholders
+create_layer = __import__('1-create_layer').create_layer
+
+x, y = create_placeholders(784, 10)
+l = create_layer(x, 256, tf.nn.tanh)
+print(l)
+ubuntu@alexa-ml:/~/0x02-tensorflow$ ./1-main.py 
+Tensor("layer/Tanh:0", shape=(?, 256), dtype=float32)
+ubuntu@alexa-ml:/~/0x02-tensorflow$ 
+</code></pre>
