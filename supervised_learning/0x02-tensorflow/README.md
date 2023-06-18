@@ -137,3 +137,50 @@
 <h3>Optimize Tensorflow (Optional)</h3>
 <p>to make use of your GPU, follow the steps in the <a href=https://www.tensorflow.org/install/pip?hl=es-419" title="tensorflow official website" target="_blank">tensorflow official website</a>.  <br>
 This will make training MUCH faster!</p>
+
+<h2 class="gap">Tasks</h2>
+<h3 class="panel-title">
+      0. Placeholders
+    </h3>
+<p>Write the function <code>def create_placeholders(nx, classes):</code> that returns two placeholders, <code>x</code> and <code>y</code>, for the neural network:</p>
+<ul>
+<li><code>nx</code>: the number of feature columns in our data</li>
+<li><code>classes</code>: the number of classes in our classifier</li>
+<li>Returns: placeholders named <code>x</code> and <code>y</code>, respectively
+
+<ul>
+<li><code>x</code> is the placeholder for the input data to the neural network</li>
+<li><code>y</code> is the placeholder for the one-hot labels for the input data </li>
+</ul></li>
+</ul>
+<pre><code>ubuntu@alexa-ml:~/0x02-tensorflow$ cat 0-main.py 
+#!/usr/bin/env python3
+
+import tensorflow.compat.v1 as tf
+tf.disable_eager_execution()
+
+create_placeholders = __import__('0-create_placeholders').create_placeholders
+
+x, y = create_placeholders(784, 10)
+print(x)
+print(y)
+ubuntu@alexa-ml:~/0x02-tensorflow$ ./0-main.py 
+Tensor("x:0", shape=(?, 784), dtype=float32)
+Tensor("y:0", shape=(?, 10), dtype=float32)
+ubuntu@alexa-ml:~/0x02-tensorflow$ 
+</code></pre>
+<div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-machine_learning</code></li>
+            <li>Directory: <code>supervised_learning/0x02-tensorflow</code></li>
+            <li>File: <code>0-create_placeholders.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
