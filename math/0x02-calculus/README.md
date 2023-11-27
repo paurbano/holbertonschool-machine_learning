@@ -208,18 +208,18 @@ alexa@ubuntu:0x02-calculus$
 ## 11. Good grooming is integral and impeccable style is a must
 <img src="https://latex.codecogs.com/svg.image?\int&space;x^{3}dx" alt="" style="">
 
-1. 3x^2 + C
-2. x^4/4 + C
-3. x^4 + C
-4. x^4/3 + C
+1. $3x^2 + C$
+2. $x^4/4 + C$
+3. $x^4 + C$
+4. $x^4/3$ + C
 
 ## 12. We are all an integral part of the web of life
 <img src="https://latex.codecogs.com/svg.image?\int&space;e^{2y}&space;dy" alt="" style="">
 
-1. e^2y + C
-2. e^y + C
-3. e^2y/2 + C
-4. e^y/2 + C
+1. $e^{2y}$ + C
+2. $e^y$ + C
+3. $e^{2y}/2$ + C
+4. $e^y/2$ + C
 
 ## 13. Create a definite plan for carrying out your desire and begin at once
 <img src="https://latex.codecogs.com/svg.image?\int_{0}^{3}&space;u^{2}&space;du" alt="" style="">
