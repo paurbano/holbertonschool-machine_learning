@@ -40,10 +40,12 @@
 ## General
 * **Summation and Product notation**
 
-  Summation = \sum
-  Product = 
+  Summation = $\sum$
+
+  Product = $\Pi$
 
 * **What is a series?**
+
   A series is the sum of all terms in a sequence e.i : 5+10+15+20
 
 * **Common series**
@@ -58,7 +60,7 @@
 
   the product rule is a formula used to find the derivatives of products of two or more functions
 
-  $$(f*g)' = *f'*g + f*g'*$$
+  $(f*g)' = *f'*g + f*g'*$
 
 * **What is the chain rule?**
 
@@ -72,6 +74,16 @@
 * **What is a partial derivative?**
 
   the partial derivative takes the derivative of certain indicated variables of a function and doesn't differentiate the other variable(s).
+
+  In functions with 2 or more variables, the partial derivative is the derivative of one variable with respect to the others.
+
+  If we change $x$
+, but hold all other variables constant, how does $f(x,z)$
+ change? That’s one partial derivative. The next variable is $z$
+. If we change $z$
+ but hold $x$
+ constant, how does $f(x,z)$
+ change?
 
 * **What is an indefinite integral?**
 * **What is a definite integral?**
