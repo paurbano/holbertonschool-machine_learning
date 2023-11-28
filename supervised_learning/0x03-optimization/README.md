@@ -434,7 +434,7 @@ ubuntu@alexa-ml:~/0x03-optimization$ ./4-main.py
 [72.0, 75.15789473684211, 73.62361623616238, 71.98836871183484, 70.52604332006544, 70.20035470453027, 71.88706986789997, 73.13597603396988, 71.80782582850702, 70.60905915023126, 69.93737009120935, 71.0609712312634, 70.11422355031073, 69.32143707981284, 70.79208718739721, 70.81760741911772, 70.59946700377961, 69.9406328280786, 70.17873340222755, 69.47534437750306, 68.41139351151023, 67.58929643210207, 66.97601174673004, 66.86995043877324, 67.42263231561797, 67.91198666959514, 67.8151574064495, 67.72913996327617, 67.65262186609462, 67.68889744321645, 68.44900744806469]
 </code></pre>
 
-<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2021/10/30536e38c404ff85d84e01b0bbcd1bcc44d3372a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231127%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20231127T215040Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=d9dc48bcdd0f7a99261a487f6f88c56458ef222a9676bc01f0cf49cfb33cb586" alt="" loading="lazy" style=""></p>
+<p><img src="https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/task4Optimizacion.png" alt="" loading="lazy" style=""></p>
 
 <li>File: <code>4-moving_average.py</code></li>
 
@@ -450,7 +450,9 @@ ubuntu@alexa-ml:~/0x03-optimization$ ./4-main.py
 <li><code>v</code> is the previous first moment of <code>var</code></li>
 <li>Returns: the updated variable and the new moment, respectively</li>
 </ul>
-<pre><code>ubuntu@alexa-ml:~/0x03-optimization$ cat 5-main.py 
+
+<pre>
+<code>ubuntu@alexa-ml:~/0x03-optimization$ cat 5-main.py 
 #!/usr/bin/env python3
 
 import matplotlib.pyplot as plt
@@ -499,7 +501,7 @@ if __name__ == '__main__':
     cost = calculate_cost(Y, A)
     print('Cost after {} iterations: {}'.format(1000, cost))
 
-    Y_pred = np.where(A &gt;= 0.5, 1, 0)
+    Y_pred = np.where(A >= 0.5, 1, 0)
     fig = plt.figure(figsize=(10, 10))
     for i in range(100):
         fig.add_subplot(10, 10, i + 1)
@@ -522,7 +524,7 @@ Cost after 900 iterations: 0.07562924162824029
 Cost after 1000 iterations: 0.0695782354732263
 </code></pre>
 
-<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/11/07c0e3e29a0e76935300.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231127%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20231127T215040Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=fdf8436b6d8e22662e4de5c7a18cecb7454bd9506a49f89ff7651a3e73116f9c" alt="" loading="lazy" style=""></p>
+<p><img src="https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/task5Optimizacion.png" alt="" loading="lazy" style=""></p>
 <li>File: <code>5-momentum.py</code></li>
 
 <h3 class="panel-title">
@@ -535,6 +537,7 @@ Cost after 1000 iterations: 0.0695782354732263
 <li><code>beta1</code> is the momentum weight</li>
 <li>Returns: the momentum optimization operation</li>
 </ul>
+
 <pre><code>ubuntu@alexa-ml:~/0x03-optimization$ cat 6-main.py 
 #!/usr/bin/env python3
 
@@ -599,7 +602,7 @@ Cost after 800 iterations: 0.18082040548324585
 Cost after 900 iterations: 0.16998952627182007
 Cost after 1000 iterations: 0.1602744460105896
 </code></pre>
-<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/11/262ddacb92253c316643.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231127%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20231127T215040Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=7099f7b5da28ad9fcac6ece327973e7d574c5371e185160c217b247a9a88f633" alt="" loading="lazy" style=""></p>
+<p><img src="https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/task6Optimizacion.png" alt="" loading="lazy" style=""></p>
 <li>File: <code>6-momentum.py</code></li>
 
 <h3 class="panel-title">
@@ -695,7 +698,7 @@ Cost after 800 iterations: 0.001148167933229118
 Cost after 900 iterations: 0.0005599361043400206
 Cost after 1000 iterations: 0.0002655839831275339
 </code></pre>
-<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/11/503e69f106d7df8c995f.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231127%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20231127T215040Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=597400228822f8e1a65ba566d6e26ba38c7f1bd1127458e4f64fc2a212c56829" alt="" loading="lazy" style=""></p>
+<p><img src="https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/task7Optimizacion.png" alt="" loading="lazy" style=""></p>
 <li>File: <code>7-RMSProp.py</code></li>
 <h3 class="panel-title">
       8. RMSProp Upgraded
@@ -772,7 +775,7 @@ Cost after 800 iterations: 0.008653616532683372
 Cost after 900 iterations: 0.005407326854765415
 Cost after 1000 iterations: 0.003452717326581478
 </code></pre>
-<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/11/b9e9c5d4fd0a583dacac.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231127%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20231127T215040Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=0e309600489423635816426cc7306556e33966e30c7acbbfcaf7cb934b44f224" alt="" loading="lazy" style=""></p>
+<p><img src="https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/task8Optimizacion.png" alt="" loading="lazy" style=""></p>
 <li>File: <code>8-RMSProp.py</code></li>
 <h3 class="panel-title">
       9. Adam
@@ -863,7 +866,7 @@ Cost after 800 iterations: 0.01576513402620876
 Cost after 900 iterations: 0.011813533123333355
 Cost after 1000 iterations: 0.008996494409788116
 </code></pre>
-<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/11/87976dd1bad0f56c89fe.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231127%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20231127T215040Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=3e7312d57e21c5b5459c351ed4558e53ae876a56ebe7c47e27caf8a57e5e25d6" alt="" loading="lazy" style=""></p>
+<p><img src="https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/task9Optimizacion.png" alt="" loading="lazy" style=""></p>
 <li>File: <code>9-Adam.py</code></li>
 <h3 class="panel-title">
       10. Adam Upgraded
@@ -941,7 +944,7 @@ Cost after 800 iterations: 0.00038969298475421965
 Cost after 900 iterations: 0.00019614089978858829
 Cost after 1000 iterations: 0.00010206626757280901
 </code></pre>
-<p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/11/7f9ac6aadf18f8276ded.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231127%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20231127T215040Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=39473ac3fea01220328407ea0e101f6919e5d44f5736c048aaf600112903eac7" alt="" loading="lazy" style=""></p>
+<p><img src="https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/task10Optimizacion.png" alt="" loading="lazy" style=""></p>
 <li>File: <code>10-Adam.py</code></li>
 <h3 class="panel-title">
       11. Learning Rate Decay
