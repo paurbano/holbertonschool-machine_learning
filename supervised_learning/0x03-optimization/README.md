@@ -204,7 +204,9 @@ File: `1-normalize.py`
 <li>Returns: the shuffled <code>X</code> and <code>Y</code> matrices</li>
 </ul>
 <p><em>Hint: you should use <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.random.permutation.html" title="numpy.random.permutation" target="_blank">numpy.random.permutation</a></em></p>
-<pre><code>ubuntu@alexa-ml:~/0x03-optimization$ cat 2-main.py 
+
+<pre><code>
+ubuntu@alexa-ml:~/0x03-optimization$ cat 2-main.py 
 #!/usr/bin/env python3
 
 import numpy as np
@@ -247,7 +249,8 @@ ubuntu@alexa-ml:~/0x03-optimization$
     </h3>
 <p>Write the function <code>def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32, epochs=5, load_path="/tmp/model.ckpt", save_path="/tmp/model.ckpt"):</code> that trains a loaded neural network model using mini-batch gradient descent:</p>
 <ul>
-<li><code>X_train</code> is a <code>numpy.ndarray</code> of shape <code>(m, 784)</code> containing the training data
+<li>
+<code>X_train</code> is a <code>numpy.ndarray</code> of shape <code>(m, 784)</code> containing the training data
 
 <ul>
 <li><code>m</code> is the number of data points</li>
@@ -304,9 +307,10 @@ ubuntu@alexa-ml:~/0x03-optimization$
 <li><code>\tStep {step_number}:</code> where <code>{step_number}</code> is the number of times gradient descent has been run in the current epoch</li>
 <li><code>\t\tCost: {step_cost}</code> where <code>{step_cost}</code> is the cost of the model on the current mini-batch</li>
 <li><code>\t\tAccuracy: {step_accuracy}</code> where <code>{step_accuracy}</code> is the accuracy of the model on the current mini-batch</li>
-<li>Advice: the function <a href="/rltoken/wNL1EDfJA_zBwaPTyPAQIA" title="range" target="_blank">range</a> can help you to handle this loop inside your dataset by using <code>batch_size</code> as step value</li>
+<li>Advice: the function <a href="https://docs.python.org/3/library/functions.html#func-range" title="range" target="_blank">range</a> can help you to handle this loop inside your dataset by using <code>batch_size</code> as step value</li>
 </ul></li>
 </ul>
+
 <pre><code>ubuntu@alexa-ml:~/0x03-optimization$ cat 3-main.py
 #!/usr/bin/env python3
 
