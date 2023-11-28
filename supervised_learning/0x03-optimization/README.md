@@ -410,6 +410,7 @@ ubuntu@alexa-ml:~/0x03-optimization$
 <li>Your moving average calculation should use bias correction</li>
 <li>Returns: a list containing the moving averages of <code>data</code></li>
 </ul>
+
 <pre><code>ubuntu@alexa-ml:~/0x03-optimization$ cat 4-main.py 
 #!/usr/bin/env python3
 
@@ -432,7 +433,9 @@ if __name__ == '__main__':
 ubuntu@alexa-ml:~/0x03-optimization$ ./4-main.py 
 [72.0, 75.15789473684211, 73.62361623616238, 71.98836871183484, 70.52604332006544, 70.20035470453027, 71.88706986789997, 73.13597603396988, 71.80782582850702, 70.60905915023126, 69.93737009120935, 71.0609712312634, 70.11422355031073, 69.32143707981284, 70.79208718739721, 70.81760741911772, 70.59946700377961, 69.9406328280786, 70.17873340222755, 69.47534437750306, 68.41139351151023, 67.58929643210207, 66.97601174673004, 66.86995043877324, 67.42263231561797, 67.91198666959514, 67.8151574064495, 67.72913996327617, 67.65262186609462, 67.68889744321645, 68.44900744806469]
 </code></pre>
+
 <p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2021/10/30536e38c404ff85d84e01b0bbcd1bcc44d3372a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231127%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20231127T215040Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=d9dc48bcdd0f7a99261a487f6f88c56458ef222a9676bc01f0cf49cfb33cb586" alt="" loading="lazy" style=""></p>
+
 <li>File: <code>4-moving_average.py</code></li>
 
 <h3 class="panel-title">
@@ -518,6 +521,7 @@ Cost after 800 iterations: 0.08308760082979068
 Cost after 900 iterations: 0.07562924162824029
 Cost after 1000 iterations: 0.0695782354732263
 </code></pre>
+
 <p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/11/07c0e3e29a0e76935300.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231127%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20231127T215040Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=fdf8436b6d8e22662e4de5c7a18cecb7454bd9506a49f89ff7651a3e73116f9c" alt="" loading="lazy" style=""></p>
 <li>File: <code>5-momentum.py</code></li>
 
