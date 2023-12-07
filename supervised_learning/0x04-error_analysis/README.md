@@ -1,12 +1,32 @@
 # 0x04. Error Analysis
 
+<h2>Resources</h2>
+<p><strong>Read or watch</strong>:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Confusion_matrix" title="Confusion matrix" target="_blank">Confusion matrix</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors" title="Type I and type II errors" target="_blank">Type I and type II errors</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity" title="Sensitivity and specificity" target="_blank">Sensitivity and specificity</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Precision_and_recall" title="Precision and recall" target="_blank">Precision and recall</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/F-score" title="F1 score" target="_blank">F1 score</a> </li>
+<li><a href="https://machinelearningmastery.com/confusion-matrix-machine-learning/" title="What is a Confusion Matrix in Machine Learning?" target="_blank">What is a Confusion Matrix in Machine Learning?</a> </li>
+<li><a href="https://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/" title="Simple guide to confusion matrix terminology" target="_blank">Simple guide to confusion matrix terminology</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff" title="Bias-variance tradeoff" target="_blank">Bias-variance tradeoff</a> </li>
+<li><a href="https://www.quora.com/What-is-bias-and-variance" title="What is bias and variance" target="_blank">What is bias and variance</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Bayes_error_rate" title="Bayes error rate" target="_blank">Bayes error rate</a> </li>
+<li><a href="https://stats.stackexchange.com/questions/302900/what-is-bayes-error-in-machine-learning" title="What is Bayes Error in machine learning?" target="_blank">What is Bayes Error in machine learning?</a> </li>
+<li><a href="https://www.youtube.com/watch?v=SjQyLhQIXSM&list=PLkDaE6sCZn6Hn0vK8co82zjQtt3T2Nkqc&index=3" title="Bias/Variance" target="_blank">Bias/Variance</a> (<em>Note: I suggest watching this video at 1.5x - 2x speed</em>)</li>
+<li><a href="https://www.youtube.com/watch?v=C1N_PDHuJ6Q&list=PLkDaE6sCZn6Hn0vK8co82zjQtt3T2Nkqc&index=4" title="Basic Recipe for Machine Learning" target="_blank">Basic Recipe for Machine Learning</a> (<em>Note: I suggest watching this video at 1.5x - 2x speed</em>)</li>
+<li><a href="https://www.youtube.com/watch?v=J3HHOwcrkK8&list=PLkDaE6sCZn6E7jZ9sN_xHwSHOdjUxUW_b&index=9" title="Why Human Level Performance" target="_blank">Why Human Level Performance</a> (<em>Note: I suggest watching this video at 1.5x - 2x speed</em>)</li>
+<li><a href="https://www.youtube.com/watch?v=CZf3oo0fuh0&list=PLkDaE6sCZn6E7jZ9sN_xHwSHOdjUxUW_b&index=10" title="Avoidable Bias" target="_blank">Avoidable Bias</a> (<em>Note: I suggest watching this video at 1.5x - 2x speed</em>)</li>
+<li><a href="https://www.youtube.com/watch?v=NUmbgp1h64E&list=PLkDaE6sCZn6E7jZ9sN_xHwSHOdjUxUW_b&index=11" title="Understanding Human-Level Performance" target="_blank">Understanding Human-Level Performance</a> (<em>Note: I suggest watching this video at 1.5x - 2x speed</em>)</li>
+</ul>
+
 ## General
 * What is the confusion matrix?
 * What is type I error? type II?
 * What is sensitivity? specificity? precision? recall?
 * What is an F1 score?
-* **What is bias? variance?**
- 
+* What is bias? variance?
 * What is irreducible error?
 * What is Bayes error?
 * How can you approximate Bayes error?
@@ -190,8 +210,9 @@ File: `5-error_handling`
 ## 6. Compare and Contrast
 Given the following training and validation confusion matrices and the fact that human level performance has an error of ~14%, determine what the most important issue is and write the lettered answer in the file `6-compare_and_contrast`
 
-
-
+<p><img src="https://github.com/paurbano/
+holbertonschool-machine_learning/blob/master/images/task6aErrorAnalisis.png" alt="" loading="lazy" style=""></p>
+<p><img src="https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/task6bErrorAnalisis.png" alt="" loading="lazy" style=""></p>
 
 
 Most important issue:
