@@ -210,8 +210,7 @@ File: `5-error_handling`
 ## 6. Compare and Contrast
 Given the following training and validation confusion matrices and the fact that human level performance has an error of ~14%, determine what the most important issue is and write the lettered answer in the file `6-compare_and_contrast`
 
-<p><img src="https://github.com/paurbano/
-holbertonschool-machine_learning/blob/master/images/task6aErrorAnalisis.png" alt="" loading="lazy" style=""></p>
+<p><img src="https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/task6aErrorAnalisis.png" alt="" loading="lazy" style=""></p>
 <p><img src="https://github.com/paurbano/holbertonschool-machine_learning/blob/master/images/task6bErrorAnalisis.png" alt="" loading="lazy" style=""></p>
 
 
